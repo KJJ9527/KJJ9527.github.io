@@ -20,23 +20,32 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="柯建军的博客，刚刚开始">
-<meta property="og:url" content="http://example.com/index.html">
+    <meta name="description" content="DOM事件流事件流描述的是从页面中接收事件的顺序事件发生时会在元素节点之间按照特定的顺序传播，这个传播过程即DOM事件流DOM事件流分为3个阶段:1.捕获阶段2.当前目标阶段3.冒泡阶段 事件捕获事件捕获：网景最早提出，由DOM最顶层节点开始，然后逐级向下传播到具体的元素接受的过程 事件冒泡事件冒泡：IE最早提出，事件开始由最具体的元素接收，然后逐级向上传播到DOM最顶层节点的过程 注意：1.JS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DOM事件流和事件对象">
+<meta property="og:url" content="http://example.com/2022/07/26/DOM%E4%BA%8B%E4%BB%B6%E6%B5%81%E5%92%8C%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/index.html">
 <meta property="og:site_name" content="柯建军的博客，刚刚开始">
+<meta property="og:description" content="DOM事件流事件流描述的是从页面中接收事件的顺序事件发生时会在元素节点之间按照特定的顺序传播，这个传播过程即DOM事件流DOM事件流分为3个阶段:1.捕获阶段2.当前目标阶段3.冒泡阶段 事件捕获事件捕获：网景最早提出，由DOM最顶层节点开始，然后逐级向下传播到具体的元素接受的过程 事件冒泡事件冒泡：IE最早提出，事件开始由最具体的元素接收，然后逐级向上传播到DOM最顶层节点的过程 注意：1.JS">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2022/07/26/DOM%E4%BA%8B%E4%BB%B6%E6%B5%81%E5%92%8C%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/DOM.png">
+<meta property="og:image" content="http://example.com/2022/07/26/DOM%E4%BA%8B%E4%BB%B6%E6%B5%81%E5%92%8C%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/three.png">
+<meta property="og:image" content="http://example.com/2022/07/26/DOM%E4%BA%8B%E4%BB%B6%E6%B5%81%E5%92%8C%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/one.png">
+<meta property="og:image" content="http://example.com/2022/07/26/DOM%E4%BA%8B%E4%BB%B6%E6%B5%81%E5%92%8C%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/two.png">
+<meta property="article:published_time" content="2022-07-26T12:03:21.677Z">
+<meta property="article:modified_time" content="2022-07-26T14:43:22.722Z">
 <meta property="article:author" content="柯建军">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2022/07/26/DOM%E4%BA%8B%E4%BB%B6%E6%B5%81%E5%92%8C%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/DOM.png">
 
 
-<link rel="canonical" href="http://example.com/">
+<link rel="canonical" href="http://example.com/2022/07/26/DOM%E4%BA%8B%E4%BB%B6%E6%B5%81%E5%92%8C%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/07/26/DOM%E4%BA%8B%E4%BB%B6%E6%B5%81%E5%92%8C%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/","path":"2022/07/26/DOM事件流和事件对象/","title":"DOM事件流和事件对象"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>柯建军的博客，刚刚开始</title>
+<title>DOM事件流和事件对象 | 柯建军的博客，刚刚开始</title>
   
 
 
@@ -66,7 +75,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">柯建军的博客，刚刚开始</h1>
+      <p class="site-title">柯建军的博客，刚刚开始</p>
       <i class="logo-line"></i>
     </a>
   </div>
@@ -98,7 +107,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -111,6 +120,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#DOM%E4%BA%8B%E4%BB%B6%E6%B5%81"><span class="nav-number">1.</span> <span class="nav-text">DOM事件流</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E6%8D%95%E8%8E%B7"><span class="nav-number">1.1.</span> <span class="nav-text">事件捕获</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E5%86%92%E6%B3%A1"><span class="nav-number">1.2.</span> <span class="nav-text">事件冒泡</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1"><span class="nav-number">2.</span> <span class="nav-text">事件对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B8%B8%E8%A7%81%E5%B1%9E%E6%80%A7%E5%92%8C%E6%96%B9%E6%B3%95"><span class="nav-number">2.1.</span> <span class="nav-text">事件对象的常见属性和方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%98%BB%E6%AD%A2%E4%BA%8B%E4%BB%B6%E6%8D%95%E8%8E%B7%E5%92%8C%E4%BA%8B%E4%BB%B6%E5%86%92%E6%B3%A1"><span class="nav-number">2.2.</span> <span class="nav-text">阻止事件捕获和事件冒泡</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -159,16 +169,17 @@
 </noscript>
 
 
-    <div class="main-inner index posts-expand">
+    <div class="main-inner post posts-expand">
 
-    
+
+  
 
 
 <div class="post-block">
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/26/DOM%E4%BA%8B%E4%BB%B6%E6%B5%81%E5%92%8C%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -182,13 +193,13 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 柯建军的博客，刚刚开始">
+      <meta itemprop="name" content="DOM事件流和事件对象 | 柯建军的博客，刚刚开始">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/26/DOM%E4%BA%8B%E4%BB%B6%E6%B5%81%E5%92%8C%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/" class="post-title-link" itemprop="url">DOM事件流和事件对象</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          DOM事件流和事件对象
+        </h1>
 
         <div class="post-meta-container">
           <div class="post-meta">
@@ -236,7 +247,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="DOM事件流"><a href="#DOM事件流" class="headerlink" title="DOM事件流"></a>DOM事件流</h2><p>事件流描述的是从页面中接收事件的顺序<br>事件发生时会在元素节点之间按照特定的顺序传播，这个传播过程即DOM事件流<br>DOM事件流分为3个阶段:<br>1.捕获阶段<br>2.当前目标阶段<br>3.冒泡阶段</p>
+        <h2 id="DOM事件流"><a href="#DOM事件流" class="headerlink" title="DOM事件流"></a>DOM事件流</h2><p>事件流描述的是从页面中接收事件的顺序<br>事件发生时会在元素节点之间按照特定的顺序传播，这个传播过程即DOM事件流<br>DOM事件流分为3个阶段:<br>1.捕获阶段<br>2.当前目标阶段<br>3.冒泡阶段</p>
 <h3 id="事件捕获"><a href="#事件捕获" class="headerlink" title="事件捕获"></a>事件捕获</h3><p>事件捕获：网景最早提出，由DOM最顶层节点开始，然后逐级向下传播到具体的元素接受的过程</p>
 <h3 id="事件冒泡"><a href="#事件冒泡" class="headerlink" title="事件冒泡"></a>事件冒泡</h3><p>事件冒泡：IE最早提出，事件开始由最具体的元素接收，然后逐级向上传播到DOM最顶层节点的过程<br><img src="/2022/07/26/DOM%E4%BA%8B%E4%BB%B6%E6%B5%81%E5%92%8C%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/DOM.png"></p>
 <p>注意：<br>1.JS代码中只能执行捕获或者冒泡其中的一个阶段<br>2.onclick和attachEvent只能得到冒泡阶段<br>3.addEventListener(type,listener,[useCapture])第三个参数如果是true，表示在事件捕获阶段调用事件处理程序;如果是false(不写默认是false)，表示在事件冒泡阶段调用事件处理程序<br>4.实际开发中我们很少使用事件捕获，我们更关注事件冒泡<br>5.有些事件是没有冒泡的，比如 onblur、onfocus、onmouseenter、onmouseleave</p>
@@ -254,7 +265,6 @@
 
 <p><img src="/2022/07/26/DOM%E4%BA%8B%E4%BB%B6%E6%B5%81%E5%92%8C%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/two.png"></p>
 
-      
     </div>
 
     
@@ -262,513 +272,22 @@
     
 
     <footer class="post-footer">
-        <div class="post-eof"></div>
-      
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/07/24/%E8%8A%82%E7%82%B9%E6%93%8D%E4%BD%9C/" rel="prev" title="节点操作">
+                  <i class="fa fa-chevron-left"></i> 节点操作
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
     </footer>
   </article>
 </div>
 
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/24/%E8%8A%82%E7%82%B9%E6%93%8D%E4%BD%9C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="柯建军">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="柯建军的博客，刚刚开始">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 柯建军的博客，刚刚开始">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/24/%E8%8A%82%E7%82%B9%E6%93%8D%E4%BD%9C/" class="post-title-link" itemprop="url">节点操作</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2022-07-24 19:23:29 / 修改时间：20:36:47" itemprop="dateCreated datePublished" datetime="2022-07-24T19:23:29+08:00">2022-07-24</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>832</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="父子节点"><a href="#父子节点" class="headerlink" title="父子节点"></a>父子节点</h2><h3 id="获取父节点"><a href="#获取父节点" class="headerlink" title="获取父节点"></a>获取父节点</h3><p>node.parentNode</p>
-<h3 id="获取子节点"><a href="#获取子节点" class="headerlink" title="获取子节点"></a>获取子节点</h3><p>childNodes  得到所有的子节点 包含 元素节点 文本节点等等<br>1.node.childNodes													(不常用)<br>2.node.children</p>
-<h3 id="获取第一个子节点和最后一个子节点"><a href="#获取第一个子节点和最后一个子节点" class="headerlink" title="获取第一个子节点和最后一个子节点"></a>获取第一个子节点和最后一个子节点</h3><p>获取第一个子节点:<br>firstChid  得到第一个子节点 包含 元素节点 文本节点等等<br>1.node.firstChild													 (不常用)<br>2.node.firstElementChild			  				 (IE9以上支持)<br>3.node.children[0]</p>
-<p>获取最后一个子节点:<br>lastChid  得到最后一个子节点 包含 元素节点 文本节点等等<br>1.node.lastChild						 								(不常用)<br>2.node.lastElementChild				  				 (IE9以上支持)<br>3.node.children[node.children.length-1]</p>
-<h2 id="兄弟节点"><a href="#兄弟节点" class="headerlink" title="兄弟节点"></a>兄弟节点</h2><h3 id="获取下一个兄弟节点"><a href="#获取下一个兄弟节点" class="headerlink" title="获取下一个兄弟节点"></a>获取下一个兄弟节点</h3><p>nextSibling  得到下一个兄弟节点 包含 元素节点 文本节点等等<br>1.node.nextSibling														  (不常用)<br>2.node.nextElementSibling					             (IE9以上支持)</p>
-<h3 id="获取上一个兄弟节点"><a href="#获取上一个兄弟节点" class="headerlink" title="获取上一个兄弟节点"></a>获取上一个兄弟节点</h3><p>previousSibling  得到上一个兄弟节点 包含 元素节点 文本节点等等<br>1.node.previousSibling														(不常用)<br>2.node.previousElementSibling					    			(IE9以上支持)</p>
-<h2 id="创建节点"><a href="#创建节点" class="headerlink" title="创建节点"></a>创建节点</h2><p>document.createElement(‘tagname’)</p>
-<h2 id="添加节点"><a href="#添加节点" class="headerlink" title="添加节点"></a>添加节点</h2><p>appendChild  将一个节点添加指定父元素的子节点列表末尾,类似数组中的push<br>insertBefore  将一个节点添加指定父元素的子节点列表指定位置<br>1.node.appendChild(child)<br>2.node.insertBefore(child,指定元素)</p>
-<h2 id="删除节点"><a href="#删除节点" class="headerlink" title="删除节点"></a>删除节点</h2><p>node.removeChild(child)</p>
-<h2 id="复制节点"><a href="#复制节点" class="headerlink" title="复制节点"></a>复制节点</h2><p>node.cloneNode()<br>注意:如果括号参数为空或者为false，则是浅拷贝，即只克隆复制节点本身，不克隆里面的子节点</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/19/%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="柯建军">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="柯建军的博客，刚刚开始">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 柯建军的博客，刚刚开始">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/19/%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">数组去重的两种方法</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2022-07-19 20:53:15 / 修改时间：21:03:07" itemprop="dateCreated datePublished" datetime="2022-07-19T20:53:15+08:00">2022-07-19</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>657</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="indexOf-数组去重"><a href="#indexOf-数组去重" class="headerlink" title="indexOf()数组去重"></a>indexOf()数组去重</h3><p>核心算法：遍历旧数组，然后拿着旧数组元素去查询新数组，如果该元素在新数组没有出现过，就添加，否则不添加</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">unique</span>(<span class="params">arr</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span>(arr <span class="keyword">instanceof</span> <span class="title class_">Array</span>) &#123;</span><br><span class="line">        <span class="keyword">let</span> newArr = [];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> i =<span class="number">0</span>;i&lt;arr.<span class="property">length</span>;i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(newArr.<span class="title function_">indexOf</span>(arr[i]) === -<span class="number">1</span>) &#123;</span><br><span class="line">                newArr.<span class="title function_">push</span>(arr[i])</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(newArr);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;error&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="title function_">unique</span>([<span class="number">1</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">11</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">55</span>,<span class="number">88</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">5</span>,<span class="number">11</span>]);</span><br></pre></td></tr></table></figure>
-
-<h3 id="Set-数组去重"><a href="#Set-数组去重" class="headerlink" title="Set()数组去重"></a>Set()数组去重</h3><p>简述：Set对象是值的集合，你可以按照插入的顺序迭代它的元素。Set中的元素只会出现一次，即Set中的元素是唯一的</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">unique</span>(<span class="params">arr</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span>(arr <span class="keyword">instanceof</span> <span class="title class_">Array</span>) &#123;</span><br><span class="line">        <span class="keyword">let</span> newArr = [...<span class="keyword">new</span> <span class="title class_">Set</span>(arr)];</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(newArr);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;error&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="title function_">unique</span>([<span class="number">1</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">11</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">55</span>,<span class="number">88</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">5</span>,<span class="number">11</span>]);</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/15/null%E5%92%8Cundefined/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="柯建军">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="柯建军的博客，刚刚开始">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 柯建军的博客，刚刚开始">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/15/null%E5%92%8Cundefined/" class="post-title-link" itemprop="url">null和undefined</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2022-07-15 12:58:07 / 修改时间：14:39:19" itemprop="dateCreated datePublished" datetime="2022-07-15T12:58:07+08:00">2022-07-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>476</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>nul和undefined都表示”没有”,语法效果几乎没有区别</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="literal">undefined</span>;</span><br><span class="line"><span class="comment">// 或者</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
-<p>上面两种写法几乎等价</p>
-<p>在if语句中，他们都会自动转为false,判断相等运算符(&#x3D;&#x3D;)报告两者相等</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!<span class="literal">undefined</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;undefined is false&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// undefined is false</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (!<span class="literal">null</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;null is false&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// null is false</span></span><br><span class="line"></span><br><span class="line"><span class="literal">undefined</span> == <span class="literal">null</span></span><br><span class="line"><span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<p>null和undefined数据类型不一样</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">typeof</span>(<span class="literal">null</span>);  <span class="comment">//object</span></span><br><span class="line"><span class="title function_">typeof</span>(<span class="literal">undefined</span>); <span class="comment">//undefined</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<p>null和undefined转为数字时不一样</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Number</span>(<span class="literal">null</span>) <span class="comment">// 0</span></span><br><span class="line"><span class="number">5</span> + <span class="literal">null</span> <span class="comment">// 5</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Number</span>(<span class="literal">undefined</span>) <span class="comment">// NaN</span></span><br><span class="line"><span class="number">5</span> + <span class="literal">undefined</span> <span class="comment">// NaN</span></span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/14/css%E7%B2%BE%E7%81%B5%E5%9B%BE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="柯建军">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="柯建军的博客，刚刚开始">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 柯建军的博客，刚刚开始">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/14/css%E7%B2%BE%E7%81%B5%E5%9B%BE/" class="post-title-link" itemprop="url">精灵图</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2022-07-14 13:28:22 / 修改时间：13:39:18" itemprop="dateCreated datePublished" datetime="2022-07-14T13:28:22+08:00">2022-07-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>162</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="精灵图"><a href="#精灵图" class="headerlink" title="精灵图"></a>精灵图</h2><p>所谓精灵图就是将项目中的小图片合成在一张大图片上，这张大图片被称为精灵图。<br>精灵图可以减少服务器发送次数，减轻服务器的压力，提高页面加载速度。</p>
-<h2 id="使用精灵图"><a href="#使用精灵图" class="headerlink" title="使用精灵图"></a>使用精灵图</h2><p>1.创建一个盒子，将小图片的宽高设置给盒子<br>2.将精灵图设置为盒子的背景图片<br>3.通过测量小图片的坐标，分别取负值给盒子的background-position: x y;</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/29/%E5%85%B3%E4%BA%8E%E9%87%8D%E7%BD%AE%E7%B3%BB%E7%BB%9F%E5%BF%98%E8%AE%B0%E5%A4%87%E4%BB%BD%E6%96%87%E6%A1%A3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="柯建军">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="柯建军的博客，刚刚开始">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 柯建军的博客，刚刚开始">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/06/29/%E5%85%B3%E4%BA%8E%E9%87%8D%E7%BD%AE%E7%B3%BB%E7%BB%9F%E5%BF%98%E8%AE%B0%E5%A4%87%E4%BB%BD%E6%96%87%E6%A1%A3/" class="post-title-link" itemprop="url">关于重置系统忘记备份文档这件事</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2022-06-29 13:23:05 / 修改时间：13:53:36" itemprop="dateCreated datePublished" datetime="2022-06-29T13:23:05+08:00">2022-06-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>102</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>昨天重置系统，忘记备份文件了，结果清空磁盘后原来的文件没有了。好吧，之前写的博客全部没有了，只能重新开始搭建博客，趁着这段时间，要好好学习下前端的知识了，好久没写前端的代码，有些生疏了，后面再记录笔记吧。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
 
 
 
