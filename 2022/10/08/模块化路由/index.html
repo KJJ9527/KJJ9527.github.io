@@ -20,27 +20,27 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="用fs文件系统模块在使用fs模块操作文件时，如果提供的操作路径是以.&#x2F;或..&#x2F;开头的相对路径时，很容易出现路径动态拼接错误的问题原因:代码在运行的时候，会以执行 node 命令时所处的目录，动态拼接出被操作文件的完整路径解决方案:1.在使用fs模块操作文件时，直接提供完整的路径，不要提供.&#x2F;或..&#x2F;开头的相对路径，从而防止路径动态拼接的问题。缺点：移植性非常">
+    <meta name="description" content="路由的概念广义上来说，路由就是映射关系在Express中，路由指的是客户端的请求与服务器处理函数之间的映射关系Express中的路由分3部分组成，分别是请求的类型，请求的URL地址、处理函数，格式如下: 1app.method(path,handler) 在Express中使用路由最简单的方式，就是把路由挂载到app上，示例如下: 1234567891011const express &#x3D; requ">
 <meta property="og:type" content="article">
-<meta property="og:title" content="路径动态拼接">
-<meta property="og:url" content="http://example.com/2022/10/01/fs%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E6%A8%A1%E5%9D%97-%E8%B7%AF%E5%BE%84%E5%8A%A8%E6%80%81%E6%8B%BC%E6%8E%A5/index.html">
+<meta property="og:title" content="模块化路由">
+<meta property="og:url" content="http://example.com/2022/10/08/%E6%A8%A1%E5%9D%97%E5%8C%96%E8%B7%AF%E7%94%B1/index.html">
 <meta property="og:site_name" content="柯建军的博客，刚刚开始">
-<meta property="og:description" content="用fs文件系统模块在使用fs模块操作文件时，如果提供的操作路径是以.&#x2F;或..&#x2F;开头的相对路径时，很容易出现路径动态拼接错误的问题原因:代码在运行的时候，会以执行 node 命令时所处的目录，动态拼接出被操作文件的完整路径解决方案:1.在使用fs模块操作文件时，直接提供完整的路径，不要提供.&#x2F;或..&#x2F;开头的相对路径，从而防止路径动态拼接的问题。缺点：移植性非常">
+<meta property="og:description" content="路由的概念广义上来说，路由就是映射关系在Express中，路由指的是客户端的请求与服务器处理函数之间的映射关系Express中的路由分3部分组成，分别是请求的类型，请求的URL地址、处理函数，格式如下: 1app.method(path,handler) 在Express中使用路由最简单的方式，就是把路由挂载到app上，示例如下: 1234567891011const express &#x3D; requ">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-10-01T03:26:20.832Z">
-<meta property="article:modified_time" content="2022-10-01T04:06:17.374Z">
+<meta property="article:published_time" content="2022-10-08T08:34:08.877Z">
+<meta property="article:modified_time" content="2022-10-08T08:45:57.687Z">
 <meta property="article:author" content="柯建军">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/2022/10/01/fs%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E6%A8%A1%E5%9D%97-%E8%B7%AF%E5%BE%84%E5%8A%A8%E6%80%81%E6%8B%BC%E6%8E%A5/">
+<link rel="canonical" href="http://example.com/2022/10/08/%E6%A8%A1%E5%9D%97%E5%8C%96%E8%B7%AF%E7%94%B1/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/10/01/fs%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E6%A8%A1%E5%9D%97-%E8%B7%AF%E5%BE%84%E5%8A%A8%E6%80%81%E6%8B%BC%E6%8E%A5/","path":"2022/10/01/fs文件系统模块-路径动态拼接/","title":"路径动态拼接"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/10/08/%E6%A8%A1%E5%9D%97%E5%8C%96%E8%B7%AF%E7%94%B1/","path":"2022/10/08/模块化路由/","title":"模块化路由"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>路径动态拼接 | 柯建军的博客，刚刚开始</title>
+<title>模块化路由 | 柯建军的博客，刚刚开始</title>
   
 
 
@@ -115,7 +115,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8fs%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E6%A8%A1%E5%9D%97"><span class="nav-number">1.</span> <span class="nav-text">用fs文件系统模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8path%E8%B7%AF%E5%BE%84%E6%A8%A1%E5%9D%97"><span class="nav-number">2.</span> <span class="nav-text">用path路径模块</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%AF%E7%94%B1%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">路由的概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%AF%E7%94%B1%E7%9A%84%E6%A8%A1%E5%9D%97%E5%8C%96"><span class="nav-number">2.</span> <span class="nav-text">路由的模块化</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -183,7 +183,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/01/fs%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E6%A8%A1%E5%9D%97-%E8%B7%AF%E5%BE%84%E5%8A%A8%E6%80%81%E6%8B%BC%E6%8E%A5/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/08/%E6%A8%A1%E5%9D%97%E5%8C%96%E8%B7%AF%E7%94%B1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -196,12 +196,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="路径动态拼接 | 柯建军的博客，刚刚开始">
+      <meta itemprop="name" content="模块化路由 | 柯建军的博客，刚刚开始">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          路径动态拼接
+          模块化路由
         </h1>
 
         <div class="post-meta-container">
@@ -213,7 +213,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2022-10-01 11:26:20 / 修改时间：12:06:17" itemprop="dateCreated datePublished" datetime="2022-10-01T11:26:20+08:00">2022-10-01</time>
+      <time title="创建时间：2022-10-08 16:34:08 / 修改时间：16:45:57" itemprop="dateCreated datePublished" datetime="2022-10-08T16:34:08+08:00">2022-10-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -232,7 +232,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>859</span>
+      <span>1.3k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -250,12 +250,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h3 id="用fs文件系统模块"><a href="#用fs文件系统模块" class="headerlink" title="用fs文件系统模块"></a>用fs文件系统模块</h3><p>在使用fs模块操作文件时，如果提供的操作路径是以.&#x2F;或..&#x2F;开头的相对路径时，很容易出现路径动态拼接错误的问题<br>原因:代码在运行的时候，会以执行 node 命令时所处的目录，动态拼接出被操作文件的完整路径<br>解决方案:<br>1.在使用fs模块操作文件时，直接提供完整的路径，不要提供.&#x2F;或..&#x2F;开头的相对路径，从而防止路径动态拼接的问题。缺点：移植性非常差，不利于维护<br>2.使用 __dirname + ‘相对路径’,__dirname表示当前文件所处的目录</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line">fs.<span class="title function_">readFile</span>(__dirname+<span class="string">&#x27;/files/1.txt&#x27;</span>,<span class="string">&#x27;utf-8&#x27;</span>,<span class="keyword">function</span>(<span class="params">err,dataStr</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span>(err) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;读取文件失败!&#x27;</span>+err.<span class="property">message</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;读取文件成功&#x27;</span>+dataStr);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h3 id="用path路径模块"><a href="#用path路径模块" class="headerlink" title="用path路径模块"></a>用path路径模块</h3><p>使用path.join()方法,可以把多个路径片段拼接为完整的路径字符串</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> pathStr = path.<span class="title function_">join</span>(__dirname,<span class="string">&#x27;/files/1.txt&#x27;</span>);</span><br><span class="line">fs.<span class="title function_">readFile</span>(pathStr,<span class="string">&#x27;utf-8&#x27;</span>,<span class="keyword">function</span>(<span class="params">err,dataStr</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span>(err) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;读取文件失败!&#x27;</span>+err.<span class="property">message</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;读取文件成功&#x27;</span>+dataStr);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
+        <h3 id="路由的概念"><a href="#路由的概念" class="headerlink" title="路由的概念"></a>路由的概念</h3><p>广义上来说，路由就是映射关系<br>在Express中，路由指的是客户端的请求与服务器处理函数之间的映射关系<br>Express中的路由分3部分组成，分别是请求的类型，请求的URL地址、处理函数，格式如下:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.method(path,handler)</span><br></pre></td></tr></table></figure>
+<p>在Express中使用路由最简单的方式，就是把路由挂载到app上，示例如下:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">express</span>();</span><br><span class="line">app.<span class="title function_">listen</span>(<span class="number">80</span>,<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;express server running at 127.0.0.1&#x27;</span>);</span><br><span class="line">&#125;);</span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>,<span class="function">(<span class="params">req,res</span>) =&gt;</span> &#123;</span><br><span class="line">    res.<span class="title function_">send</span>(<span class="string">&#x27;Hello world&#x27;</span>);</span><br><span class="line">&#125;);</span><br><span class="line">app.<span class="title function_">post</span>(<span class="string">&#x27;/&#x27;</span>,<span class="function">(<span class="params">req,res</span>) =&gt;</span> &#123;</span><br><span class="line">    res.<span class="title function_">send</span>(<span class="string">&#x27;post request&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="路由的模块化"><a href="#路由的模块化" class="headerlink" title="路由的模块化"></a>路由的模块化</h3><p>为了方便对路由进行模块化的管理，Express不建议将路由直接挂载到app上，而是推荐将路由抽离为单独的模块<br>将路由抽离为单独模块的步骤如下：<br>1.创建路由模块对应的 .js 文件<br>2.调用 express.Router() 函数创建路由对象<br>3.向路由对象上挂载具体的路由<br>4.使用 module.exports 向外共享路由对象<br>5.使用 app.use() 函数注册路由模块</p>
+<p>创建路由模块</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建路由模块</span></span><br><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);</span><br><span class="line"><span class="comment">// 创建路由对象</span></span><br><span class="line"><span class="keyword">const</span> router = express.<span class="title class_">Router</span>();</span><br><span class="line"><span class="comment">// 挂载路由</span></span><br><span class="line">router.<span class="title function_">get</span>(<span class="string">&#x27;/user/list&#x27;</span>,<span class="function">(<span class="params">req,res</span>) =&gt;</span> &#123;</span><br><span class="line">    res.<span class="title function_">send</span>(<span class="string">&#x27;Get user list&#x27;</span>)</span><br><span class="line">&#125;);</span><br><span class="line">router.<span class="title function_">post</span>(<span class="string">&#x27;/user/add&#x27;</span>,<span class="function">(<span class="params">req,res</span>) =&gt;</span> &#123;</span><br><span class="line">    res.<span class="title function_">send</span>(<span class="string">&#x27;Add new user&#x27;</span>)</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 向外到处路由对象</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = router</span><br></pre></td></tr></table></figure>
+<p>注册路由模块和为路由模块添加前缀</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">express</span>();</span><br><span class="line">app.<span class="title function_">listen</span>(<span class="number">80</span>,<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;http://127.0.0.1&#x27;</span>);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 导入路由模块</span></span><br><span class="line"><span class="keyword">const</span> userRouter = <span class="built_in">require</span>(<span class="string">&#x27;../router/user.js&#x27;</span>);</span><br><span class="line"><span class="comment">// 使用app.use() 注册路由模块</span></span><br><span class="line">app.<span class="title function_">use</span>(userRouter);</span><br><span class="line"><span class="comment">// 为路由模块添加访问前缀</span></span><br><span class="line"><span class="comment">// app.use(&#x27;/api&#x27;,userRouter);</span></span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -268,14 +271,11 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/09/11/%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5%E5%92%8C%E8%B7%A8%E5%9F%9F/" rel="prev" title="同源策略和跨域">
-                  <i class="fa fa-chevron-left"></i> 同源策略和跨域
+                <a href="/2022/10/06/npm%E4%B8%8E%E5%8C%85/" rel="prev" title="包和模块的加载机制">
+                  <i class="fa fa-chevron-left"></i> 包和模块的加载机制
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/10/04/Node.js%E4%B8%AD%E6%A8%A1%E5%9D%97%E5%8C%96/" rel="next" title="Node.js中模块化">
-                  Node.js中模块化 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
