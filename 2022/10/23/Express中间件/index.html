@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="中间件的概念什么是中间件中间件(Middleware),特指业务流程的中间处理环节 Express中间件的调用流程当一个请求到达Express的服务器之后，可以连续调用多个中间件，从而对这次请求进行预处理 Express中间件的格式Express的中间件，本质上就是一个function处理函数，Express中间件的格式如下:注意：中间件函数的形参列表中，必须包含next函数。而路由处理函数中只包">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Express中间件">
+<meta property="og:url" content="http://example.com/2022/10/23/Express%E4%B8%AD%E9%97%B4%E4%BB%B6/index.html">
+<meta property="og:site_name" content="柯建军的博客">
+<meta property="og:description" content="中间件的概念什么是中间件中间件(Middleware),特指业务流程的中间处理环节 Express中间件的调用流程当一个请求到达Express的服务器之后，可以连续调用多个中间件，从而对这次请求进行预处理 Express中间件的格式Express的中间件，本质上就是一个function处理函数，Express中间件的格式如下:注意：中间件函数的形参列表中，必须包含next函数。而路由处理函数中只包">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2022/10/23/Express%E4%B8%AD%E9%97%B4%E4%BB%B6/%E5%9B%BE%E7%89%871.png">
+<meta property="og:image" content="http://example.com/2022/10/23/Express%E4%B8%AD%E9%97%B4%E4%BB%B6/%E5%9B%BE%E7%89%872.png">
+<meta property="og:image" content="http://example.com/2022/10/23/Express%E4%B8%AD%E9%97%B4%E4%BB%B6/%E5%9B%BE%E7%89%873.png">
+<meta property="article:published_time" content="2022-10-23T11:33:15.159Z">
+<meta property="article:modified_time" content="2022-10-23T13:06:28.816Z">
+<meta property="article:author" content="柯建军">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2022/10/23/Express%E4%B8%AD%E9%97%B4%E4%BB%B6/%E5%9B%BE%E7%89%871.png">
+
+
+<link rel="canonical" href="http://example.com/2022/10/23/Express%E4%B8%AD%E9%97%B4%E4%BB%B6/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/10/23/Express%E4%B8%AD%E9%97%B4%E4%BB%B6/","path":"2022/10/23/Express中间件/","title":"Express中间件"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Express中间件 | 柯建军的博客</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">柯建军的博客</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-首页"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-标签"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-分类"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-归档"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-资源"><a href="/resource/" rel="section"><i class="fa fa-download fa-fw fa-fw"></i>资源</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">中间件的概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E4%B8%AD%E9%97%B4%E4%BB%B6"><span class="nav-number">1.1.</span> <span class="nav-text">什么是中间件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Express%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%9A%84%E8%B0%83%E7%94%A8%E6%B5%81%E7%A8%8B"><span class="nav-number">1.2.</span> <span class="nav-text">Express中间件的调用流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Express%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%9A%84%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.3.</span> <span class="nav-text">Express中间件的格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#next%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-number">1.4.</span> <span class="nav-text">next函数的作用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%AD%E9%97%B4%E4%BB%B6%E5%87%BD%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">中间件函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E4%B8%AD%E9%97%B4%E4%BB%B6%E5%87%BD%E6%95%B0"><span class="nav-number">2.1.</span> <span class="nav-text">定义中间件函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%A8%E5%B1%80%E7%94%9F%E6%95%88%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6"><span class="nav-number">2.2.</span> <span class="nav-text">全局生效的中间件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-number">2.3.</span> <span class="nav-text">中间件的作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E5%A4%9A%E4%B8%AA%E5%85%A8%E5%B1%80%E4%B8%AD%E9%97%B4%E4%BB%B6"><span class="nav-number">2.4.</span> <span class="nav-text">定义多个全局中间件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B1%80%E9%83%A8%E7%94%9F%E6%95%88%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6"><span class="nav-number">2.5.</span> <span class="nav-text">局部生效的中间件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E5%A4%9A%E4%B8%AA%E5%B1%80%E9%83%A8%E4%B8%AD%E9%97%B4%E4%BB%B6"><span class="nav-number">2.6.</span> <span class="nav-text">定义多个局部中间件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%86%E8%A7%A3%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%9A%845%E4%B8%AA%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">2.7.</span> <span class="nav-text">了解中间件的5个使用注意事项</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-number">3.</span> <span class="nav-text">中间件的分类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%BA%94%E7%94%A8%E7%BA%A7%E5%88%AB%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6"><span class="nav-number">3.1.</span> <span class="nav-text">1.应用级别的中间件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E8%B7%AF%E7%94%B1%E7%BA%A7%E5%88%AB%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6"><span class="nav-number">3.2.</span> <span class="nav-text">2.路由级别的中间件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%94%99%E8%AF%AF%E7%BA%A7%E5%88%AB%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6"><span class="nav-number">3.3.</span> <span class="nav-text">错误级别的中间件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Express%E5%86%85%E7%BD%AE%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6"><span class="nav-number">3.4.</span> <span class="nav-text">Express内置的中间件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E6%96%B9%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6"><span class="nav-number">3.5.</span> <span class="nav-text">第三方的中间件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B8%AD%E9%97%B4%E4%BB%B6"><span class="nav-number">3.6.</span> <span class="nav-text">自定义中间件</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="柯建军"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">柯建军</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/KJJ9527" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;KJJ9527" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:963707772@qq.com" title="E-Mail → mailto:963707772@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/23/Express%E4%B8%AD%E9%97%B4%E4%BB%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="柯建军">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="柯建军的博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Express中间件 | 柯建军的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Express中间件
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-10-23 19:33:15 / 修改时间：21:06:28" itemprop="dateCreated datePublished" datetime="2022-10-23T19:33:15+08:00">2022-10-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/node-js/" itemprop="url" rel="index"><span itemprop="name">node.js</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>4.6k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="中间件的概念"><a href="#中间件的概念" class="headerlink" title="中间件的概念"></a>中间件的概念</h3><h4 id="什么是中间件"><a href="#什么是中间件" class="headerlink" title="什么是中间件"></a>什么是中间件</h4><p>中间件(Middleware),特指业务流程的<font color="#dd0000">中间处理环节</font></p>
+<h4 id="Express中间件的调用流程"><a href="#Express中间件的调用流程" class="headerlink" title="Express中间件的调用流程"></a>Express中间件的调用流程</h4><p>当一个请求到达Express的服务器之后，可以连续调用多个中间件，从而对这次请求进行预处理<br><img src="/2022/10/23/Express%E4%B8%AD%E9%97%B4%E4%BB%B6/%E5%9B%BE%E7%89%871.png" alt="图片1"></p>
+<h4 id="Express中间件的格式"><a href="#Express中间件的格式" class="headerlink" title="Express中间件的格式"></a>Express中间件的格式</h4><p>Express的中间件，本质上就是一个function处理函数，Express中间件的格式如下:<br><img src="/2022/10/23/Express%E4%B8%AD%E9%97%B4%E4%BB%B6/%E5%9B%BE%E7%89%872.png" alt="图片2"><br>注意：中间件函数的形参列表中，<font color="#dd0000">必须包含next函数</font>。而路由处理函数中只包含req和res</p>
+<h4 id="next函数的作用"><a href="#next函数的作用" class="headerlink" title="next函数的作用"></a>next函数的作用</h4><p>next 函数是实现<font color="#dd0000">多个中间件连续调用</font>的关键，它表示把流转关系<font color="#dd0000">转交</font>给下一个中间件或路由</p>
+<h3 id="中间件函数"><a href="#中间件函数" class="headerlink" title="中间件函数"></a>中间件函数</h3><h4 id="定义中间件函数"><a href="#定义中间件函数" class="headerlink" title="定义中间件函数"></a>定义中间件函数</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mv = <span class="keyword">function</span>(<span class="params">req,res,next</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;这是一个最简单的中间件函数&#x27;</span>);</span><br><span class="line">    <span class="comment">// 注意：在当前中间件的业务处理完毕后，必须调用 next()函数</span></span><br><span class="line">    <span class="comment">// 表示把流转关系转交给下一个中间件或路由</span></span><br><span class="line">    <span class="title function_">next</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="全局生效的中间件"><a href="#全局生效的中间件" class="headerlink" title="全局生效的中间件"></a>全局生效的中间件</h4><p>客户端发起的<font color="#dd0000">任何请求</font>，到达服务器之后，<font color="#dd0000">都会触发的中间件</font>，叫做全局生效的中间件。<br>通过调用 <font color="#dd0000">app.use</font>(中间件函数)，即可定义一个<font color="#dd0000">全局生效</font>的中间件，示例代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mv = <span class="keyword">function</span>(<span class="params">req,res,next</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;这是一个最简单的中间件函数&#x27;</span>);</span><br><span class="line">    <span class="title function_">next</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 全局生效的中间件</span></span><br><span class="line">app.<span class="title function_">use</span>(mv);</span><br><span class="line"><span class="comment">// 简写形式</span></span><br><span class="line">app.<span class="title function_">use</span>(<span class="function">(<span class="params">req,res,next</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;这是一个最简单的中间件函数&#x27;</span>);</span><br><span class="line">    <span class="title function_">next</span>();</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="中间件的作用"><a href="#中间件的作用" class="headerlink" title="中间件的作用"></a>中间件的作用</h4><p>多个中间件之间，<font color="#dd0000">共享同一份 req 和 res</font>。基于这样的特性，我们可以在<font color="#dd0000">上游</font>的中间件中，统一为 req 或 res 对象添加自定义的属性或方法，供<font color="#dd0000">下游</font>的中间件或路由进行使用。</p>
+<p><img src="/2022/10/23/Express%E4%B8%AD%E9%97%B4%E4%BB%B6/%E5%9B%BE%E7%89%873.png" alt="图片3"></p>
+<h4 id="定义多个全局中间件"><a href="#定义多个全局中间件" class="headerlink" title="定义多个全局中间件"></a>定义多个全局中间件</h4><p>可以使用 app.use() <font color="#dd0000">连续定义多个</font>全局中间件。客户端请求到达服务器之后，会按照中间件<font color="#dd0000">定义的先后顺序</font>依次进行调用，示例代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">app.<span class="title function_">use</span>(<span class="function">(<span class="params">req,res,next</span>) =&gt;</span> &#123;     <span class="comment">// 第1个全局中间件</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;调用了第1个全局中间件&#x27;</span>);</span><br><span class="line">    <span class="title function_">next</span>();</span><br><span class="line">&#125;)</span><br><span class="line">app.<span class="title function_">use</span>(<span class="function">(<span class="params">req,res,next</span>) =&gt;</span> &#123;     <span class="comment">// 第2个全局中间件</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;调用了第2个全局中间件&#x27;</span>);</span><br><span class="line">    <span class="title function_">next</span>();</span><br><span class="line">&#125;)</span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/user&#x27;</span>,<span class="function">(<span class="params">req,res</span>) =&gt;</span> &#123;  <span class="comment">// 请求这个路由，会依次触发上述两个全局中间件</span></span><br><span class="line">    res.<span class="title function_">send</span>(<span class="string">&#x27;Home page&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="局部生效的中间件"><a href="#局部生效的中间件" class="headerlink" title="局部生效的中间件"></a>局部生效的中间件</h4><p><font color="#dd0000">不使用 app.use() </font>定义的中间件，叫做<font color="#dd0000">局部生效的中间件</font>，示例代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义中间件函数 mv1</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">mv1</span> = (<span class="params">req,res,next</span>) =&gt; &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;这是一个局部中间件&#x27;</span>);</span><br><span class="line">    <span class="title function_">next</span>();</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// mv1 这个中间件只在&quot;当前路由中生效&quot;，这种用法属于&quot;局部生效的中间件&quot;</span></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>,mv1,<span class="function">(<span class="params">req,res</span>) =&gt;</span> &#123;</span><br><span class="line">    res.<span class="title function_">send</span>(<span class="string">&#x27;Home page&#x27;</span>);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// mv1 这个中间件不会影响下面这个路由</span></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/user&#x27;</span>,<span class="function">(<span class="params">req,res</span>) =&gt;</span> &#123;</span><br><span class="line">    res.<span class="title function_">send</span>(<span class="string">&#x27;User page&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="定义多个局部中间件"><a href="#定义多个局部中间件" class="headerlink" title="定义多个局部中间件"></a>定义多个局部中间件</h4><p>可以在路由中，通过如下两种等价的方式，使用多个局部中间件：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 以下两种写法是&quot;完全等价&quot;的，可根据自己的喜好，选择任意一种方式进行使用</span></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>,mv1,mv2,<span class="function">(<span class="params">req,res</span>) =&gt;</span> &#123;</span><br><span class="line">    res.<span class="title function_">send</span>(<span class="string">&#x27;Home page&#x27;</span>)</span><br><span class="line">&#125;);</span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>,[mv1,mv2],<span class="function">(<span class="params">req,res</span>) =&gt;</span> &#123;</span><br><span class="line">    res.<span class="title function_">send</span>(<span class="string">&#x27;Home page&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="了解中间件的5个使用注意事项"><a href="#了解中间件的5个使用注意事项" class="headerlink" title="了解中间件的5个使用注意事项"></a>了解中间件的5个使用注意事项</h4><p>1.一定要在<font color="#dd0000">路由之前</font>注册中间件<br>2.客户端发送过来的请求，<font color="#dd0000">可以连续调用多个</font>中间件进行处理<br>3.执行完中间件的业务代码之后，<font color="#dd0000">不要忘记调用 next()函数</font><br>4.为了<font color="#dd0000">防止代码逻辑混乱</font>，调用next()函数后不要再写额外的代码<br>5.连续调用多个中间件时，多个中间件之间，<font color="#dd0000">共享</font>req和res对象</p>
+<h3 id="中间件的分类"><a href="#中间件的分类" class="headerlink" title="中间件的分类"></a>中间件的分类</h3><p>为了方便大家理解和记忆中间件的使用，Express 官方把常见的中间件用法，分成了 5 大类，分别是：<br>1.<font color="#dd0000">应用级别</font>的中间件<br>2<font color="#dd0000">.路由级别</font>的中间件<br>3.<font color="#dd0000">错误级别</font>的中间件<br>4.<font color="#dd0000">Express 内置</font>的中间件<br>5.<font color="#dd0000">第三方</font>的中间件</p>
+<h4 id="1-应用级别的中间件"><a href="#1-应用级别的中间件" class="headerlink" title="1.应用级别的中间件"></a>1.应用级别的中间件</h4><p>通过 app.use() 或 app.get() 或 app.post() ，<font color="#dd0000">绑定到 app 实例上的中间件</font>，叫做应用级别的中间件，代码示例如下:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 应用级别的中间件(全局中间件)</span></span><br><span class="line">app.<span class="title function_">use</span>(<span class="function">(<span class="params">req,res,next</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="title function_">next</span>()</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 应用级别的中间件(局部中间件)</span></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>,mv1,<span class="function">(<span class="params">req,res</span>) =&gt;</span> &#123;</span><br><span class="line">    res.<span class="title function_">send</span>(<span class="string">&#x27;Home page.&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="2-路由级别的中间件"><a href="#2-路由级别的中间件" class="headerlink" title="2.路由级别的中间件"></a>2.路由级别的中间件</h4><p>绑定到 <font color="#dd0000">express.Router() </font>实例上的中间件，叫做路由级别的中间件。它的用法和应用级别中间件没有任何区别。只不过，应用级别中间件是绑定到 app 实例上，路由级别中间件绑定到 router 实例上，代码示例如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建路由模块</span></span><br><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);</span><br><span class="line"><span class="comment">// 创建路由对象</span></span><br><span class="line"><span class="keyword">const</span> router = express.<span class="title class_">Router</span>();</span><br><span class="line"><span class="comment">// 路由级别的中间件</span></span><br><span class="line">router.<span class="title function_">use</span>(<span class="function">(<span class="params">req,res,next</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;这是一个路由级别的中间件&#x27;</span>);</span><br><span class="line">    <span class="title function_">next</span>();</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 向外导出路由对象</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = router</span><br></pre></td></tr></table></figure>
+<h4 id="错误级别的中间件"><a href="#错误级别的中间件" class="headerlink" title="错误级别的中间件"></a>错误级别的中间件</h4><p>错误级别中间件的<font color="#dd0000">作用</font>：专门用来捕获整个项目中发生的异常错误，从而防止项目异常崩溃的问题。<br><font color="#dd0000">格式</font>：错误级别中间件的 function 处理函数中，<font color="#dd0000">必须有 4 个形参</font>，形参顺序从前到后，分别是 (<font color="#dd0000">err</font>, req, res, next)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>,<span class="function">(<span class="params">req,res</span>) =&gt;</span> &#123;                      <span class="comment">// 1.路由</span></span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&#x27;服务器内部发生了错误!&#x27;</span>)      <span class="comment">// 1.1 抛出一个自定义的错误</span></span><br><span class="line">    res.<span class="title function_">send</span>(<span class="string">&#x27;Home page&#x27;</span>);</span><br><span class="line">&#125;)</span><br><span class="line">app.<span class="title function_">use</span>(<span class="function">(<span class="params">err,erq,res,next</span>) =&gt;</span> &#123;                 <span class="comment">// 2. 错误级别的中间件</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;发生了错误&#x27;</span> + err.<span class="property">message</span>);     <span class="comment">// 2.1 在服务器打印错误消息</span></span><br><span class="line">    res.<span class="title function_">send</span>(<span class="string">&#x27;Error!&#x27;</span>+ err.<span class="property">message</span>);            <span class="comment">// 2.2 向客户端响应错误相关的内容</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>注意：错误级别的中间件，必须注册在所有路由之后</p>
+<h4 id="Express内置的中间件"><a href="#Express内置的中间件" class="headerlink" title="Express内置的中间件"></a>Express内置的中间件</h4><p>自 Express 4.16.0 版本开始，Express 内置了 3 个常用的中间件，极大的提高了 Express 项目的开发效率和体验：</p>
+<ol>
+<li><font color="#dd0000">express.static &gt;</font>快速托管静态资源的内置中间件，例如： HTML 文件、图片、CSS 样式等（无兼容性）</li>
+<li><font color="#dd0000">express.json</font> 解析 JSON 格式的请求体数据（有兼容性，仅在 4.16.0+ 版本中可用）</li>
+<li><font color="#dd0000">express.urlencoded</font> 解析 URL-encoded 格式的请求体数据（有兼容性，仅在 4.16.0+ 版本中可用）<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 配置解析 application/json 格式数据的内置中间件</span></span><br><span class="line">app.<span class="title function_">use</span>(express.<span class="title function_">json</span>());</span><br><span class="line"><span class="comment">// 配置解析 application/x-www-form-urlencoded 格式数据的内置中间件</span></span><br><span class="line">app.<span class="title function_">use</span>(express.<span class="title function_">urlencoded</span>(&#123;<span class="attr">extended</span>: <span class="literal">false</span>&#125;))</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h4 id="第三方的中间件"><a href="#第三方的中间件" class="headerlink" title="第三方的中间件"></a>第三方的中间件</h4><p>非 Express 官方内置的，而是由第三方开发出来的中间件，叫做第三方中间件。在项目中，大家可以按需下载并配置第三方中间件，从而提高项目的开发效率。<br>例如：在 <a href="mailto:&#101;&#x78;&#x70;&#114;&#x65;&#x73;&#115;&#64;&#52;&#46;&#x31;&#x36;&#x2e;&#x30;">&#101;&#x78;&#x70;&#114;&#x65;&#x73;&#115;&#64;&#52;&#46;&#x31;&#x36;&#x2e;&#x30;</a> 之前的版本中，经常使用 body-parser 这个第三方中间件，来解析请求体数据。使用步骤如下：<br>1.运行 npm install body-parser 安装中间件<br>2.使用 require 导入中间件<br>3.调用 app.use() 注册并使用中间件<br><font color="#dd0000">注意：</font>Express 内置的 express.urlencoded 中间件，就是基于 body-parser 这个第三方中间件进一步封装出来的。</p>
+<h4 id="自定义中间件"><a href="#自定义中间件" class="headerlink" title="自定义中间件"></a>自定义中间件</h4><p>需求描述与实现步骤<br>自己手动模拟一个类似于 express.urlencoded 这样的中间件，来解析 POST 提交到服务器的表单数据。<br>实现步骤：<br>1.定义中间件<br>2.监听 req 的 data 事件<br>3.监听 req 的 end 事件<br>4.使用 querystring 模块解析请求体数据<br>5.将解析出来的数据对象挂载为 req.body<br>6.将自定义中间件封装为模块</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// custom-body-parser.js 模块中的代码</span></span><br><span class="line"><span class="keyword">const</span> qs = <span class="built_in">require</span>(<span class="string">&#x27;querystring&#x27;</span>);</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">bodyParser</span>(<span class="params">req,res,next</span>) &#123;</span><br><span class="line">    <span class="comment">// 中间件的业务逻辑</span></span><br><span class="line">    <span class="comment">// 定义变量，用来存储客户端发送过来的请求体数据</span></span><br><span class="line">    <span class="keyword">let</span> str = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">    <span class="comment">// 监听 req对象的data事件(客户端发送过来的新的请求体数据)</span></span><br><span class="line">    req.<span class="title function_">on</span>(<span class="string">&#x27;data&#x27;</span>,<span class="function">(<span class="params">chunk</span>) =&gt;</span> &#123;</span><br><span class="line">        str += chunk;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="comment">// 监听req的end事件</span></span><br><span class="line">    req.<span class="title function_">on</span>(<span class="string">&#x27;end&#x27;</span>,<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> body = qs.<span class="title function_">parse</span>(str);</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(body);</span><br><span class="line">        req.<span class="property">body</span> = body;</span><br><span class="line">        <span class="title function_">next</span>();</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;;</span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = bodyParser;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 导入自定义的中间件模块</span></span><br><span class="line"><span class="keyword">const</span> myBodyParser = <span class="built_in">require</span>(<span class="string">&#x27;./custom-body-parser.js&#x27;</span>);</span><br><span class="line"><span class="comment">// 注册自定义的中间件模块</span></span><br><span class="line">app.<span class="title function_">use</span>(myBodyParser);</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/10/08/%E6%A8%A1%E5%9D%97%E5%8C%96%E8%B7%AF%E7%94%B1/" rel="prev" title="模块化路由">
+                  <i class="fa fa-chevron-left"></i> 模块化路由
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">柯建军</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">25k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">23 分钟</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
