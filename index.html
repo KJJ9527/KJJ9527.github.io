@@ -125,13 +125,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
   </nav>
@@ -168,6 +168,100 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/02/21/github%E5%B8%B8%E7%94%A8%E6%90%9C%E7%B4%A2%E6%9D%A1%E4%BB%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="柯建军">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="柯建军的博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 柯建军的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/02/21/github%E5%B8%B8%E7%94%A8%E6%90%9C%E7%B4%A2%E6%9D%A1%E4%BB%B6/" class="post-title-link" itemprop="url">github常用搜索条件</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2023-02-21 17:15:44 / 修改时间：17:21:52" itemprop="dateCreated datePublished" datetime="2023-02-21T17:15:44+08:00">2023-02-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/github/" itemprop="url" rel="index"><span itemprop="name">github</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>247</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="github常用搜索条件"><a href="#github常用搜索条件" class="headerlink" title="github常用搜索条件"></a>github常用搜索条件</h3><p>in:name xxx 名称条件<br>in:name xxx xxx 多个名称条件<br>stars:&gt;xxx 点赞大于xxx的条件<br>in:readme xxx 搜索readme里的内容<br>fork:&gt;xxx 按照项目fork数量,大于xxx的<br>size:&gt;&#x3D;xxx 项目大小,单位是kb<br>pushed:&gt;2021-01-01 按照最后更新时间<br>language:xxx 项目使用语言<br>user:xxx 按作者名称搜索<br>in:description xxx 按照项目描述 description 搜索</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1216,108 +1310,6 @@
 <p>同时，在使用 require() 导入自定义模块时，如果省略了文件的扩展名，则 Node.js 会按顺序分别尝试加载以下的文件：<br>按照确切的文件名进行加载<br>补全 .js 扩展名进行加载<br>补全 .json 扩展名进行加载<br>补全 .node 扩展名进行加载<br>加载失败，终端报错</p>
 <h4 id="第三方模块的加载机制"><a href="#第三方模块的加载机制" class="headerlink" title="第三方模块的加载机制"></a>第三方模块的加载机制</h4><p>如果传递给 require() 的模块标识符不是一个内置模块，也没有以 ‘.&#x2F;’ 或 ‘..&#x2F;’ 开头，则 Node.js 会从当前模块的父目录开始，尝试从 &#x2F;node_modules 文件夹中加载第三方模块。<br>如果没有找到对应的第三方模块，则移动到再上一层父目录中，进行加载，直到文件系统的根目录。<br>例如，假设在 ‘C:\Users\itheima\project\foo.js’ 文件里调用了 require(‘tools’)，则 Node.js 会按以下顺序查找：<br>C:\Users\itheima\project\node_modules\tools<br>C:\Users\itheima\node_modules\tools<br>C:\Users\node_modules\tools<br>C:\node_modules\tools</p>
 <h4 id="目录作为模块"><a href="#目录作为模块" class="headerlink" title="目录作为模块"></a>目录作为模块</h4><p>当把目录作为模块标识符，传递给 require() 进行加载的时候，有三种加载方式：<br>在被加载的目录下查找一个叫做 package.json 的文件，并寻找 main 属性，作为 require() 加载的入口<br>如果目录里没有 package.json 文件，或者 main 入口不存在或无法解析，则 Node.js 将会试图加载目录下的 index.js 文件。<br>如果以上两步都失败了，则 Node.js 会在终端打印错误消息，报告模块的缺失：Error: Cannot find module ‘xxx’</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/04/Node.js%E4%B8%AD%E6%A8%A1%E5%9D%97%E5%8C%96/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="柯建军">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="柯建军的博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 柯建军的博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/10/04/Node.js%E4%B8%AD%E6%A8%A1%E5%9D%97%E5%8C%96/" class="post-title-link" itemprop="url">Node.js中模块化</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2022-10-04 10:30:30 / 修改时间：10:53:53" itemprop="dateCreated datePublished" datetime="2022-10-04T10:30:30+08:00">2022-10-04</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/node-js/" itemprop="url" rel="index"><span itemprop="name">node.js</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.5k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="什么是模块化"><a href="#什么是模块化" class="headerlink" title="什么是模块化"></a>什么是模块化</h3><p>模块化是指解决一个复杂问题时，自顶向下逐层把系统划分成若干模块的过程。对于整个系统来说，模块是可组合、分解和更换的单元<br>编程领域的模块化：<br>编程领域的模块化，就是遵守固定的规则，把一个大文件拆成独立并互相依赖的多个小模块。<br>把代码进行模块化拆分的好处：<br>1.提高了代码的复用性<br>2.提高了代码的可维护性<br>3.可以实现按需加载</p>
-<h3 id="Node-js中模块的分类"><a href="#Node-js中模块的分类" class="headerlink" title="Node.js中模块的分类"></a>Node.js中模块的分类</h3><p>Node.js中根据模块来源的不同，将模块分为了3大类，分别是：<br>内置模块(内置模块是由Node.js官方提供的，列如fs、path、http等)<br>自定义模块(用户创建的每个.js文件，都是自定义模块)<br>第三方模块(由第三方开发出来的模块，并非官方提供的内置模块，也不是用户创建的自定义模块，使用前需要先下载)</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.加载内置的fs模块</span></span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"><span class="comment">// 2.加载用户的自定义模块</span></span><br><span class="line"><span class="keyword">const</span> custom = <span class="built_in">require</span>(<span class="string">&#x27;./custom.js&#x27;</span>);</span><br><span class="line"><span class="comment">// 3.加载第三方模块</span></span><br><span class="line"><span class="keyword">const</span> moment = <span class="built_in">require</span>(<span class="string">&#x27;moment&#x27;</span>);</span><br></pre></td></tr></table></figure>
-
-<h3 id="Node-js中的模块作用域"><a href="#Node-js中的模块作用域" class="headerlink" title="Node.js中的模块作用域"></a>Node.js中的模块作用域</h3><p>和函数作用域类似，在自定义模块中定义的变量、方法等成员，只能在当前模块内被访问，这种模块级别的访问限制，叫做模块作用域，模块作用域防止了全局变量污染的问题</p>
-<h3 id="向外共享模块作用域中的成员"><a href="#向外共享模块作用域中的成员" class="headerlink" title="向外共享模块作用域中的成员"></a>向外共享模块作用域中的成员</h3><p>1.module对象<br>在每个.js自定义模块中都有一个module对象，它里面存储了和当前模块有关的信息，打印如下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Module</span> &#123;</span><br><span class="line">  <span class="attr">id</span>: <span class="string">&#x27;.&#x27;</span>,</span><br><span class="line">  <span class="attr">path</span>: <span class="string">&#x27;C:\\Users\\admin\\Desktop\\node.js基础\\day3&#x27;</span>,</span><br><span class="line">  <span class="attr">exports</span>: &#123;&#125;,</span><br><span class="line">  <span class="attr">filename</span>: <span class="string">&#x27;C:\\Users\\admin\\Desktop\\node.js基础\\day3\\模块化.js&#x27;</span>,</span><br><span class="line">  <span class="attr">loaded</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="attr">children</span>: [],</span><br><span class="line">  <span class="attr">paths</span>: [</span><br><span class="line">    <span class="string">&#x27;C:\\Users\\admin\\Desktop\\node.js基础\\day3\\node_modules&#x27;</span>,     </span><br><span class="line">    <span class="string">&#x27;C:\\Users\\admin\\Desktop\\node.js基础\\node_modules&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;C:\\Users\\admin\\Desktop\\node_modules&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;C:\\Users\\admin\\node_modules&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;C:\\Users\\node_modules&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;C:\\node_modules&#x27;</span></span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>2.module.exports对象<br>在自定义模块中，可以使用module.exports对象，将模块内的成员共享出去，供外界使用<br>外界用require()方法导入自定义模块时，得到的就是module.exports所指向的对象</p>
-<h3 id="Node-js中的模块化规范"><a href="#Node-js中的模块化规范" class="headerlink" title="Node.js中的模块化规范"></a>Node.js中的模块化规范</h3><p>Node.js遵循了CommonJS模块化规范,CommonJS规定了模块的特性和各模块之间如何相互依赖<br>CommonJS规定：<br>1.每个模块内部，module变量代表当前模块<br>2.module变量是一个对象，它的exports属性(即module.exports)是对外的接口<br>3.加载某个模块，其实是加载该模块的module.exports属性。require()方法用于加载模块</p>
 
       
     </div>
