@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="什么是类类是对象的模板，定义了对象的属性和方法 创建一个类1234567891011121314151617181920212223242526&#x2F;&#x2F; 最基本的类class MyClass &amp;#123;&amp;#125;&#x2F;&#x2F; 创建一个示例对象的类class MyClass &amp;#123;    constructor(...argu) &amp;#123;	&#x2F;&#x2F;实参会被构造函数 constructor 接收">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS中的类">
+<meta property="og:url" content="http://example.com/2023/03/03/%E7%B1%BB/index.html">
+<meta property="og:site_name" content="柯建军的博客">
+<meta property="og:description" content="什么是类类是对象的模板，定义了对象的属性和方法 创建一个类1234567891011121314151617181920212223242526&#x2F;&#x2F; 最基本的类class MyClass &amp;#123;&amp;#125;&#x2F;&#x2F; 创建一个示例对象的类class MyClass &amp;#123;    constructor(...argu) &amp;#123;	&#x2F;&#x2F;实参会被构造函数 constructor 接收">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-03-03T03:05:59.097Z">
+<meta property="article:modified_time" content="2023-03-03T04:53:28.880Z">
+<meta property="article:author" content="柯建军">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2023/03/03/%E7%B1%BB/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2023/03/03/%E7%B1%BB/","path":"2023/03/03/类/","title":"JS中的类"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>JS中的类 | 柯建军的博客</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">柯建军的博客</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-首页"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-标签"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-分类"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-归档"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-资源"><a href="/resource/" rel="section"><i class="fa fa-download fa-fw fa-fw"></i>资源</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%B1%BB"><span class="nav-number">1.</span> <span class="nav-text">什么是类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%B1%BB"><span class="nav-number">1.1.</span> <span class="nav-text">创建一个类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B1%BB%E7%9A%84this"><span class="nav-number">2.</span> <span class="nav-text">类的this</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF"><span class="nav-number">3.</span> <span class="nav-text">类的继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B1%BB%E7%9A%84%E9%9D%99%E6%80%81%E5%B1%9E%E6%80%A7%E5%92%8C%E6%96%B9%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">类的静态属性和方法</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="柯建军"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">柯建军</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/KJJ9527" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;KJJ9527" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:963707772@qq.com" title="E-Mail → mailto:963707772@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/03/%E7%B1%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="柯建军">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="柯建军的博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="JS中的类 | 柯建军的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          JS中的类
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2023-03-03 11:05:59 / 修改时间：12:53:28" itemprop="dateCreated datePublished" datetime="2023-03-03T11:05:59+08:00">2023-03-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.9k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="什么是类"><a href="#什么是类" class="headerlink" title="什么是类"></a>什么是类</h2><p>类是对象的模板，定义了对象的属性和方法</p>
+<h3 id="创建一个类"><a href="#创建一个类" class="headerlink" title="创建一个类"></a>创建一个类</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 最基本的类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass</span> &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 创建一个示例对象的类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass</span> &#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params">...argu</span>) &#123;	<span class="comment">//实参会被构造函数 constructor 接收</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(argu);  <span class="comment">//[&#x27;孙悟空&#x27;,18]</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> a = <span class="keyword">new</span> <span class="title class_">MyClass</span>(<span class="string">&#x27;孙悟空&#x27;</span>,<span class="number">18</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//通过实例对象属性调用</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass</span> &#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params">name,age</span>) &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">name</span> = name</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">age</span> = age</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">fn</span>(<span class="params"></span>) &#123;</span><br><span class="line">    	<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;打妖怪&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> a = <span class="keyword">new</span> <span class="title class_">MyClass</span>(<span class="string">&#x27;孙悟空&#x27;</span>,<span class="number">18</span>) </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a.<span class="property">name</span>,a.<span class="property">age</span>);  <span class="comment">//孙悟空 18</span></span><br><span class="line">a.<span class="title function_">fn</span>()  <span class="comment">//打妖怪</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="类的this"><a href="#类的this" class="headerlink" title="类的this"></a>类的this</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass</span>&#123;</span><br><span class="line">    <span class="title function_">fn</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> a = <span class="keyword">new</span> <span class="title class_">MyClass</span></span><br><span class="line">a.<span class="title function_">fn</span>()  <span class="comment">//this---&gt;MyClass &#123;&#125;,通过实例对象属性调用函数,this指向实例对象a</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> b = a.<span class="property">fn</span>    <span class="comment">// 将实例对象a的函数赋值给b</span></span><br><span class="line"><span class="title function_">b</span>() <span class="comment">//this---&gt;undefined,理论上this应该指向函数的调用者---&gt;window,但在类区域中,默认开启严格模式,所以输出undefined</span></span><br><span class="line"><span class="comment">// 结论：通过实例对象调用函数，this指向该实例对象，通过普通函数调用，this指向undefined</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//很多时候我们不希望this的指向变化，最简单的方式是使用箭头函数</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass</span>&#123;</span><br><span class="line">    fn = <span class="function">() =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> a = <span class="keyword">new</span> <span class="title class_">MyClass</span></span><br><span class="line">a.<span class="title function_">fn</span>()  <span class="comment">//MyClass &#123;fn: ƒ&#125;</span></span><br><span class="line"><span class="keyword">const</span> b = a.<span class="property">fn</span>    </span><br><span class="line"><span class="title function_">b</span>() <span class="comment">//MyClass &#123;fn: ƒ&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="类的继承"><a href="#类的继承" class="headerlink" title="类的继承"></a>类的继承</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Parent</span>&#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params">name,age</span>) &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">name</span> = name</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">age</span> = age</span><br><span class="line">    &#125;</span><br><span class="line">    fn = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;我是父类，子类可以继承我的属性和方法&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//extends---&gt;继承</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Chi1</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Parent</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//  子类可以完全继承父类的属性和方法 </span></span><br><span class="line"><span class="keyword">const</span> chi1 = <span class="keyword">new</span> <span class="title class_">Chi1</span>(<span class="string">&#x27;我是子类1&#x27;</span>,<span class="number">18</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(chi1.<span class="property">name</span>,chi1.<span class="property">age</span>);  <span class="comment">//我是子类1 18</span></span><br><span class="line">chi1.<span class="title function_">fn</span>()   <span class="comment">// 我是父类，子类可以继承我的属性和方法</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//  子类可以重写父类的属性和方法</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Chi2</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Parent</span>&#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params">name,age,sex</span>) &#123;</span><br><span class="line">        <span class="comment">// 继承父类的构造函数</span></span><br><span class="line">        <span class="variable language_">super</span>(name,age)</span><br><span class="line">        <span class="comment">// 自己的属性</span></span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">sex</span> = sex</span><br><span class="line">    &#125;</span><br><span class="line">    fn = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;我是子类，我重写了父类中的方法&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> chi2 = <span class="keyword">new</span> <span class="title class_">Chi2</span>(<span class="string">&#x27;我是子类2&#x27;</span>,<span class="number">19</span>,<span class="string">&#x27;男&#x27;</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(chi2.<span class="property">name</span>,chi2.<span class="property">age</span>,chi2.<span class="property">sex</span>)    <span class="comment">// 我是子类2 19 男</span></span><br><span class="line">chi2.<span class="title function_">fn</span>()   <span class="comment">//我是子类，我重写了父类中的方法</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="类的静态属性和方法"><a href="#类的静态属性和方法" class="headerlink" title="类的静态属性和方法"></a>类的静态属性和方法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 直接通过类调用的属性和方法被称为静态属性和静态方法(类属性，类方法)</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass</span>&#123;</span><br><span class="line">    <span class="keyword">static</span> name = <span class="string">&#x27;我是MyClass&#x27;</span></span><br><span class="line">    <span class="keyword">static</span> fn = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;我是通过类直接调用的&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">MyClass</span>.<span class="property">name</span>);  <span class="comment">//我是MyClass</span></span><br><span class="line"><span class="title class_">MyClass</span>.<span class="title function_">fn</span>()    <span class="comment">//我是通过类直接调用的</span></span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/02/25/React%E6%89%A9%E5%B1%95/" rel="prev" title="React扩展">
+                  <i class="fa fa-chevron-left"></i> React扩展
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">柯建军</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">60k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">55 分钟</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
