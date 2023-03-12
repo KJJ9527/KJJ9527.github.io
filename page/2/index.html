@@ -125,7 +125,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">28</span>
+          <span class="site-state-item-count">29</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -168,6 +168,147 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/11/09/MySQL%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E5%92%8C%E5%9C%A8%E9%A1%B9%E7%9B%AE%E4%B8%AD%E6%93%8D%E4%BD%9CMySQL/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="柯建军">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="柯建军的博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 柯建军的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/11/09/MySQL%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E5%92%8C%E5%9C%A8%E9%A1%B9%E7%9B%AE%E4%B8%AD%E6%93%8D%E4%BD%9CMySQL/" class="post-title-link" itemprop="url">MySQL的基本使用和在项目中操作MySQL</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-11-09 15:32:25 / 修改时间：19:55:18" itemprop="dateCreated datePublished" datetime="2022-11-09T15:32:25+08:00">2022-11-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/mysql/" itemprop="url" rel="index"><span itemprop="name">mysql</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>6.1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>6 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="MySQL的基本使用"><a href="#MySQL的基本使用" class="headerlink" title="MySQL的基本使用"></a>MySQL的基本使用</h3><h4 id="数据库的概念"><a href="#数据库的概念" class="headerlink" title="数据库的概念"></a>数据库的概念</h4><h5 id="什么是数据库"><a href="#什么是数据库" class="headerlink" title="什么是数据库"></a>什么是数据库</h5><p>数据库（database）是用来组织、存储和管理数据的仓库。<br>当今世界是一个充满着数据的互联网世界，充斥着大量的数据。数据的来源有很多，比如出行记录、消费记录、浏览的网页、发送的消息等等。除了文本类型的数据，图像、音乐、声音都是数据。<br>为了方便管理互联网世界中的数据，就有了数据库管理系统的概念（简称：数据库）。用户可以对数据库中的数据进行新增、查询、更新、删除等操作。</p>
+<h5 id="常见的数据库及分类"><a href="#常见的数据库及分类" class="headerlink" title="常见的数据库及分类"></a>常见的数据库及分类</h5><p>市面上的数据库有很多种，最常见的数据库有如下几个：<br>1.MySQL 数据库（目前使用最广泛、流行度最高的开源免费数据库；Community + Enterprise）<br>2.Oracle 数据库（收费）<br>3.SQL Server 数据库（收费）<br>4.Mongodb 数据库（Community + Enterprise）</p>
+<h5 id="传统型数据库的数据组织结构"><a href="#传统型数据库的数据组织结构" class="headerlink" title="传统型数据库的数据组织结构"></a>传统型数据库的数据组织结构</h5><p>数据的组织结构：指的就是数据以什么样的结构进行存储。<br>传统型数据库的数据组织结构，与 Excel 中数据的组织结构比较类似。<br>因此，我们可以对比着 Excel 来了解和学习传统型数据库的数据组织结构。</p>
+<ol>
+<li><p>Excel 的数据组织结构<br>每个 Excel 中，数据的组织结构分别为工作簿、工作表、数据行、列这 4 大部分组成<br><img src="/2022/11/09/MySQL%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E5%92%8C%E5%9C%A8%E9%A1%B9%E7%9B%AE%E4%B8%AD%E6%93%8D%E4%BD%9CMySQL/%E5%9B%BE%E7%89%871.png" alt="图片1"><br>1.整个 Excel 叫做工作簿<br>2.users 和 books 是工作表<br>3.users 工作表中有 3 行数据<br>4.每行数据由 6 列信息组成<br>5.每列信息都有对应的数据类型</p>
+</li>
+<li><p>传统型数据库的数据组织结构<br>在传统型数据库中，数据的组织结构分为数据库(database)、数据表(table)、数据行(row)、字段(field)这 4 大部分组成<br>1.数据库类似于 Excel 的工作簿<br>2.数据表类似于 Excel 的工作表<br>3.数据行类似于 Excel 的每一行数据<br>4.字段类似于 Excel 的列<br>5.每个字段都有对应的数据类型</p>
+</li>
+</ol>
+<p>3.实际开发中库、表、行、字段的关系</p>
+<p>1.在实际项目开发中，一般情况下，每个项目都对应独立的数据库。<br>2.不同的数据，要存储到数据库的不同表中，例如：用户数据存储到 users 表中，图书数据存储到 books 表中。<br>3.每个表中具体存储哪些信息，由字段来决定，例如：我们可以为 users 表设计 id、username、password 这 3 个字段。<br>4.表中的行，代表每一条具体的数据。</p>
+<h5 id="使用-MySQL-Workbench-管理数据库"><a href="#使用-MySQL-Workbench-管理数据库" class="headerlink" title="使用 MySQL Workbench 管理数据库"></a>使用 MySQL Workbench 管理数据库</h5><p>数据表中的DataType 数据类型和字段的特殊标识<br><img src="/2022/11/09/MySQL%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E5%92%8C%E5%9C%A8%E9%A1%B9%E7%9B%AE%E4%B8%AD%E6%93%8D%E4%BD%9CMySQL/%E5%9B%BE%E7%89%872.png" alt="图片2"><br>DataType 数据类型：<br>1.int 整数<br>2.varchar(len) 字符串<br>3.tinyint(1) 布尔值</p>
+<p>字段的特殊标识：<br>1.PK（Primary Key）主键、唯一标识<br>2.NN（Not Null）值不允许为空<br>3.UQ（Unique）值唯一<br>4.AI（Auto Increment）值自动增长</p>
+<h5 id="使用SQL管理数据库"><a href="#使用SQL管理数据库" class="headerlink" title="使用SQL管理数据库"></a>使用SQL管理数据库</h5><p>1.什么是SQL<br>SQL（英文全称：Structured Query Language）是结构化查询语言，专门用来访问和处理数据库的编程语言。能够让我们以编程的形式，操作数据库里面的数据。<br>三个关键点：<br>1.SQL 是一门数据库编程语言<br>2.使用 SQL 语言编写出来的代码，叫做 SQL 语句<br>3.SQL 语言只能在关系型数据库中使用（例如 MySQL、Oracle、SQL Server）。非关系型数据库（例如 Mongodb）不支持 SQL 语言</p>
+<p>2.SQL能做什么<br>1.从数据库中查询数据<br>2.向数据库中插入新的数据<br>3.更新数据库中的数据<br>4.从数据库删除数据<br>5.可以创建新数据库<br>6.可在数据库中创建新表<br>7.可在数据库中创建存储过程、视图<br>8.etc…</p>
+<p>3.SQL的学习目标<br>重点掌握如何使用 SQL 从数据表中：<br>查询数据（select） 、插入数据（insert into） 、更新数据（update） 、删除数据（delete） </p>
+<p>额外需要掌握的 4 种 SQL 语法：<br>where 条件、and 和 or 运算符、order by 排序、count(*) 函数<br>注意：SQL 语句中的关键字对大小写不敏感。</p>
+<h5 id="查询数据-select"><a href="#查询数据-select" class="headerlink" title="查询数据(select)"></a>查询数据(select)</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-- 从 from指定的[表中]，查询出[所有的]数据.*表示[所有列]</span><br><span class="line">select * from 表名称</span><br><span class="line">select * from users</span><br><span class="line">-- 从from指定的[表中],查询出指定 列名称(字段)的数据</span><br><span class="line">select 列名称 from 表名称</span><br><span class="line">select username from users</span><br></pre></td></tr></table></figure>
+<h5 id="插入数据-insert-into"><a href="#插入数据-insert-into" class="headerlink" title="插入数据(insert into)"></a>插入数据(insert into)</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">insert into table_name (列1,列2,...) values (值1,值2,...)</span><br><span class="line">insert into users (username,password) values (&#x27;tony stark&#x27;,&#x27;000000&#x27;)</span><br></pre></td></tr></table></figure>
+<h5 id="更新数据-update"><a href="#更新数据-update" class="headerlink" title="更新数据(update)"></a>更新数据(update)</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-- 语法解读：</span><br><span class="line">-- 1.用 update 指定要更新哪个表中的数据</span><br><span class="line">-- 2.用 set 指定列对应的新值</span><br><span class="line">-- 3.用 where 指定更新的条件</span><br><span class="line">update 表名称 set 列名称 = 新值 where 列名称 = 新值</span><br><span class="line">update users set password=&#x27;888888&#x27; where id = 7</span><br></pre></td></tr></table></figure>
+<h5 id="删除数据-delete"><a href="#删除数据-delete" class="headerlink" title="删除数据(delete)"></a>删除数据(delete)</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-- 从指定的表中，根据 where 条件，删除对应的数据行</span><br><span class="line">delete from 表名称 where 列名称 = 值</span><br><span class="line">delete from users where id = 4</span><br></pre></td></tr></table></figure>
+<h5 id="SQL-的-WHERE-子句"><a href="#SQL-的-WHERE-子句" class="headerlink" title="SQL 的 WHERE 子句"></a>SQL 的 WHERE 子句</h5><p>WHERE 子句用于限定选择的标准。在 SELECT、UPDATE、DELETE 语句中，皆可使用 WHERE 子句来限定选择的标准。</p>
+<h5 id="SQL-的-AND-和-OR-运算符"><a href="#SQL-的-AND-和-OR-运算符" class="headerlink" title="SQL 的 AND 和 OR 运算符"></a>SQL 的 AND 和 OR 运算符</h5><p>AND 和 OR 可在 WHERE 子语句中把两个或多个条件结合起来。<br>AND 表示必须同时满足多个条件，相当于 JavaScript 中的 &amp;&amp; 运算符，例如 if (a !&#x3D;&#x3D; 10 &amp;&amp; a !&#x3D;&#x3D; 20)<br>OR 表示只要满足任意一个条件即可，相当于 JavaScript 中的 || 运算符，例如 if(a !&#x3D;&#x3D; 10 || a !&#x3D;&#x3D; 20)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select * from users where status=0 and id&lt;3</span><br><span class="line">select * from users where status=1 or username=&#x27;zs&#x27;</span><br></pre></td></tr></table></figure>
+<h5 id="SQL-的-ORDER-BY-子句"><a href="#SQL-的-ORDER-BY-子句" class="headerlink" title="SQL 的 ORDER BY 子句"></a>SQL 的 ORDER BY 子句</h5><p>ORDER BY 语句用于根据指定的列对结果集进行排序。<br>ORDER BY 语句默认按照升序对记录进行排序。<br>如果您希望按照降序对记录进行排序，可以使用 DESC 关键字。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-- order by 默认进行升序排序</span><br><span class="line">-- 其中,asc关键字代表着升序</span><br><span class="line">select * from users order by status;</span><br><span class="line">select * from users order by status asc;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- desc关键字代表着降序</span><br><span class="line">select * from users order by id desc</span><br></pre></td></tr></table></figure>
+<p>多重排序<br>对 users 表中的数据，先按照 status 字段进行降序排序，再按照 username 的字母顺序，进行升序排序，示例如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from users order by status desc,username asc</span><br></pre></td></tr></table></figure>
+<h5 id="SQL的COUNT-函数"><a href="#SQL的COUNT-函数" class="headerlink" title="SQL的COUNT(*)函数"></a>SQL的COUNT(*)函数</h5><p>COUNT(*) 函数用于返回查询结果的总数据条数，语法格式如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">select count(*) from 表名称</span><br><span class="line">select count(*) from users where status=0</span><br><span class="line">-- 使用AS 为列设置别名</span><br><span class="line">select count(*) as total from users where status=0</span><br></pre></td></tr></table></figure>
+<h3 id="在项目中操作mysql"><a href="#在项目中操作mysql" class="headerlink" title="在项目中操作mysql"></a>在项目中操作mysql</h3><h4 id="在项目中操作数据库的步骤"><a href="#在项目中操作数据库的步骤" class="headerlink" title="在项目中操作数据库的步骤"></a>在项目中操作数据库的步骤</h4><p>1.安装操作 MySQL 数据库的第三方模块（mysql）<br>2.通过 mysql 模块连接到 MySQL 数据库<br>3.通过 mysql 模块执行 SQL 语句</p>
+<p>1.安装mysql模块</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i mysql</span><br></pre></td></tr></table></figure>
+<p>2.配置mysql模块<br>在使用 mysql 模块操作 MySQL 数据库之前，必须先对 mysql 模块进行必要的配置，主要的配置步骤如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. 导入mysql 模块</span></span><br><span class="line"><span class="keyword">const</span> mysql = <span class="built_in">require</span>(<span class="string">&#x27;mysql&#x27;</span>);</span><br><span class="line"><span class="comment">// 2. 建立与 mysql 数据库的连接</span></span><br><span class="line"><span class="keyword">const</span> db = mysql.<span class="title function_">createPool</span>(&#123;</span><br><span class="line">    <span class="attr">host</span>: <span class="string">&#x27;127.0.0.1&#x27;</span>,       <span class="comment">// 数据库的 IP 地址</span></span><br><span class="line">    <span class="attr">user</span>: <span class="string">&#x27;root&#x27;</span>,            <span class="comment">// 登录数据的账号</span></span><br><span class="line">    <span class="attr">password</span>: <span class="string">&#x27;admin123&#x27;</span>,    <span class="comment">// 登录数据库的密码</span></span><br><span class="line">    <span class="attr">database</span>: <span class="string">&#x27;my_db_01&#x27;</span>     <span class="comment">// 指定要操作哪个数据库            </span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>3.测试mysql模块能否正常工作<br>调用 db.query() 函数，指定要执行的 SQL 语句，通过回调函数拿到执行的结果：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">db.<span class="title function_">query</span>(<span class="string">&#x27;select 1&#x27;</span>,<span class="function">(<span class="params">err,results</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(err) <span class="keyword">return</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(err.<span class="property">message</span>);</span><br><span class="line">    <span class="comment">// 只要能打印出 [RowDataPacket &#123;&#x27;1&#x27;,1&#125;]的结果，就证明数据库连接正常</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(results);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="查询数据-select-1"><a href="#查询数据-select-1" class="headerlink" title="查询数据(select)"></a>查询数据(select)</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> sqlStr = <span class="string">&#x27;select * from users&#x27;</span>;</span><br><span class="line">db.<span class="title function_">query</span>(sqlStr,<span class="function">(<span class="params">err,results</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 查询失败</span></span><br><span class="line">    <span class="keyword">if</span>(err) <span class="keyword">return</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(err.<span class="property">message</span>);</span><br><span class="line">    <span class="comment">// 查询成功</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(results);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="插入数据-insert-into-1"><a href="#插入数据-insert-into-1" class="headerlink" title="插入数据(insert into)"></a>插入数据(insert into)</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.要插入到users表中的数据对象</span></span><br><span class="line"><span class="keyword">const</span> user = &#123;<span class="attr">username</span>: <span class="string">&#x27;Spider-Man5&#x27;</span>,<span class="attr">password</span>: <span class="string">&#x27;pcc5&#x27;</span>&#125;;</span><br><span class="line"><span class="comment">// 2.待执行的sql语句，其中英文的?表示占位符</span></span><br><span class="line"><span class="keyword">const</span> sqlStr = <span class="string">&#x27;insert into users (username,password) values (?,?)&#x27;</span>;</span><br><span class="line">db.<span class="title function_">query</span>(sqlStr,[user.<span class="property">username</span>,user.<span class="property">password</span>],<span class="function">(<span class="params">err,results</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(err) <span class="keyword">return</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(err.<span class="property">message</span>);    <span class="comment">//失败</span></span><br><span class="line">    <span class="keyword">if</span>(results.<span class="property">affectdRows</span> === <span class="number">1</span>) &#123;<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;插入数据成功&#x27;</span>);&#125;    <span class="comment">//成功</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>向表中新增数据时，如果数据对象的每个属性和数据表的字段一一对应，则可以通过如下方式快速插入数据：<br>快捷方式</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> user = &#123;<span class="attr">username</span>: <span class="string">&#x27;Spider-Man5&#x27;</span>,<span class="attr">password</span>: <span class="string">&#x27;pcc5&#x27;</span>&#125;;</span><br><span class="line"><span class="keyword">const</span> sqlStr = <span class="string">&#x27;INSERT INTO users SET ?&#x27;</span>;</span><br><span class="line">db.<span class="title function_">query</span>(sqlStr,user,<span class="function">(<span class="params">err,results</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(err) <span class="keyword">return</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(err.<span class="property">message</span>);    <span class="comment">//失败</span></span><br><span class="line">    <span class="keyword">if</span>(results.<span class="property">affectdRows</span> === <span class="number">1</span>) &#123;<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;插入数据成功&#x27;</span>);&#125;    <span class="comment">//成功</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="更新数据-update-1"><a href="#更新数据-update-1" class="headerlink" title="更新数据(update)"></a>更新数据(update)</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.要更新的数据对象</span></span><br><span class="line"><span class="keyword">const</span> user = &#123;<span class="attr">id</span>:<span class="number">5</span>,<span class="attr">username</span>:<span class="string">&#x27;aaa&#x27;</span>,<span class="attr">password</span>:<span class="string">&#x27;000&#x27;</span>&#125;;</span><br><span class="line"><span class="comment">// 2.要执行的SQL语句</span></span><br><span class="line"><span class="keyword">const</span> sqlStr = <span class="string">&#x27;update users set username=?,password=? where id=?&#x27;</span></span><br><span class="line"><span class="comment">// 3.调用 db.query() 执行 sql 语句的同时，使用数组依次为占位符指定具体的值</span></span><br><span class="line">db.<span class="title function_">query</span>(sqlStr,[user.<span class="property">username</span>,user.<span class="property">password</span>,user.<span class="property">id</span>],<span class="function">(<span class="params">err,results</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(err) <span class="keyword">return</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(err.<span class="property">message</span>);</span><br><span class="line">    <span class="keyword">if</span>(results.<span class="property">affectedRows</span> === <span class="number">1</span>) &#123;<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;更新数据成功!&#x27;</span>);&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>更新表数据时，如果数据对象的每个属性和数据表的字段一一对应，则可以通过如下方式快速更新表数据：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> user = &#123;<span class="attr">id</span>:<span class="number">5</span>,<span class="attr">username</span>:<span class="string">&#x27;aaa&#x27;</span>,<span class="attr">password</span>:<span class="string">&#x27;000&#x27;</span>&#125;;</span><br><span class="line"><span class="keyword">const</span> sqlStr = <span class="string">&#x27;update users set ? where id=?&#x27;</span>;</span><br><span class="line">db.<span class="title function_">query</span>(sqlStr,[user,user.<span class="property">id</span>],<span class="function">(<span class="params">err,results</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(err) <span class="keyword">return</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(err.<span class="property">message</span>);</span><br><span class="line">    <span class="keyword">if</span>(results.<span class="property">affectedRows</span> === <span class="number">1</span>) &#123;<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;更新数据成功!&#x27;</span>);&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="删除数据-delete-1"><a href="#删除数据-delete-1" class="headerlink" title="删除数据(delete)"></a>删除数据(delete)</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> sqlStr = <span class="string">&#x27;delete from users where id=?&#x27;</span>;</span><br><span class="line">db.<span class="title function_">query</span>(sqlStr,<span class="number">5</span>,<span class="function">(<span class="params">err,results</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(err) <span class="keyword">return</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(err.<span class="property">message</span>);</span><br><span class="line">    <span class="keyword">if</span>(results.<span class="property">affectedRows</span> === <span class="number">1</span>) &#123;<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;删除数据成功!&#x27;</span>);&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="标记删除"><a href="#标记删除" class="headerlink" title="标记删除"></a>标记删除</h4><p>使用 DELETE 语句，会把真正的把数据从表中删除掉。为了保险起见，推荐使用标记删除的形式，来模拟删除的动作。<br>所谓的标记删除，就是在表中设置类似于 status 这样的状态字段，来标记当前这条数据是否被删除。<br>当用户执行了删除的动作时，我们并没有执行 DELETE 语句把数据删除掉，而是执行了 UPDATE 语句，将这条数据对应的 status 字段标记为删除即可。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> sqlStr = <span class="string">&#x27;update users set status=1 where id=?&#x27;</span>;</span><br><span class="line">db.<span class="title function_">query</span>(sqlStr,<span class="number">2</span>,<span class="function">(<span class="params">err,results</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(err) <span class="keyword">return</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(err.<span class="property">message</span>);</span><br><span class="line">    <span class="keyword">if</span>(results.<span class="property">affectedRows</span> === <span class="number">1</span>) &#123;<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;删除数据成功!&#x27;</span>);&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1256,111 +1397,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/05/sessionStorage%E5%92%8ClocalStorage/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="柯建军">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="柯建军的博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 柯建军的博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/09/05/sessionStorage%E5%92%8ClocalStorage/" class="post-title-link" itemprop="url">sessionStorage和localStorage</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-09-05 12:17:02" itemprop="dateCreated datePublished" datetime="2022-09-05T12:17:02+08:00">2022-09-05</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-03-03 12:54:51" itemprop="dateModified" datetime="2023-03-03T12:54:51+08:00">2023-03-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>704</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="window-sessionStorage"><a href="#window-sessionStorage" class="headerlink" title="window.sessionStorage"></a>window.sessionStorage</h3><p>1.生命周期为关闭浏览器窗口<br>2.在同一窗口(页面)下数据可以共享<br>3.以键值对的形式存储使用</p>
-<p>语法</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 保存数据到 sessionStorage</span></span><br><span class="line">sessionStorage.<span class="title function_">setItem</span>(<span class="string">&#x27;key&#x27;</span>, <span class="string">&#x27;value&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 从 sessionStorage 获取数据</span></span><br><span class="line"><span class="keyword">let</span> data = sessionStorage.<span class="title function_">getItem</span>(<span class="string">&#x27;key&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 从 sessionStorage 删除保存的数据</span></span><br><span class="line">sessionStorage.<span class="title function_">removeItem</span>(<span class="string">&#x27;key&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 从 sessionStorage 删除所有保存的数据</span></span><br><span class="line">sessionStorage.<span class="title function_">clear</span>();</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="window-localStorage"><a href="#window-localStorage" class="headerlink" title="window.localStorage"></a>window.localStorage</h3><p>1.生命周期永久有效，除非手动删除，否则关闭页面也会存在<br>2.可以多窗口(页面)共享(同一浏览器可以共享)<br>3.以键值对的形式存储使用</p>
-<p>语法</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 保存数据到 sessionStorage</span></span><br><span class="line"><span class="variable language_">localStorage</span>.<span class="title function_">setItem</span>(<span class="string">&#x27;key&#x27;</span>, <span class="string">&#x27;value&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 从 sessionStorage 获取数据</span></span><br><span class="line"><span class="keyword">let</span> data = <span class="variable language_">localStorage</span>.<span class="title function_">getItem</span>(<span class="string">&#x27;key&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 从 sessionStorage 删除保存的数据</span></span><br><span class="line"><span class="variable language_">localStorage</span>.<span class="title function_">removeItem</span>(<span class="string">&#x27;key&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 从 sessionStorage 删除所有保存的数据</span></span><br><span class="line"><span class="variable language_">localStorage</span>.<span class="title function_">clear</span>();</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
@@ -1385,13 +1421,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">57k</span>
+    <span title="站点总字数">60k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">52 分钟</span>
+    <span title="站点阅读时长">54 分钟</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
