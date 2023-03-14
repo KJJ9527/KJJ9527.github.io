@@ -125,7 +125,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-count">30</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -168,6 +168,148 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/07/XMLHttpRequest%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E5%92%8C%E5%B0%81%E8%A3%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="柯建军">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="柯建军的博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 柯建军的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/09/07/XMLHttpRequest%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E5%92%8C%E5%B0%81%E8%A3%85/" class="post-title-link" itemprop="url">XMLHttpRequest的基本使用和封装</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-09-07 22:04:29" itemprop="dateCreated datePublished" datetime="2022-09-07T22:04:29+08:00">2022-09-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-03-03 12:54:35" itemprop="dateModified" datetime="2023-03-03T12:54:35+08:00">2023-03-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.9k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="XMLHttpRequest发起GET请求"><a href="#XMLHttpRequest发起GET请求" class="headerlink" title="XMLHttpRequest发起GET请求"></a>XMLHttpRequest发起GET请求</h3><p>步骤:<br>1.创建xhr对象<br>2.调用 xhr.open()函数<br>3.调用 xhr.send()函数<br>4.监听 xhr.onreadystatechange 事件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.创建xhr对象</span></span><br><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> <span class="title class_">XMLHttpRequest</span>();</span><br><span class="line"><span class="comment">// 2.调用 xhr.open()函数,指定 请求方式 与 URL地址</span></span><br><span class="line">xhr.<span class="title function_">open</span>(<span class="string">&#x27;GET&#x27;</span>,<span class="string">&#x27;http://www.liulongbin.top:3006/api/getbooks&#x27;</span>);</span><br><span class="line"><span class="comment">// 2.1 使用xhr发起带参数的GET请求  这种在 URL 地址后面拼接的参数，叫做查询字符串</span></span><br><span class="line"><span class="comment">// xhr.open(&#x27;GET&#x27;, &#x27;http://www.liulongbin.top:3006/api/getbooks?id=1&#x27;);</span></span><br><span class="line"><span class="comment">// 3.调用 send函数 发起ajax 请求</span></span><br><span class="line">xhr.<span class="title function_">send</span>();</span><br><span class="line"><span class="comment">// 4.监听 onreadystatechange 事件</span></span><br><span class="line">xhr.<span class="property">onreadystatechange</span> = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 4.1 监听 xhr 对象的请求状态 readyState;与服务器响应的状态 status</span></span><br><span class="line">    <span class="keyword">if</span>(xhr.<span class="property">readyState</span> === <span class="number">4</span> &amp;&amp; xhr.<span class="property">status</span> === <span class="number">200</span>) &#123;</span><br><span class="line">        <span class="comment">// 4.2 打印服务器响应回来的数据</span></span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(xhr.<span class="property">responseText</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="了解xhr对象的readyState属性"><a href="#了解xhr对象的readyState属性" class="headerlink" title="了解xhr对象的readyState属性"></a>了解xhr对象的readyState属性</h3><p>XMLHttpRequest 对象的 readyState 属性，用来表示当前 Ajax 请求所处的状态。每个 Ajax 请求必然处于以下状态中的一个：</p>
+<table>
+<thead>
+<tr>
+<th align="center">值</th>
+<th align="center">状态</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">0</td>
+<td align="center">UNSENT</td>
+<td align="center">XMLHttpRequest 对象已被创建，但尚未调用 open方法</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">OPENED</td>
+<td align="center">open() 方法已经被调用</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">HEADERS_RECEIVED</td>
+<td align="center">send() 方法已经被调用，响应头也已经被接收</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">LOADING</td>
+<td align="center">数据接收中，此时 response 属性中已经包含部分数据</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center">DONE</td>
+<td align="center">Ajax 请求完成，这意味着数据传输已经彻底完成或失败</td>
+</tr>
+</tbody></table>
+<h3 id="XMLHttpRequest发起POST请求"><a href="#XMLHttpRequest发起POST请求" class="headerlink" title="XMLHttpRequest发起POST请求"></a>XMLHttpRequest发起POST请求</h3><p>1.创建 xhr对象<br>2.调用 xhr.open()函数<br>3.设置 Content-Type属性(固定写法)<br>4.调用 xhr.send()函数，同时指定要发送的数据<br>5.监听 xhr.onreadystatechange 事件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.创建 xhr对象</span></span><br><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> <span class="title class_">XMLHttpRequest</span>();</span><br><span class="line"><span class="comment">// 2.调用 open()</span></span><br><span class="line">xhr.<span class="title function_">open</span>(<span class="string">&#x27;POST&#x27;</span>,<span class="string">&#x27;http://www.liulongbin.top:3006/api/addbook&#x27;</span>);</span><br><span class="line"><span class="comment">// 3.设置 Content-Type属性(固定写法)</span></span><br><span class="line">xhr.<span class="title function_">setRequestHeader</span>(<span class="string">&#x27;Content-Type&#x27;</span>,<span class="string">&#x27;application/x-www-form-urlencoded&#x27;</span>);</span><br><span class="line"><span class="comment">// 4.调用 xhr.send()函数，同时将数据以查询字符串的形式，提交给服务器</span></span><br><span class="line">xhr.<span class="title function_">send</span>(<span class="string">&#x27;bookname=水浒传&amp;author=施耐庵&amp;publisher=天津图书出版社&#x27;</span>)</span><br><span class="line"><span class="comment">// 5.监听 xhr.onreadystatechange 事件</span></span><br><span class="line">xhr.<span class="property">onreadystatechange</span> = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(xhr.<span class="property">readyState</span> === <span class="number">4</span> &amp;&amp; xhr.<span class="property">status</span> === <span class="number">200</span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(xhr.<span class="property">responseText</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="封装自己的Ajax函数"><a href="#封装自己的Ajax函数" class="headerlink" title="封装自己的Ajax函数"></a>封装自己的Ajax函数</h3><p>要实现的效果</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">ajax</span>(&#123;</span><br><span class="line">    <span class="attr">method</span>: <span class="string">&#x27;请求类型&#x27;</span>,</span><br><span class="line">    <span class="attr">url</span>: <span class="string">&#x27;请求地址&#x27;</span>,</span><br><span class="line">    <span class="attr">data</span>: &#123;</span><br><span class="line">        请求参数对象</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">success</span>: <span class="function">(<span class="params">res</span>) =&gt;</span> &#123;		<span class="comment">// 成功的回调函数</span></span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(res);	<span class="comment">//打印数据</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 需要把data对象，转化成查询字符串的形式，从而提交给服务器，因此提前定义 resolveData 函数如下:</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 处理 data 参数</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">data</span>&#125; 需要发送到服务器的数据</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@returns</span> &#123;<span class="type">string</span>&#125; 返回拼接好的查询字符串 name=zs&amp;age=10</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">resolveData</span>(<span class="params">data</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> arr = [];</span><br><span class="line">    <span class="comment">// 遍历对象，k=value</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> k <span class="keyword">in</span> data) &#123;</span><br><span class="line">        arr.<span class="title function_">push</span>(k + <span class="string">&#x27;=&#x27;</span>+ data[k]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 将数组连成字符串，用&amp;分隔符</span></span><br><span class="line">    <span class="keyword">return</span> arr.<span class="title function_">join</span>(<span class="string">&#x27;&amp;&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义ajax函数</span></span><br><span class="line"><span class="comment">// 在ajax()函数中，需要创建xhr对象，并监听 onreadystatechange 事件</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">ajax</span>(<span class="params">options</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> xhr = <span class="keyword">new</span> <span class="title class_">XMLHttpRequest</span>();</span><br><span class="line">    <span class="comment">// 拼接查询字符串</span></span><br><span class="line">    <span class="keyword">let</span> qs = <span class="title function_">resolveData</span>(options.<span class="property">data</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 监听请求状态改变的事件</span></span><br><span class="line">    xhr.<span class="property">onreadystatechange</span> = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(xhr.<span class="property">readyState</span> === <span class="number">4</span> &amp;&amp; xhr.<span class="property">status</span> === <span class="number">200</span>) &#123;</span><br><span class="line">            <span class="comment">// JSON.parse()，把字符串转换为数据对象</span></span><br><span class="line">            <span class="keyword">let</span> result = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(xhr.<span class="property">responseText</span>);</span><br><span class="line">            options.<span class="title function_">success</span>(result);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(options.<span class="property">method</span>.<span class="title function_">toUpperCase</span>() === <span class="string">&#x27;GET&#x27;</span>) &#123;</span><br><span class="line">        <span class="comment">// 发起GET请求</span></span><br><span class="line">        xhr.<span class="title function_">open</span>(options.<span class="property">method</span>,options.<span class="property">url</span>+ <span class="string">&#x27;?&#x27;</span> + qs);</span><br><span class="line">        xhr.<span class="title function_">send</span>()</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span>(options.<span class="property">method</span>.<span class="title function_">toUpperCase</span>() === <span class="string">&#x27;POST&#x27;</span>) &#123;</span><br><span class="line">        <span class="comment">// 发起POST请求</span></span><br><span class="line">        xhr.<span class="title function_">open</span>(options.<span class="property">method</span>,options.<span class="property">url</span>);</span><br><span class="line">        xhr.<span class="title function_">setRequestHeader</span>(<span class="string">&#x27;Content-Type&#x27;</span>,<span class="string">&#x27;application/x-www-form-urlencoded&#x27;</span>);</span><br><span class="line">        xhr.<span class="title function_">send</span>(qs);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1145,13 +1287,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">60k</span>
+    <span title="站点总字数">64k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">55 分钟</span>
+    <span title="站点阅读时长">58 分钟</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动

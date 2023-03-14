@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="使用Link,NavLink方式创建路由1234567891011121314&amp;#123;&#x2F;* 路由链接，Link和NavLink最终会被转为&lt;a&gt;标签 to被转为href*&#x2F;&amp;#125;&lt;NavLink to&#x3D;&quot;login&quot;&gt;登录&lt;&#x2F;NavLink&gt;&lt;NavLink to&#x3D;&quot;register&quot;&gt;注册&lt;&#x2F;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React路由">
+<meta property="og:url" content="http://example.com/2023/03/14/React%E8%B7%AF%E7%94%B1/index.html">
+<meta property="og:site_name" content="柯建军的博客">
+<meta property="og:description" content="使用Link,NavLink方式创建路由1234567891011121314&amp;#123;&#x2F;* 路由链接，Link和NavLink最终会被转为&lt;a&gt;标签 to被转为href*&#x2F;&amp;#125;&lt;NavLink to&#x3D;&quot;login&quot;&gt;登录&lt;&#x2F;NavLink&gt;&lt;NavLink to&#x3D;&quot;register&quot;&gt;注册&lt;&#x2F;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-03-14T12:29:45.186Z">
+<meta property="article:modified_time" content="2023-03-14T15:03:22.682Z">
+<meta property="article:author" content="柯建军">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2023/03/14/React%E8%B7%AF%E7%94%B1/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2023/03/14/React%E8%B7%AF%E7%94%B1/","path":"2023/03/14/React路由/","title":"React路由"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>React路由 | 柯建军的博客</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">柯建军的博客</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-首页"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-标签"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-分类"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-归档"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-资源"><a href="/resource/" rel="section"><i class="fa fa-download fa-fw fa-fw"></i>资源</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8Link-NavLink%E6%96%B9%E5%BC%8F%E5%88%9B%E5%BB%BA%E8%B7%AF%E7%94%B1"><span class="nav-number">1.</span> <span class="nav-text">使用Link,NavLink方式创建路由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E8%B7%AF%E7%94%B1%E8%A1%A8%E9%9B%86%E4%B8%AD%E7%AE%A1%E7%90%86%E6%B3%A8%E5%86%8C%E8%B7%AF%E7%94%B1"><span class="nav-number">2.</span> <span class="nav-text">使用路由表集中管理注册路由</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#react-router-dom-version6%E6%94%AF%E6%8C%81%E5%8E%9F%E7%94%9F%E8%B7%AF%E7%94%B1%E8%A1%A8"><span class="nav-number">2.1.</span> <span class="nav-text">react-router-dom version6支持原生路由表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E7%A8%8B%E5%BC%8F%E8%B7%AF%E7%94%B1%E5%AF%BC%E8%88%AA"><span class="nav-number">3.</span> <span class="nav-text">编程式路由导航</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%BC%8F"><span class="nav-number">4.</span> <span class="nav-text">函数式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8useNavigate-%E8%BF%9B%E8%A1%8C%E7%BC%96%E7%A8%8B%E5%BC%8F%E8%B7%AF%E7%94%B1%E5%AF%BC%E8%88%AA%EF%BC%8CuseNavigate%E7%9A%84%E4%BD%9C%E7%94%A8%E5%B0%B1%E6%98%AF%E8%BF%94%E5%9B%9E%E4%B8%80%E4%B8%AA%E5%87%BD%E6%95%B0"><span class="nav-number">4.1.</span> <span class="nav-text">使用useNavigate()进行编程式路由导航，useNavigate的作用就是返回一个函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B1%BB%E5%BC%8F"><span class="nav-number">5.</span> <span class="nav-text">类式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%80%9F%E5%8A%A9this-props-history%E4%B8%AD%E7%9A%84%E5%B1%9E%E6%80%A7%E4%B9%9F%E8%83%BD%E5%AE%9E%E7%8E%B0%E8%B7%AF%E7%94%B1%E8%B7%B3%E8%BD%AC"><span class="nav-number">5.1.</span> <span class="nav-text">借助this.props.history中的属性也能实现路由跳转</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="柯建军"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">柯建军</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/KJJ9527" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;KJJ9527" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:963707772@qq.com" title="E-Mail → mailto:963707772@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/14/React%E8%B7%AF%E7%94%B1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="柯建军">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="柯建军的博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="React路由 | 柯建军的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          React路由
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2023-03-14 20:29:45 / 修改时间：23:03:22" itemprop="dateCreated datePublished" datetime="2023-03-14T20:29:45+08:00">2023-03-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>4.2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="使用Link-NavLink方式创建路由"><a href="#使用Link-NavLink方式创建路由" class="headerlink" title="使用Link,NavLink方式创建路由"></a>使用Link,NavLink方式创建路由</h2><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="comment">/* 路由链接，Link和NavLink最终会被转为&lt;a&gt;标签 to被转为href*/</span>&#125;</span><br><span class="line">&lt;<span class="title class_">NavLink</span> to=<span class="string">&quot;login&quot;</span>&gt;登录&lt;/<span class="title class_">NavLink</span>&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">NavLink</span> <span class="attr">to</span>=<span class="string">&quot;register&quot;</span>&gt;</span>注册<span class="tag">&lt;/<span class="name">NavLink</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">NavLink</span> <span class="attr">to</span>=<span class="string">&quot;home&quot;</span>&gt;</span>主页<span class="tag">&lt;/<span class="name">NavLink</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">NavLink</span> <span class="attr">to</span>=<span class="string">&quot;mine&quot;</span>&gt;</span>我的<span class="tag">&lt;/<span class="name">NavLink</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line">&#123;<span class="comment">/* 注册路由，展示对应的路由组件，&quot;/&quot; 可省略 */</span>&#125;</span><br><span class="line">&lt;<span class="title class_">Routes</span>&gt;</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;/Login&quot;</span> <span class="attr">element</span>=<span class="string">&#123;</span>&lt;<span class="attr">Login</span> /&gt;</span>&#125;&gt;<span class="tag">&lt;/<span class="name">Route</span>&gt;</span></span></span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;/Register&quot;</span> <span class="attr">element</span>=<span class="string">&#123;</span>&lt;<span class="attr">Register</span> /&gt;</span>&#125;&gt;<span class="tag">&lt;/<span class="name">Route</span>&gt;</span></span></span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;/Home/*&quot;</span> <span class="attr">element</span>=<span class="string">&#123;</span>&lt;<span class="attr">Home</span> /&gt;</span>&#125;&gt;<span class="tag">&lt;/<span class="name">Route</span>&gt;</span></span>		&#123;<span class="comment">/* 有二级路由用 &quot;/*&quot;模糊匹配 */</span>&#125;</span><br><span class="line">    &lt;<span class="title class_">Route</span> path=<span class="string">&quot;/Mine&quot;</span> element=&#123;<span class="language-xml"><span class="tag">&lt;<span class="name">Mine</span> /&gt;</span></span>&#125;&gt;&lt;/<span class="title class_">Route</span>&gt;</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;/&quot;</span> <span class="attr">element</span>=<span class="string">&#123;</span>&lt;<span class="attr">Navigate</span> <span class="attr">to</span>=<span class="string">&quot;/home&quot;</span> /&gt;</span>&#125;&gt;<span class="tag">&lt;/<span class="name">Route</span>&gt;</span></span>		&#123;<span class="comment">/* 作用：只要&lt;Navigate&gt;组件被渲染，就会修改路径，切换视图 */</span>&#125;</span><br><span class="line">&lt;/<span class="title class_">Routes</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用路由表集中管理注册路由"><a href="#使用路由表集中管理注册路由" class="headerlink" title="使用路由表集中管理注册路由"></a>使用路由表集中管理注册路由</h2><h3 id="react-router-dom-version6支持原生路由表"><a href="#react-router-dom-version6支持原生路由表" class="headerlink" title="react-router-dom version6支持原生路由表"></a>react-router-dom version6支持原生路由表</h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建routes目录，一般在src目录下创建</span></span><br><span class="line">&#123;<span class="comment">/* 在routes.js下导入所有路由组件 */</span>&#125;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Navigate</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;react-router-dom&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Home</span> <span class="keyword">from</span> <span class="string">&#x27;../pages/Home&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Login</span> <span class="keyword">from</span> <span class="string">&#x27;../pages/Login&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Register</span> <span class="keyword">from</span> <span class="string">&#x27;../pages/Register&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Mine</span> <span class="keyword">from</span> <span class="string">&#x27;../pages/Mine&#x27;</span></span><br><span class="line"><span class="comment">// 子路由</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Detail</span> <span class="keyword">from</span> <span class="string">&#x27;../pages/Home/Detail&#x27;</span></span><br><span class="line"><span class="comment">// 路由表，[&#123;path:&#x27;...&#x27;,element:&lt;/&gt;,children:[&#123;...&#125;]&#125;,&#123;...&#125;]</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> routes = [</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>:<span class="string">&#x27;/Home/*&#x27;</span>,</span><br><span class="line">    <span class="attr">element</span>: <span class="language-xml"><span class="tag">&lt;<span class="name">Home</span> /&gt;</span></span>,</span><br><span class="line">    <span class="attr">children</span>:[</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">path</span>:<span class="string">&#x27;Detail&#x27;</span>,</span><br><span class="line">        <span class="attr">element</span>: <span class="language-xml"><span class="tag">&lt;<span class="name">Detail</span> /&gt;</span></span></span><br><span class="line">      &#125;,</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>:<span class="string">&#x27;/Login&#x27;</span>,</span><br><span class="line">    <span class="attr">element</span>: <span class="language-xml"><span class="tag">&lt;<span class="name">Login</span> /&gt;</span></span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>:<span class="string">&#x27;/Register&#x27;</span>,</span><br><span class="line">    <span class="attr">element</span>: <span class="language-xml"><span class="tag">&lt;<span class="name">Register</span> /&gt;</span></span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>:<span class="string">&#x27;/Mine&#x27;</span>,</span><br><span class="line">    <span class="attr">element</span>: <span class="language-xml"><span class="tag">&lt;<span class="name">Mine</span> /&gt;</span></span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>:<span class="string">&#x27;/&#x27;</span>,</span><br><span class="line">    <span class="attr">element</span>: <span class="language-xml"><span class="tag">&lt;<span class="name">Navigate</span> <span class="attr">to</span>=<span class="string">&quot;/Home&quot;</span> /&gt;</span></span></span><br><span class="line">  &#125;,</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在对应路由文件中引入钩子函数 useRoutes、引入路由表文件</span></span><br><span class="line"><span class="keyword">import</span> &#123; useRoutes &#125; <span class="keyword">from</span> <span class="string">&#x27;react-router-dom&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123;routes&#125;  <span class="keyword">from</span> <span class="string">&#x27;./routes&#x27;</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">App</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> element = <span class="title function_">useRoutes</span>(routes)</span><br><span class="line">  <span class="keyword">return</span>(</span><br><span class="line">  	<span class="language-xml"><span class="tag">&lt;<span class="name">NavLink</span> <span class="attr">to</span>=<span class="string">&quot;login&quot;</span>&gt;</span>登录<span class="tag">&lt;/<span class="name">NavLink</span>&gt;</span></span></span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">NavLink</span> <span class="attr">to</span>=<span class="string">&quot;register&quot;</span>&gt;</span>注册<span class="tag">&lt;/<span class="name">NavLink</span>&gt;</span></span></span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">NavLink</span> <span class="attr">to</span>=<span class="string">&quot;home&quot;</span>&gt;</span>主页<span class="tag">&lt;/<span class="name">NavLink</span>&gt;</span></span></span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">NavLink</span> <span class="attr">to</span>=<span class="string">&quot;mine&quot;</span>&gt;</span>我的<span class="tag">&lt;/<span class="name">NavLink</span>&gt;</span></span></span><br><span class="line">	&#123;<span class="comment">/* before */</span>&#125;</span><br><span class="line">	&lt;<span class="title class_">Routes</span>&gt;</span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;/Login&quot;</span> <span class="attr">element</span>=<span class="string">&#123;</span>&lt;<span class="attr">Login</span> /&gt;</span>&#125;&gt;<span class="tag">&lt;/<span class="name">Route</span>&gt;</span></span></span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;/Register&quot;</span> <span class="attr">element</span>=<span class="string">&#123;</span>&lt;<span class="attr">Register</span> /&gt;</span>&#125;&gt;<span class="tag">&lt;/<span class="name">Route</span>&gt;</span></span></span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;/Home/*&quot;</span> <span class="attr">element</span>=<span class="string">&#123;</span>&lt;<span class="attr">Home</span> /&gt;</span>&#125;&gt;<span class="tag">&lt;/<span class="name">Route</span>&gt;</span></span>		&#123;<span class="comment">/* 有二级路由用 &quot;/*&quot;模糊匹配 */</span>&#125;</span><br><span class="line">        &lt;<span class="title class_">Route</span> path=<span class="string">&quot;/Mine&quot;</span> element=&#123;<span class="language-xml"><span class="tag">&lt;<span class="name">Mine</span> /&gt;</span></span>&#125;&gt;&lt;/<span class="title class_">Route</span>&gt;</span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;/&quot;</span> <span class="attr">element</span>=<span class="string">&#123;</span>&lt;<span class="attr">Navigate</span> <span class="attr">to</span>=<span class="string">&quot;/home&quot;</span> /&gt;</span>&#125;&gt;<span class="tag">&lt;/<span class="name">Route</span>&gt;</span></span></span><br><span class="line">    &lt;/<span class="title class_">Routes</span>&gt;</span><br><span class="line">	&#123;<span class="comment">/* after */</span>&#125;</span><br><span class="line">	&#123;element&#125;		<span class="comment">// 等同于&lt;Routes&gt;&lt;Route&gt;&lt;/Route&gt;&lt;/Routes&gt;</span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 如示例代码中在路由组件&lt;Home/&gt;中有二级路由&lt;Detail/&gt;，那么在&lt;Home/&gt;组件中引入 Outlet</span></span><br><span class="line"><span class="comment">// home.js</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">React</span> <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">NavLink</span>,<span class="title class_">Outlet</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;react-router-dom&#x27;</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">Home</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">div</span>&gt;</span>主页<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">NavLink</span> <span class="attr">to</span>=<span class="string">&quot;detail&quot;</span>&gt;</span>详情<span class="tag">&lt;/<span class="name">NavLink</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">Outlet</span> /&gt;</span>	// 和 &#123;element&#125; 相似</span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">Home</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="编程式路由导航"><a href="#编程式路由导航" class="headerlink" title="编程式路由导航"></a>编程式路由导航</h2><p>使用Link或NavLink方式跳转路由有很多的局限性，如在3秒后路由自动跳转，鼠标滑过图片路由跳转，这些用Link很难实现路由跳转。于是就有了编程式路由导航，不使用Link或NavLink就是编程式路由导航。</p>
+<h2 id="函数式"><a href="#函数式" class="headerlink" title="函数式"></a>函数式</h2><h3 id="使用useNavigate-进行编程式路由导航，useNavigate的作用就是返回一个函数"><a href="#使用useNavigate-进行编程式路由导航，useNavigate的作用就是返回一个函数" class="headerlink" title="使用useNavigate()进行编程式路由导航，useNavigate的作用就是返回一个函数"></a>使用useNavigate()进行编程式路由导航，useNavigate的作用就是返回一个函数</h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 引入 useNavigate</span></span><br><span class="line"><span class="keyword">import</span> &#123;useNavigate&#125; <span class="keyword">from</span> <span class="string">&#x27;react-router-dom&#x27;</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">App</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> element = <span class="title function_">useRoutes</span>(routes)		<span class="comment">// 路由表</span></span><br><span class="line">  <span class="keyword">const</span> navigate = <span class="title function_">useNavigate</span>()		<span class="comment">// 返回一个函数</span></span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">handle</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">    <span class="comment">// 第一种方式，指定具体的路径</span></span><br><span class="line">    <span class="title function_">navigate</span>(<span class="string">&#x27;/login&#x27;</span>,&#123;				<span class="comment">// 调用函数，参数1---&gt;要跳转的路由路径</span></span><br><span class="line">      <span class="attr">replace</span>:<span class="literal">false</span>,				<span class="comment">// 参数2[可选]---&gt;replace，路由跳转模式,默认push模式，有痕迹，replace模式，true时无痕迹</span></span><br><span class="line">      <span class="attr">state</span>:&#123;<span class="attr">a</span>:<span class="number">1</span>,<span class="attr">b</span>:<span class="number">2</span>&#125;				<span class="comment">// 向路由组件传递state参数，示例中就向&lt;login/&gt;传递了参数</span></span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="comment">// 第二种方式，传入数值进行前进或后退，类似于5.x中的history.go()方法</span></span><br><span class="line">    <span class="comment">// navigate(-1)</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;handle&#125;</span>&gt;</span>按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="类式"><a href="#类式" class="headerlink" title="类式"></a>类式</h2><h3 id="借助this-props-history中的属性也能实现路由跳转"><a href="#借助this-props-history中的属性也能实现路由跳转" class="headerlink" title="借助this.props.history中的属性也能实现路由跳转"></a>借助this.props.history中的属性也能实现路由跳转</h3>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/03/12/Effect%E5%87%A0%E7%A7%8D%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F/" rel="prev" title="Effect几种使用方式">
+                  <i class="fa fa-chevron-left"></i> Effect几种使用方式
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">柯建军</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">64k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">58 分钟</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
