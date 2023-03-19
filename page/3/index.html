@@ -125,7 +125,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-count">32</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -168,6 +168,152 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/11/%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5%E5%92%8C%E8%B7%A8%E5%9F%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="柯建军">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="柯建军的博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 柯建军的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/09/11/%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5%E5%92%8C%E8%B7%A8%E5%9F%9F/" class="post-title-link" itemprop="url">同源策略和跨域</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-09-11 18:17:36" itemprop="dateCreated datePublished" datetime="2022-09-11T18:17:36+08:00">2022-09-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-03-03 12:54:10" itemprop="dateModified" datetime="2023-03-03T12:54:10+08:00">2023-03-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.6k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="1-1-同源策略"><a href="#1-1-同源策略" class="headerlink" title="1.1 同源策略"></a>1.1 同源策略</h3><h4 id="1-什么是同源"><a href="#1-什么是同源" class="headerlink" title="1. 什么是同源"></a>1. 什么是同源</h4><p>如果两个页面的协议，域名和端口都相同，则两个页面具有相同的源<br>列如，下表给出了相对于 <a target="_blank" rel="noopener" href="http://www.test.com/index.html">http://www.test.com/index.html</a> 页面的同源检测:</p>
+<table>
+<thead>
+<tr>
+<th align="center">URL</th>
+<th align="center">是否同源</th>
+<th align="center">原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><a target="_blank" rel="noopener" href="http://www.test.com/other.html">http://www.test.com/other.html</a></td>
+<td align="center">是</td>
+<td align="center">同源（协议、域名、端口相同)</td>
+</tr>
+<tr>
+<td align="center"><a target="_blank" rel="noopener" href="https://www.test.com/about.html">https://www.test.com/about.html</a></td>
+<td align="center">否</td>
+<td align="center">协议不同（http 与 https）</td>
+</tr>
+<tr>
+<td align="center"><a target="_blank" rel="noopener" href="http://blog.test.com/movie.html">http://blog.test.com/movie.html</a></td>
+<td align="center">否</td>
+<td align="center">域名不同（<a target="_blank" rel="noopener" href="http://www.test.com/">www.test.com</a> 与 blog.test.com）</td>
+</tr>
+<tr>
+<td align="center"><a target="_blank" rel="noopener" href="http://www.test.com:7001/home.html">http://www.test.com:7001/home.html</a></td>
+<td align="center">否</td>
+<td align="center">端口不同（默认的 80 端口与 7001 端口）</td>
+</tr>
+<tr>
+<td align="center"><a target="_blank" rel="noopener" href="http://www.test.com/main.html">http://www.test.com:80/main.html</a></td>
+<td align="center">是</td>
+<td align="center">同源（协议、域名、端口相同）</td>
+</tr>
+</tbody></table>
+<h4 id="2-什么是同源策略"><a href="#2-什么是同源策略" class="headerlink" title="2. 什么是同源策略"></a>2. 什么是同源策略</h4><p>同源策略(英文全称Same origin policy) 是浏览器提供的一个安全功能<br>MDN官方给定的概念：同源策略限制了从同一个源加载的文档或脚本如何与来自另一个源的资源进行互换。这是一个用于隔离潜在恶意文件的重要安全机制<br>通俗的理解：浏览器规定，A网站的JavaScript，不允许和非同源的网站C之间，进行资源的交互，例如:<br>1.无法读取非同源网页的Cookie，LocalStorage和IndexedDB<br>2.无法接触非同源网页的DOM<br>3.无法向非同源地址发送Ajax请求</p>
+<h3 id="1-2-跨域"><a href="#1-2-跨域" class="headerlink" title="1.2 跨域"></a>1.2 跨域</h3><h4 id="1-什么是跨域"><a href="#1-什么是跨域" class="headerlink" title="1. 什么是跨域"></a>1. 什么是跨域</h4><p>同源指的是两个URL的协议、域名、端口一致，反之，则是跨域<br>出现跨域的根本原因:浏览器的同源策略不允许非同源的URL之间进行资源的互换</p>
+<h4 id="2-浏览器对跨域请求的拦截"><a href="#2-浏览器对跨域请求的拦截" class="headerlink" title="2. 浏览器对跨域请求的拦截"></a>2. 浏览器对跨域请求的拦截</h4><p><img src="/2022/09/11/%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5%E5%92%8C%E8%B7%A8%E5%9F%9F/%E8%B7%A8%E5%9F%9F.png" alt="跨域"></p>
+<p>3.如何实现跨域数据请求<br>现如今，实现跨域数据请求，最主要的两种解决方案，分别是JSONP和CORS<br>JSONP：出现的早，兼容性好(兼容低版本IE)。是前端程序员为了解决跨域问题，被迫想出来的一种临时解决方案。缺点是只支持GET请求，不支持POST请求。<br>CORS：出现的较晚，它是W3C标准，属于跨域Ajax请求的根本解决方案。支持GET和POST请求。缺点是不兼容某些低版本的浏览器</p>
+<h4 id="2-1-什么是JSONP"><a href="#2-1-什么是JSONP" class="headerlink" title="2.1 什么是JSONP"></a>2.1 什么是JSONP</h4><p>JSONP(JSON with Padding)是JSON的一种”使用模式”,可用于解决主流浏览器的跨域数据访问的问题</p>
+<h4 id="2-2-JSONP的实现原理"><a href="#2-2-JSONP的实现原理" class="headerlink" title="2.2 JSONP的实现原理"></a>2.2 JSONP的实现原理</h4><p>由于浏览器同源策略的限制，网页中无法通过Ajax请求非同源的接口数据。但是<code>&lt;script&gt;</code>标签不受浏览器同源策略的影响，可以通过src属性，请求非同源的js脚本<br>因此，JSONP的实现原理，就是通过<code>&lt;script&gt;</code>标签的src属性，请求跨域的数据接口，并通过函数调用的形式，接收跨域接口响应回来的数据</p>
+<h4 id="2-3-自己实现一个简单的JSONP"><a href="#2-3-自己实现一个简单的JSONP" class="headerlink" title="2.3 自己实现一个简单的JSONP"></a>2.3 自己实现一个简单的JSONP</h4><p>定义一个success回调函数：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">success</span>(<span class="params">data</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;获取到了data数据&#x27;</span>);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(data);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过<code>&lt;script&gt;</code>标签，请求接口数据:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">&quot;http://ajax.frontend.itheima.net:3006/api/jsonp?callback=success&amp;name=zs&amp;age=20&quot;</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-4-JSONP的缺点"><a href="#2-4-JSONP的缺点" class="headerlink" title="2.4 JSONP的缺点"></a>2.4 JSONP的缺点</h4><p>由于JSONP是通过<code>&lt;script&gt;</code>标签的src属性，来实现跨域数据获取的，所以，JSONP只支持GET数据请求，不支持POST请求<br>注意：JSONP和Ajax之间没有任何关系，不能把JSONP请求数据的方式叫做Ajax，因为JSONP没有用到XMLHttpRequest这个对象</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1186,107 +1332,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/14/css%E7%B2%BE%E7%81%B5%E5%9B%BE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="柯建军">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="柯建军的博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 柯建军的博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/14/css%E7%B2%BE%E7%81%B5%E5%9B%BE/" class="post-title-link" itemprop="url">精灵图</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-07-14 13:28:22" itemprop="dateCreated datePublished" datetime="2022-07-14T13:28:22+08:00">2022-07-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-03-03 12:58:00" itemprop="dateModified" datetime="2023-03-03T12:58:00+08:00">2023-03-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>160</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="精灵图"><a href="#精灵图" class="headerlink" title="精灵图"></a>精灵图</h2><p>所谓精灵图就是将项目中的小图片合成在一张大图片上，这张大图片被称为精灵图。<br>精灵图可以减少服务器发送次数，减轻服务器的压力，提高页面加载速度。</p>
-<h2 id="使用精灵图"><a href="#使用精灵图" class="headerlink" title="使用精灵图"></a>使用精灵图</h2><p>1.创建一个盒子，将小图片的宽高设置给盒子<br>2.将精灵图设置为盒子的背景图片<br>3.通过测量小图片的坐标，分别取负值给盒子的background-position: x y;</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
@@ -1311,13 +1356,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">65k</span>
+    <span title="站点总字数">66k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">59 分钟</span>
+    <span title="站点阅读时长">1:01</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动

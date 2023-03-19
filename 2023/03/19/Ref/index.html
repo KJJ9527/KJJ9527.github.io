@@ -20,29 +20,27 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="pubsub-jspubsub-js使用消息订阅发布机制用于组件之间传递数据，理解订阅发布机制  123456&#x2F;&#x2F; 导入包npm i pubsub-jsoryarn add pubsub-jsimport PubSub from &amp;#x27;pubsub-js&amp;#x27;  1234567891011&#x2F;&#x2F; A组件发布&#x2F;&#x2F; PubSub.publish(&amp;#x27;约定的主题&amp;#x27;, 要传的数">
+    <meta name="description" content="RefReact 支持一个特殊的、可以附加到任何组件上的 ref 属性。此属性可以是一个由 React.createRef() 函数创建的对象、或者一个回调函数、或者一个字符串（遗留 API）。当 ref 属性是一个回调函数时，此函数会（根据元素的类型）接收底层 DOM 元素或 class 实例作为其参数。这能够让你直接访问 DOM 元素或组件实例。 谨慎使用 ref。如果你发现自己经常使用 re">
 <meta property="og:type" content="article">
-<meta property="og:title" content="消息订阅发布：pubsub-js">
-<meta property="og:url" content="http://example.com/2023/03/10/%E6%B6%88%E6%81%AF%E8%AE%A2%E9%98%85%E5%8F%91%E5%B8%83pubsub-js/index.html">
+<meta property="og:title" content="Ref">
+<meta property="og:url" content="http://example.com/2023/03/19/Ref/index.html">
 <meta property="og:site_name" content="柯建军的博客">
-<meta property="og:description" content="pubsub-jspubsub-js使用消息订阅发布机制用于组件之间传递数据，理解订阅发布机制  123456&#x2F;&#x2F; 导入包npm i pubsub-jsoryarn add pubsub-jsimport PubSub from &amp;#x27;pubsub-js&amp;#x27;  1234567891011&#x2F;&#x2F; A组件发布&#x2F;&#x2F; PubSub.publish(&amp;#x27;约定的主题&amp;#x27;, 要传的数">
+<meta property="og:description" content="RefReact 支持一个特殊的、可以附加到任何组件上的 ref 属性。此属性可以是一个由 React.createRef() 函数创建的对象、或者一个回调函数、或者一个字符串（遗留 API）。当 ref 属性是一个回调函数时，此函数会（根据元素的类型）接收底层 DOM 元素或 class 实例作为其参数。这能够让你直接访问 DOM 元素或组件实例。 谨慎使用 ref。如果你发现自己经常使用 re">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2023/03/10/%E6%B6%88%E6%81%AF%E8%AE%A2%E9%98%85%E5%8F%91%E5%B8%83pubsub-js/%E8%AE%A2%E9%98%85%E5%8F%91%E5%B8%83.png">
-<meta property="article:published_time" content="2023-03-10T03:25:41.245Z">
-<meta property="article:modified_time" content="2023-03-10T04:25:18.114Z">
+<meta property="article:published_time" content="2023-03-19T08:12:34.716Z">
+<meta property="article:modified_time" content="2023-03-19T09:36:44.000Z">
 <meta property="article:author" content="柯建军">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2023/03/10/%E6%B6%88%E6%81%AF%E8%AE%A2%E9%98%85%E5%8F%91%E5%B8%83pubsub-js/%E8%AE%A2%E9%98%85%E5%8F%91%E5%B8%83.png">
 
 
-<link rel="canonical" href="http://example.com/2023/03/10/%E6%B6%88%E6%81%AF%E8%AE%A2%E9%98%85%E5%8F%91%E5%B8%83pubsub-js/">
+<link rel="canonical" href="http://example.com/2023/03/19/Ref/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2023/03/10/%E6%B6%88%E6%81%AF%E8%AE%A2%E9%98%85%E5%8F%91%E5%B8%83pubsub-js/","path":"2023/03/10/消息订阅发布pubsub-js/","title":"消息订阅发布：pubsub-js"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2023/03/19/Ref/","path":"2023/03/19/Ref/","title":"Ref"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>消息订阅发布：pubsub-js | 柯建军的博客</title>
+<title>Ref | 柯建军的博客</title>
   
 
 
@@ -117,7 +115,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#pubsub-js"><span class="nav-number">1.</span> <span class="nav-text">pubsub-js</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Ref"><span class="nav-number">1.</span> <span class="nav-text">Ref</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B1%BB%E5%BC%8F%E7%BB%84%E4%BB%B6%E4%BD%BF%E7%94%A8Ref"><span class="nav-number">2.</span> <span class="nav-text">类式组件使用Ref</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BB%84%E4%BB%B6%E4%BD%BF%E7%94%A8Ref"><span class="nav-number">3.</span> <span class="nav-text">函数式组件使用Ref</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -185,7 +183,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/10/%E6%B6%88%E6%81%AF%E8%AE%A2%E9%98%85%E5%8F%91%E5%B8%83pubsub-js/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/19/Ref/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -198,12 +196,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="消息订阅发布：pubsub-js | 柯建军的博客">
+      <meta itemprop="name" content="Ref | 柯建军的博客">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          消息订阅发布：pubsub-js
+          Ref
         </h1>
 
         <div class="post-meta-container">
@@ -215,7 +213,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2023-03-10 11:25:41 / 修改时间：12:25:18" itemprop="dateCreated datePublished" datetime="2023-03-10T11:25:41+08:00">2023-03-10</time>
+      <time title="创建时间：2023-03-19 16:12:34 / 修改时间：17:36:44" itemprop="dateCreated datePublished" datetime="2023-03-19T16:12:34+08:00">2023-03-19</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -234,7 +232,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>416</span>
+      <span>1.2k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -252,11 +250,11 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="pubsub-js"><a href="#pubsub-js" class="headerlink" title="pubsub-js"></a>pubsub-js</h2><p>pubsub-js使用消息订阅发布机制用于组件之间传递数据，<br>理解订阅发布机制</p>
-<p><img src="/2023/03/10/%E6%B6%88%E6%81%AF%E8%AE%A2%E9%98%85%E5%8F%91%E5%B8%83pubsub-js/%E8%AE%A2%E9%98%85%E5%8F%91%E5%B8%83.png" alt="订阅发布"></p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 导入包</span></span><br><span class="line">npm i pubsub-js</span><br><span class="line">or</span><br><span class="line">yarn add pubsub-js</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">PubSub</span> <span class="keyword">from</span> <span class="string">&#x27;pubsub-js&#x27;</span></span><br></pre></td></tr></table></figure>
+        <h2 id="Ref"><a href="#Ref" class="headerlink" title="Ref"></a>Ref</h2><p>React 支持一个特殊的、可以附加到任何组件上的 ref 属性。此属性可以是一个由 React.createRef() 函数创建的对象、或者一个回调函数、或者一个字符串（遗留 API）。当 ref 属性是一个回调函数时，此函数会（根据元素的类型）接收底层 DOM 元素或 class 实例作为其参数。这能够让你直接访问 DOM 元素或组件实例。</p>
+<p>谨慎使用 ref。如果你发现自己经常使用 ref 来在应用中“实现想要的功能”，你可以考虑去了解一下自上而下的数据流(状态提升)。</p>
+<h2 id="类式组件使用Ref"><a href="#类式组件使用Ref" class="headerlink" title="类式组件使用Ref"></a>类式组件使用Ref</h2><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// React.createRef</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">class</span> <span class="title class_">MyComponent</span> <span class="keyword">extends</span> <span class="title class_ inherited__">React.Component</span> &#123;</span><br><span class="line">  inputRef = <span class="title class_">React</span>.<span class="title function_">createRef</span>()</span><br><span class="line">  <span class="title function_">componentDidMount</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">inputRef</span>.<span class="property">current</span>.<span class="title function_">focus</span>();		<span class="comment">//直接访问DOM元素的属性</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="title function_">render</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">ref</span>=<span class="string">&#123;this.inputRef&#125;</span> /&gt;</span></span>;	</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 回调</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">class</span> <span class="title class_">App</span> <span class="keyword">extends</span> <span class="title class_ inherited__">React.Component</span> &#123;</span><br><span class="line">  <span class="title function_">componentDidMount</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">inputRef</span>.<span class="title function_">focus</span>()</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="title function_">render</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="language-xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">ref</span>=<span class="string">&#123;(currentNode)</span> =&gt;</span> (this.inputRef = currentNode)&#125; /&gt;</span>	<span class="comment">//往实例对象自身挂载</span></span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// A组件发布</span></span><br><span class="line"><span class="comment">// PubSub.publish(&#x27;约定的主题&#x27;, 要传的数据);</span></span><br><span class="line"><span class="title class_">PubSub</span>.<span class="title function_">publish</span>(<span class="string">&#x27;MY TOPIC&#x27;</span>, data)</span><br><span class="line"></span><br><span class="line"><span class="comment">// B组件订阅</span></span><br><span class="line"><span class="comment">// token跟setTimeout赋值同理，在销毁时使用,msg为&#x27;MY TOPIC&#x27;，用_代替。data是接收到的数据</span></span><br><span class="line"><span class="keyword">const</span> token = <span class="title class_">PubSub</span>.<span class="title function_">subscribe</span>(<span class="string">&#x27;MY TOPIC&#x27;</span>, <span class="function">(<span class="params">msg,data</span>) =&gt;</span> &#123;...&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 销毁订阅</span></span><br><span class="line"><span class="title class_">PubSub</span>.<span class="title function_">unsubscribe</span>(token);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="函数式组件使用Ref"><a href="#函数式组件使用Ref" class="headerlink" title="函数式组件使用Ref"></a>函数式组件使用Ref</h2><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//useRef 返回一个可变的 ref 对象，其 .current 属性被初始化为传入的参数（initialValue）。返回的 ref 对象在组件的整个生命周期内持续存在。</span></span><br><span class="line"><span class="keyword">import</span> &#123; useEffect, useRef &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">App</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> inputRef = <span class="title function_">useRef</span>(<span class="literal">null</span>)</span><br><span class="line">  <span class="title function_">useEffect</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    inputRef.<span class="property">current</span>.<span class="title function_">focus</span>()</span><br><span class="line">  &#125;, [])</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">ref</span>=<span class="string">&#123;inputRef&#125;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">App</span></span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -269,14 +267,11 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2023/03/08/State%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" rel="prev" title="State的注意事项">
-                  <i class="fa fa-chevron-left"></i> State的注意事项
+                <a href="/2023/03/16/CSS/" rel="prev" title="CSS常见问题">
+                  <i class="fa fa-chevron-left"></i> CSS常见问题
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2023/03/12/Effect%E5%87%A0%E7%A7%8D%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F/" rel="next" title="Effect几种使用方式">
-                  Effect几种使用方式 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
