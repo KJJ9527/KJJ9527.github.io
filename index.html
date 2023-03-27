@@ -125,7 +125,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-count">33</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -168,6 +168,100 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/27/Context/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="柯建军">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="柯建军的博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 柯建军的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/03/27/Context/" class="post-title-link" itemprop="url">Context</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2023-03-27 12:27:54 / 修改时间：13:33:44" itemprop="dateCreated datePublished" datetime="2023-03-27T12:27:54+08:00">2023-03-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>676</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="提供者与消费者模式"><a href="#提供者与消费者模式" class="headerlink" title="提供者与消费者模式"></a>提供者与消费者模式</h2><p>用于组孙组件通讯的场景</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useState, createContext, useContext &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"><span class="comment">// createContext使用方式</span></span><br><span class="line"><span class="keyword">const</span> context = <span class="title function_">createContext</span>()		<span class="comment">//createContext可以提供默认值，只有在没有 Provider时生效</span></span><br><span class="line"><span class="keyword">const</span> </span><br><span class="line"><span class="comment">// 祖先组件提供数据 关键字： Provider</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">parent</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span>(</span><br><span class="line">    	<span class="language-xml"><span class="tag">&lt;<span class="name">context.Provider</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            <span class="attr">value</span>=<span class="string">&#123;&#123;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            <span class="attr">color</span>,</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            <span class="attr">setColor</span>,</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            &#125;&#125;</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        &gt;</span></span></span><br><span class="line"><span class="language-xml">        ...</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">context.Provider</span>&gt;</span></span></span><br><span class="line">    )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 后代组件消费</span></span><br><span class="line"><span class="comment">// 1.使用 Consumer</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Child</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span>(</span><br><span class="line">    	<span class="language-xml"><span class="tag">&lt;<span class="name">context.Consumer</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            &#123;/*以函数传参形式消费*/&#125;</span></span><br><span class="line"><span class="language-xml">            &#123; value =&gt; ... &#125;</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">context.Consumer</span>&gt;</span></span></span><br><span class="line">    )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 使用 useContext</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Child</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> value = <span class="title function_">useContext</span>(context)</span><br><span class="line">    <span class="keyword">return</span>() &#123;</span><br><span class="line">        &#123;value.<span class="property">xxx</span>&#125;...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -712,7 +806,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-03-26 14:44:42" itemprop="dateModified" datetime="2023-03-26T14:44:42+08:00">2023-03-26</time>
+      <time title="修改时间：2023-03-26 14:47:20" itemprop="dateModified" datetime="2023-03-26T14:47:20+08:00">2023-03-26</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -750,7 +844,6 @@
     
     <div class="post-body" itemprop="articleBody">
           <h2 id="State的注意事项"><a href="#State的注意事项" class="headerlink" title="State的注意事项"></a>State的注意事项</h2><h3 id="函数组件中state"><a href="#函数组件中state" class="headerlink" title="函数组件中state"></a>函数组件中state</h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// setState方法更新状态是同步的，但是表现为延迟更新状态(注意：非异步更新状态)</span></span><br><span class="line"><span class="comment">// 调用setState时，将所有更新状态对象放在一个react的更新任务队列中暂存起来（没有立即更新），</span></span><br><span class="line"><span class="comment">// 如果多次调用 setState更新状态，状态会进行合并，后面覆盖前面</span></span><br><span class="line"><span class="comment">// 等到所有的操作都执行完毕，React会拿到最终的状态，然后触发组件更新</span></span><br><span class="line"><span class="comment">//优势：多次调用setState()，只会触发一次重新渲染，提升性能</span></span><br><span class="line">state = &#123;</span><br><span class="line">    <span class="attr">count</span>: <span class="number">0</span>,</span><br><span class="line">&#125;</span><br><span class="line">addCount = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">setState</span>(&#123;</span><br><span class="line">        <span class="attr">count</span>: <span class="variable language_">this</span>.<span class="property">state</span>.<span class="property">count</span> + <span class="number">1</span>,</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">setState</span>(&#123;</span><br><span class="line">        <span class="attr">count</span>: <span class="variable language_">this</span>.<span class="property">state</span>.<span class="property">count</span> + <span class="number">2</span>,</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">setState</span>(&#123;</span><br><span class="line">        <span class="attr">count</span>: <span class="variable language_">this</span>.<span class="property">state</span>.<span class="property">count</span> + <span class="number">3</span>,</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;count:&#x27;</span>,<span class="variable language_">this</span>.<span class="property">state</span>.<span class="property">count</span>)		<span class="comment">// count:0，只执行了一次</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">render</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;render&#x27;</span>)		<span class="comment">//render，只执行一次</span></span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;this.state.count&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span>	//3</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;this.addCount&#125;</span>&gt;</span>按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">		<span class="tag">&lt;/&gt;</span></span></span><br><span class="line">	)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 如果后面的状态需要依赖前一项状态的值，可以使用箭头函数的形式</span></span><br><span class="line"><span class="comment">// React内部会拿到第一次回调函数的结果，然后把这个最新的状态结果作为参数，传递给下次调用的回调函数</span></span><br><span class="line"><span class="comment">//这样，下一次调用就可以拿到上一次调用的结果（也是上一次更新后的状态值）</span></span><br><span class="line"><span class="variable language_">this</span>.<span class="title function_">setState</span>(<span class="function">(<span class="params">previousState</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123; <span class="attr">count</span>: previousState.<span class="property">count</span> + <span class="number">1</span> &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
 
 
 
@@ -1196,121 +1289,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/02/13/%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0%E5%92%8C%E5%BA%93/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="柯建军">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="柯建军的博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 柯建军的博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/02/13/%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0%E5%92%8C%E5%BA%93/" class="post-title-link" itemprop="url">常用函数和库</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2023-02-13 20:46:20" itemprop="dateCreated datePublished" datetime="2023-02-13T20:46:20+08:00">2023-02-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-03-23 12:31:20" itemprop="dateModified" datetime="2023-03-23T12:31:20+08:00">2023-03-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.1k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><h3 id="Array-prototype-filter"><a href="#Array-prototype-filter" class="headerlink" title="Array.prototype.filter()"></a>Array.prototype.filter()</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/filter">filter()</a> 方法创建给定数组一部分的浅拷贝，其包含通过所提供函数实现的测试的所有元素。</p>
-<h3 id="Array-prototype-reduce"><a href="#Array-prototype-reduce" class="headerlink" title="Array.prototype.reduce()"></a>Array.prototype.reduce()</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce">reduce()</a>方法对数组中的每个元素按序执行一个由您提供的 reducer 函数，每一次运行 reducer 会将先前元素的计算结果作为参数传入，最后将其结果汇总为单个返回值。</p>
-<h3 id="Array-prototype-every"><a href="#Array-prototype-every" class="headerlink" title="Array.prototype.every()"></a>Array.prototype.every()</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/every">every()</a>方法测试一个数组内的所有元素是否都能通过某个指定函数的测试。它返回一个布尔值。</p>
-<h3 id="JSON-parse"><a href="#JSON-parse" class="headerlink" title="JSON.parse()"></a>JSON.parse()</h3><p>将JSON字符串转换为对象格式</p>
-<h3 id="JSON-stringify"><a href="#JSON-stringify" class="headerlink" title="JSON.stringify()"></a>JSON.stringify()</h3><p>将对象格式转换为JSON字符串</p>
-<h2 id="React"><a href="#React" class="headerlink" title="React"></a>React</h2><h3 id="PubSubJS"><a href="#PubSubJS" class="headerlink" title="PubSubJS"></a>PubSubJS</h3><p>解决React兄弟组件之间不能直接传输数据的问题，通过消息的订阅和发布在任意位置相互传输数据</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 消息的订阅，响应收据</span></span><br><span class="line"><span class="keyword">var</span> token = <span class="title class_">PubSub</span>.<span class="title function_">subscribe</span>(<span class="string">&#x27;MY TOPIC&#x27;</span>, <span class="function">(<span class="params">msg, data</span>) =&gt;</span> &#123;...&#125;);</span><br><span class="line"><span class="comment">// 消息的发布，请求数据</span></span><br><span class="line"><span class="title class_">PubSub</span>.<span class="title function_">publish</span>(<span class="string">&#x27;MY TOPIC&#x27;</span>, <span class="string">&#x27;hello world!&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<h3 id="react-router-dom"><a href="#react-router-dom" class="headerlink" title="react-router-dom"></a>react-router-dom</h3><p>react-router-dom是什么？<br>1.	react的一个插件库。<br>2.	专门用来实现一个SPA应用。(single page web application，SPA)<br>3.	基于react的项目基本都会用到此库。<br>   内置组件：</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>	&lt;<span class="title class_">BrowserRouter</span>&gt;</span><br><span class="line"><span class="number">2.</span>	&lt;<span class="title class_">HashRouter</span>&gt;</span><br><span class="line"><span class="number">3.</span>	&lt;<span class="title class_">Route</span>&gt;</span><br><span class="line"><span class="number">4.</span>	&lt;<span class="title class_">Redirect</span>&gt;</span><br><span class="line"><span class="number">5.</span>	&lt;<span class="title class_">Link</span>&gt;</span><br><span class="line"><span class="number">6.</span>	&lt;<span class="title class_">NavLink</span>&gt;</span><br><span class="line"><span class="number">7.</span>	&lt;<span class="title class_">Switch</span>&gt;</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// withRouter可以加工一般组件，让一般组件具备路由组件所特有的API</span></span><br><span class="line"><span class="comment">// withRouter的返回值是一个新组件</span></span><br><span class="line"><span class="keyword">import</span> &#123;withRouter&#125; <span class="keyword">from</span> <span class="string">&#x27;react-router-dom&#x27;</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title function_">withRouter</span>(...)</span><br></pre></td></tr></table></figure>
-<h3 id="Ant-Design"><a href="#Ant-Design" class="headerlink" title="Ant Design"></a>Ant Design</h3><p>antd 是基于 Ant Design 设计体系的 React UI 组件库，主要用于研发企业级中后台产品<br>安装</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install antd</span><br><span class="line">yarn add antd</span><br></pre></td></tr></table></figure>
-<h3 id="nanoid"><a href="#nanoid" class="headerlink" title="nanoid"></a>nanoid</h3><p>nanoid可随机生成一个ID值</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 安装</span></span><br><span class="line">npm i nanoid</span><br><span class="line"><span class="comment">// 引入</span></span><br><span class="line">npm &#123;nanoid&#125; <span class="keyword">from</span> <span class="string">&#x27;nanoid&#x27;</span></span><br><span class="line"><span class="comment">// 调用</span></span><br><span class="line"><span class="title function_">nanoid</span>()</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
@@ -1335,7 +1313,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">66k</span>
+    <span title="站点总字数">67k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
