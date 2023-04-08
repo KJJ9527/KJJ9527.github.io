@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="组件复用antd 组件复用示例如图所示，在内容管理路由组件和发布文章组件都有Select选择器   将该功能单独封装成组件，复用的组件应当完善和健壮。这个组件是From表单的受控组件。antd的自定义表单控件的说明From说明：自定义或第三方的表单控件，也可以与 Form 组件一起使用。只要该组件遵循以下的约定：1.提供受控属性 value 或其它与 valuePropName 的值同名的属性2.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="组件复用">
+<meta property="og:url" content="http://example.com/2023/04/08/%E7%BB%84%E4%BB%B6%E5%A4%8D%E7%94%A8/index.html">
+<meta property="og:site_name" content="柯建军的博客">
+<meta property="og:description" content="组件复用antd 组件复用示例如图所示，在内容管理路由组件和发布文章组件都有Select选择器   将该功能单独封装成组件，复用的组件应当完善和健壮。这个组件是From表单的受控组件。antd的自定义表单控件的说明From说明：自定义或第三方的表单控件，也可以与 Form 组件一起使用。只要该组件遵循以下的约定：1.提供受控属性 value 或其它与 valuePropName 的值同名的属性2.">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2023/04/08/%E7%BB%84%E4%BB%B6%E5%A4%8D%E7%94%A8/1.png">
+<meta property="og:image" content="http://example.com/2023/04/08/%E7%BB%84%E4%BB%B6%E5%A4%8D%E7%94%A8/2.png">
+<meta property="article:published_time" content="2023-04-08T08:40:53.123Z">
+<meta property="article:modified_time" content="2023-04-08T09:36:36.188Z">
+<meta property="article:author" content="柯建军">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2023/04/08/%E7%BB%84%E4%BB%B6%E5%A4%8D%E7%94%A8/1.png">
+
+
+<link rel="canonical" href="http://example.com/2023/04/08/%E7%BB%84%E4%BB%B6%E5%A4%8D%E7%94%A8/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2023/04/08/%E7%BB%84%E4%BB%B6%E5%A4%8D%E7%94%A8/","path":"2023/04/08/组件复用/","title":"组件复用"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>组件复用 | 柯建军的博客</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">柯建军的博客</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-首页"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-标签"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-分类"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-归档"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-资源"><a href="/resource/" rel="section"><i class="fa fa-download fa-fw fa-fw"></i>资源</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%84%E4%BB%B6%E5%A4%8D%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">组件复用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#antd-%E7%BB%84%E4%BB%B6%E5%A4%8D%E7%94%A8%E7%A4%BA%E4%BE%8B"><span class="nav-number">1.1.</span> <span class="nav-text">antd 组件复用示例</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="柯建军"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">柯建军</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/KJJ9527" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;KJJ9527" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:963707772@qq.com" title="E-Mail → mailto:963707772@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/04/08/%E7%BB%84%E4%BB%B6%E5%A4%8D%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="柯建军">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="柯建军的博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="组件复用 | 柯建军的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          组件复用
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2023-04-08 16:40:53 / 修改时间：17:36:36" itemprop="dateCreated datePublished" datetime="2023-04-08T16:40:53+08:00">2023-04-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.3k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="组件复用"><a href="#组件复用" class="headerlink" title="组件复用"></a>组件复用</h2><h3 id="antd-组件复用示例"><a href="#antd-组件复用示例" class="headerlink" title="antd 组件复用示例"></a>antd 组件复用示例</h3><p>如图所示，在内容管理路由组件和发布文章组件都有Select选择器</p>
+<p><img src="/2023/04/08/%E7%BB%84%E4%BB%B6%E5%A4%8D%E7%94%A8/1.png" alt="1"></p>
+<p><img src="/2023/04/08/%E7%BB%84%E4%BB%B6%E5%A4%8D%E7%94%A8/2.png" alt="2"></p>
+<p>将该功能单独封装成组件，复用的组件应当完善和健壮。<br>这个组件是From表单的受控组件。<br>antd的自定义表单控件的说明<a target="_blank" rel="noopener" href="https://ant.design/components/form-cn#components-form-demo-customized-form-controls">From</a><br>说明：<br>自定义或第三方的表单控件，也可以与 Form 组件一起使用。只要该组件遵循以下的约定：<br>1.提供受控属性 value 或其它与 valuePropName 的值同名的属性<br>2.提供 onChange 事件或 trigger 的值同名的事件。</p>
+<p>From表单</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// pages/Article/index.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Channels</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;@/components/Channels&#x27;</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">Article</span>(<span class="params"></span>) &#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">return</span>(</span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">Form</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">Form.Item</span> <span class="attr">label</span>=<span class="string">&quot;频道：&quot;</span> <span class="attr">name</span>=<span class="string">&quot;channel_id&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                <span class="tag">&lt;<span class="name">Channels</span>/&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;/<span class="name">Form.Item</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">Form</span>&gt;</span></span></span><br><span class="line">    )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>复用的组件</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// components/Channels</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Select</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;antd&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; useEffect &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; useDispatch, useSelector &#125; <span class="keyword">from</span> <span class="string">&#x27;react-redux&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; getChannels &#125; <span class="keyword">from</span> <span class="string">&#x27;@/store/actions&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//不是受控组件</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title function_">Channels</span> = (<span class="params">&#123; ...rest &#125;</span>) =&gt; &#123;		<span class="comment">// 接收到表单的参数</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(rest)		<span class="comment">// &#123;value: undefined, id: &#x27;channel_id&#x27;, onChange: ƒ&#125;	更换频道也拿不到当前值</span></span><br><span class="line">  <span class="keyword">const</span> dispatch = <span class="title function_">useDispatch</span>()</span><br><span class="line">  <span class="keyword">const</span> &#123; channels &#125; = <span class="title function_">useSelector</span>(<span class="function">(<span class="params">value</span>) =&gt;</span> value.<span class="property">article</span>)</span><br><span class="line">  <span class="title function_">useEffect</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="title function_">dispatch</span>(<span class="title function_">getChannels</span>())		<span class="comment">//分发获取参数的状态</span></span><br><span class="line">  &#125;, [dispatch])</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">Select</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      <span class="attr">placeholder</span>=<span class="string">&quot;请选择文章频道&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">    &gt;</span></span></span><br><span class="line"><span class="language-xml">      &#123;channels.map((items) =&gt; (</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Select.Option</span> <span class="attr">key</span>=<span class="string">&#123;items.id&#125;</span> <span class="attr">value</span>=<span class="string">&#123;items.id&#125;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          &#123;items.name&#125;</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">Select.Option</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      ))&#125;</span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">Select</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 改为受控组件，给Select组件添加value，onChange属性,width是自定义参数，可以自定义样式</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title function_">Channels</span> = (<span class="params">&#123; value,onChange,width &#125;</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> dispatch = <span class="title function_">useDispatch</span>()</span><br><span class="line">  <span class="keyword">const</span> &#123; channels &#125; = <span class="title function_">useSelector</span>(<span class="function">(<span class="params">value</span>) =&gt;</span> value.<span class="property">article</span>)</span><br><span class="line">  <span class="title function_">useEffect</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="title function_">dispatch</span>(<span class="title function_">getChannels</span>())</span><br><span class="line">  &#125;, [dispatch])</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">Select</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      <span class="attr">style</span>=<span class="string">&#123;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        &#123;</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">width</span>,</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        &#125;</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      &#125;</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      <span class="attr">placeholder</span>=<span class="string">&quot;请选择文章频道&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      <span class="attr">value</span>=<span class="string">&#123;value&#125;</span>		// 指定当前选中的条目</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      <span class="attr">onChange</span>=<span class="string">&#123;onChange&#125;</span>	//选中 <span class="attr">option</span>，或 <span class="attr">input</span> 的 <span class="attr">value</span> 变化时，调用此函数</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">    &gt;</span></span></span><br><span class="line"><span class="language-xml">      &#123;channels.map((items) =&gt; (</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Select.Option</span> <span class="attr">key</span>=<span class="string">&#123;items.id&#125;</span> <span class="attr">value</span>=<span class="string">&#123;items.id&#125;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          &#123;items.name&#125;</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">Select.Option</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      ))&#125;</span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">Select</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>最后在两个路由组件引入组件就行了</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Channels</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;@/components/Channels&#x27;</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">Article</span>(<span class="params"></span>) &#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">return</span>(</span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">Form</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">Form.Item</span> <span class="attr">label</span>=<span class="string">&quot;频道：&quot;</span> <span class="attr">name</span>=<span class="string">&quot;channel_id&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                <span class="tag">&lt;<span class="name">Channels</span> <span class="attr">width</span>=<span class="string">&#123;xxx&#125;/</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;/<span class="name">Form.Item</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">Form</span>&gt;</span></span></span><br><span class="line">    )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/03/31/%E8%B7%AF%E7%94%B1%E9%89%B4%E6%9D%83%E5%92%8C%E8%B7%AF%E7%94%B1%E9%87%8D%E5%AE%9A%E5%90%91/" rel="prev" title="路由鉴权和路由重定向">
+                  <i class="fa fa-chevron-left"></i> 路由鉴权和路由重定向
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">柯建军</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">78k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:11</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

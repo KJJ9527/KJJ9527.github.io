@@ -125,7 +125,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-count">36</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -168,6 +168,108 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/03/%E7%B1%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="柯建军">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="柯建军的博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 柯建军的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/03/03/%E7%B1%BB/" class="post-title-link" itemprop="url">JS中的类</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2023-03-03 11:05:59 / 修改时间：12:53:28" itemprop="dateCreated datePublished" datetime="2023-03-03T11:05:59+08:00">2023-03-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.9k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="什么是类"><a href="#什么是类" class="headerlink" title="什么是类"></a>什么是类</h2><p>类是对象的模板，定义了对象的属性和方法</p>
+<h3 id="创建一个类"><a href="#创建一个类" class="headerlink" title="创建一个类"></a>创建一个类</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 最基本的类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass</span> &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 创建一个示例对象的类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass</span> &#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params">...argu</span>) &#123;	<span class="comment">//实参会被构造函数 constructor 接收</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(argu);  <span class="comment">//[&#x27;孙悟空&#x27;,18]</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> a = <span class="keyword">new</span> <span class="title class_">MyClass</span>(<span class="string">&#x27;孙悟空&#x27;</span>,<span class="number">18</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//通过实例对象属性调用</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass</span> &#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params">name,age</span>) &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">name</span> = name</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">age</span> = age</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">fn</span>(<span class="params"></span>) &#123;</span><br><span class="line">    	<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;打妖怪&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> a = <span class="keyword">new</span> <span class="title class_">MyClass</span>(<span class="string">&#x27;孙悟空&#x27;</span>,<span class="number">18</span>) </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a.<span class="property">name</span>,a.<span class="property">age</span>);  <span class="comment">//孙悟空 18</span></span><br><span class="line">a.<span class="title function_">fn</span>()  <span class="comment">//打妖怪</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="类的this"><a href="#类的this" class="headerlink" title="类的this"></a>类的this</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass</span>&#123;</span><br><span class="line">    <span class="title function_">fn</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> a = <span class="keyword">new</span> <span class="title class_">MyClass</span></span><br><span class="line">a.<span class="title function_">fn</span>()  <span class="comment">//this---&gt;MyClass &#123;&#125;,通过实例对象属性调用函数,this指向实例对象a</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> b = a.<span class="property">fn</span>    <span class="comment">// 将实例对象a的函数赋值给b</span></span><br><span class="line"><span class="title function_">b</span>() <span class="comment">//this---&gt;undefined,理论上this应该指向函数的调用者---&gt;window,但在类区域中,默认开启严格模式,所以输出undefined</span></span><br><span class="line"><span class="comment">// 结论：通过实例对象调用函数，this指向该实例对象，通过普通函数调用，this指向undefined</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//很多时候我们不希望this的指向变化，最简单的方式是使用箭头函数</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass</span>&#123;</span><br><span class="line">    fn = <span class="function">() =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> a = <span class="keyword">new</span> <span class="title class_">MyClass</span></span><br><span class="line">a.<span class="title function_">fn</span>()  <span class="comment">//MyClass &#123;fn: ƒ&#125;</span></span><br><span class="line"><span class="keyword">const</span> b = a.<span class="property">fn</span>    </span><br><span class="line"><span class="title function_">b</span>() <span class="comment">//MyClass &#123;fn: ƒ&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="类的继承"><a href="#类的继承" class="headerlink" title="类的继承"></a>类的继承</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Parent</span>&#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params">name,age</span>) &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">name</span> = name</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">age</span> = age</span><br><span class="line">    &#125;</span><br><span class="line">    fn = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;我是父类，子类可以继承我的属性和方法&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//extends---&gt;继承</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Chi1</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Parent</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//  子类可以完全继承父类的属性和方法 </span></span><br><span class="line"><span class="keyword">const</span> chi1 = <span class="keyword">new</span> <span class="title class_">Chi1</span>(<span class="string">&#x27;我是子类1&#x27;</span>,<span class="number">18</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(chi1.<span class="property">name</span>,chi1.<span class="property">age</span>);  <span class="comment">//我是子类1 18</span></span><br><span class="line">chi1.<span class="title function_">fn</span>()   <span class="comment">// 我是父类，子类可以继承我的属性和方法</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//  子类可以重写父类的属性和方法</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Chi2</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Parent</span>&#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params">name,age,sex</span>) &#123;</span><br><span class="line">        <span class="comment">// 继承父类的构造函数</span></span><br><span class="line">        <span class="variable language_">super</span>(name,age)</span><br><span class="line">        <span class="comment">// 自己的属性</span></span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">sex</span> = sex</span><br><span class="line">    &#125;</span><br><span class="line">    fn = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;我是子类，我重写了父类中的方法&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> chi2 = <span class="keyword">new</span> <span class="title class_">Chi2</span>(<span class="string">&#x27;我是子类2&#x27;</span>,<span class="number">19</span>,<span class="string">&#x27;男&#x27;</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(chi2.<span class="property">name</span>,chi2.<span class="property">age</span>,chi2.<span class="property">sex</span>)    <span class="comment">// 我是子类2 19 男</span></span><br><span class="line">chi2.<span class="title function_">fn</span>()   <span class="comment">//我是子类，我重写了父类中的方法</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="类的静态属性和方法"><a href="#类的静态属性和方法" class="headerlink" title="类的静态属性和方法"></a>类的静态属性和方法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 直接通过类调用的属性和方法被称为静态属性和静态方法(类属性，类方法)</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass</span>&#123;</span><br><span class="line">    <span class="keyword">static</span> name = <span class="string">&#x27;我是MyClass&#x27;</span></span><br><span class="line">    <span class="keyword">static</span> fn = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;我是通过类直接调用的&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">MyClass</span>.<span class="property">name</span>);  <span class="comment">//我是MyClass</span></span><br><span class="line"><span class="title class_">MyClass</span>.<span class="title function_">fn</span>()    <span class="comment">//我是通过类直接调用的</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1349,107 +1451,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/08/%E6%A8%A1%E5%9D%97%E5%8C%96%E8%B7%AF%E7%94%B1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="柯建军">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="柯建军的博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 柯建军的博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/10/08/%E6%A8%A1%E5%9D%97%E5%8C%96%E8%B7%AF%E7%94%B1/" class="post-title-link" itemprop="url">模块化路由</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2022-10-08 16:34:08 / 修改时间：16:45:57" itemprop="dateCreated datePublished" datetime="2022-10-08T16:34:08+08:00">2022-10-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/node-js/" itemprop="url" rel="index"><span itemprop="name">node.js</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.3k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="路由的概念"><a href="#路由的概念" class="headerlink" title="路由的概念"></a>路由的概念</h3><p>广义上来说，路由就是映射关系<br>在Express中，路由指的是客户端的请求与服务器处理函数之间的映射关系<br>Express中的路由分3部分组成，分别是请求的类型，请求的URL地址、处理函数，格式如下:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.method(path,handler)</span><br></pre></td></tr></table></figure>
-<p>在Express中使用路由最简单的方式，就是把路由挂载到app上，示例如下:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">express</span>();</span><br><span class="line">app.<span class="title function_">listen</span>(<span class="number">80</span>,<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;express server running at 127.0.0.1&#x27;</span>);</span><br><span class="line">&#125;);</span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>,<span class="function">(<span class="params">req,res</span>) =&gt;</span> &#123;</span><br><span class="line">    res.<span class="title function_">send</span>(<span class="string">&#x27;Hello world&#x27;</span>);</span><br><span class="line">&#125;);</span><br><span class="line">app.<span class="title function_">post</span>(<span class="string">&#x27;/&#x27;</span>,<span class="function">(<span class="params">req,res</span>) =&gt;</span> &#123;</span><br><span class="line">    res.<span class="title function_">send</span>(<span class="string">&#x27;post request&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h3 id="路由的模块化"><a href="#路由的模块化" class="headerlink" title="路由的模块化"></a>路由的模块化</h3><p>为了方便对路由进行模块化的管理，Express不建议将路由直接挂载到app上，而是推荐将路由抽离为单独的模块<br>将路由抽离为单独模块的步骤如下：<br>1.创建路由模块对应的 .js 文件<br>2.调用 express.Router() 函数创建路由对象<br>3.向路由对象上挂载具体的路由<br>4.使用 module.exports 向外共享路由对象<br>5.使用 app.use() 函数注册路由模块</p>
-<p>创建路由模块</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建路由模块</span></span><br><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);</span><br><span class="line"><span class="comment">// 创建路由对象</span></span><br><span class="line"><span class="keyword">const</span> router = express.<span class="title class_">Router</span>();</span><br><span class="line"><span class="comment">// 挂载路由</span></span><br><span class="line">router.<span class="title function_">get</span>(<span class="string">&#x27;/user/list&#x27;</span>,<span class="function">(<span class="params">req,res</span>) =&gt;</span> &#123;</span><br><span class="line">    res.<span class="title function_">send</span>(<span class="string">&#x27;Get user list&#x27;</span>)</span><br><span class="line">&#125;);</span><br><span class="line">router.<span class="title function_">post</span>(<span class="string">&#x27;/user/add&#x27;</span>,<span class="function">(<span class="params">req,res</span>) =&gt;</span> &#123;</span><br><span class="line">    res.<span class="title function_">send</span>(<span class="string">&#x27;Add new user&#x27;</span>)</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 向外到处路由对象</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = router</span><br></pre></td></tr></table></figure>
-<p>注册路由模块和为路由模块添加前缀</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">express</span>();</span><br><span class="line">app.<span class="title function_">listen</span>(<span class="number">80</span>,<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;http://127.0.0.1&#x27;</span>);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 导入路由模块</span></span><br><span class="line"><span class="keyword">const</span> userRouter = <span class="built_in">require</span>(<span class="string">&#x27;../router/user.js&#x27;</span>);</span><br><span class="line"><span class="comment">// 使用app.use() 注册路由模块</span></span><br><span class="line">app.<span class="title function_">use</span>(userRouter);</span><br><span class="line"><span class="comment">// 为路由模块添加访问前缀</span></span><br><span class="line"><span class="comment">// app.use(&#x27;/api&#x27;,userRouter);</span></span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
@@ -1474,13 +1475,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">75k</span>
+    <span title="站点总字数">78k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:08</span>
+    <span title="站点阅读时长">1:11</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
