@@ -20,27 +20,27 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="for…in语法： 12for (variable in object)  statement 为什么用 for…infor…in是为遍历对象属性而构建的，不建议与数组一起使用，数组可以用Array.prototype.forEach()和for…of()，那么for…in到底有什么用呢？ 它最常用的地方应该是用于调试，可以更方便的去检查对象属性（通过输出到控制台或其他方式）。尽管对于处理存储数据">
+    <meta name="description" content="Gitmaster分支与其他分支主分支master分支用来发布新版本平时代码提交到自己的分支 下载分支 12git clone https:&#x2F;&#x2F;github.com&#x2F;... .git	&#x2F;&#x2F; 下载所有分支代码到本地git clone -b &lt;branchName&gt; https:&#x2F;&#x2F;github.com&#x2F;... .git	&#x2F;&#x2F; 下载指定分支到本地  查看分支 12git branch		&#x2F;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="for...in与forEach()">
-<meta property="og:url" content="http://example.com/2022/08/18/for...in%E4%B8%8EforEach()/index.html">
+<meta property="og:title" content="Git">
+<meta property="og:url" content="http://example.com/2023/04/26/Git/index.html">
 <meta property="og:site_name" content="柯建军的博客">
-<meta property="og:description" content="for…in语法： 12for (variable in object)  statement 为什么用 for…infor…in是为遍历对象属性而构建的，不建议与数组一起使用，数组可以用Array.prototype.forEach()和for…of()，那么for…in到底有什么用呢？ 它最常用的地方应该是用于调试，可以更方便的去检查对象属性（通过输出到控制台或其他方式）。尽管对于处理存储数据">
+<meta property="og:description" content="Gitmaster分支与其他分支主分支master分支用来发布新版本平时代码提交到自己的分支 下载分支 12git clone https:&#x2F;&#x2F;github.com&#x2F;... .git	&#x2F;&#x2F; 下载所有分支代码到本地git clone -b &lt;branchName&gt; https:&#x2F;&#x2F;github.com&#x2F;... .git	&#x2F;&#x2F; 下载指定分支到本地  查看分支 12git branch		&#x2F;">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-08-18T04:14:43.597Z">
-<meta property="article:modified_time" content="2023-03-03T04:55:19.587Z">
+<meta property="article:published_time" content="2023-04-26T11:36:51.716Z">
+<meta property="article:modified_time" content="2023-04-26T12:28:49.525Z">
 <meta property="article:author" content="柯建军">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/2022/08/18/for...in%E4%B8%8EforEach()/">
+<link rel="canonical" href="http://example.com/2023/04/26/Git/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/08/18/for...in%E4%B8%8EforEach()/","path":"2022/08/18/for...in与forEach()/","title":"for...in与forEach()"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2023/04/26/Git/","path":"2023/04/26/Git/","title":"Git"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>for...in与forEach() | 柯建军的博客</title>
+<title>Git | 柯建军的博客</title>
   
 
 
@@ -115,7 +115,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#for%E2%80%A6in"><span class="nav-number">1.</span> <span class="nav-text">for…in</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#forEach"><span class="nav-number">2.</span> <span class="nav-text">forEach()</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Git"><span class="nav-number">1.</span> <span class="nav-text">Git</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#master%E5%88%86%E6%94%AF%E4%B8%8E%E5%85%B6%E4%BB%96%E5%88%86%E6%94%AF"><span class="nav-number">1.1.</span> <span class="nav-text">master分支与其他分支</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -183,7 +183,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/18/for...in%E4%B8%8EforEach()/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/04/26/Git/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -196,12 +196,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="for...in与forEach() | 柯建军的博客">
+      <meta itemprop="name" content="Git | 柯建军的博客">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          for...in与forEach()
+          Git
         </h1>
 
         <div class="post-meta-container">
@@ -211,15 +211,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2022-08-18 12:14:43" itemprop="dateCreated datePublished" datetime="2022-08-18T12:14:43+08:00">2022-08-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-03-03 12:55:19" itemprop="dateModified" datetime="2023-03-03T12:55:19+08:00">2023-03-03</time>
+      <time title="创建时间：2023-04-26 19:36:51 / 修改时间：20:28:49" itemprop="dateCreated datePublished" datetime="2023-04-26T19:36:51+08:00">2023-04-26</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -227,7 +221,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a>
+          <a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
         </span>
     </span>
 
@@ -238,7 +232,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>582</span>
+      <span>638</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -256,13 +250,26 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h3 id="for…in"><a href="#for…in" class="headerlink" title="for…in"></a>for…in</h3><p>语法：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (variable <span class="keyword">in</span> object)</span><br><span class="line">  statement</span><br></pre></td></tr></table></figure>
-<p>为什么用 for…in<br>for…in是为遍历对象属性而构建的，不建议与数组一起使用，数组可以用Array.prototype.forEach()和for…of()，那么for…in到底有什么用呢？</p>
-<p>它最常用的地方应该是用于调试，可以更方便的去检查对象属性（通过输出到控制台或其他方式）。尽管对于处理存储数据，数组更实用些，但是你在处理有key-value数据（比如属性用作“键”），需要检查其中的任何键是否为某值的情况时，还是推荐用for … in。</p>
-<h3 id="forEach"><a href="#forEach" class="headerlink" title="forEach()"></a>forEach()</h3><p>语法:<br>arr.forEach(callback(currentValue [, index [, array]])[, thisArg])<br>参数<br>callback<br>为数组中每个元素执行的函数，该函数接收一至三个参数：<br>currentValue<br>数组中正在处理的当前元素。<br>index(可选)<br>数组中正在处理的当前元素的索引。<br>array(可选)<br>forEach() 方法正在操作的数组。<br>thisArg(可选)<br>可选参数。当执行回调函数 callback 时，用作 this 的值。</p>
-<p>描述：<br>forEach() 方法按升序为数组中含有效值的每一项执行一次 callback 函数。<br>可依次向 callback 函数传入三个参数：<br>1.数组当前项的值<br>2.数组当前项的索引<br>3.数组对象本身</p>
+        <h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><h3 id="master分支与其他分支"><a href="#master分支与其他分支" class="headerlink" title="master分支与其他分支"></a>master分支与其他分支</h3><p>主分支master分支用来发布新版本<br>平时代码提交到自己的分支</p>
+<p>下载分支</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/... .git	// 下载所有分支代码到本地</span><br><span class="line">git clone -b &lt;branchName&gt; https://github.com/... .git	// 下载指定分支到本地</span><br></pre></td></tr></table></figure>
 
+<p>查看分支</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git branch		// 查看本地分支</span><br><span class="line">git branch -a 	// 查看远程分支</span><br></pre></td></tr></table></figure>
+<p>创建分支</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch &lt;branchName&gt;		// 保存在本地，要在远程创建分支最终需要push</span><br></pre></td></tr></table></figure>
+<p>切换分支</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout &lt;branchName&gt;</span><br></pre></td></tr></table></figure>
+<p>创建+切换分支</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b &lt;branchName&gt;</span><br></pre></td></tr></table></figure>
+<p>提交分支</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin &lt;branchName&gt;</span><br></pre></td></tr></table></figure>
+<p>删除分支</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git branch -d &lt;branchName&gt;		// 删除本地分支</span><br><span class="line">git push origin --delete &lt;branchName&gt;	// 删除远程分支</span><br></pre></td></tr></table></figure>
+<p>Git 无法自动合并分支时，必须先解决冲突，再提交，合并完成<br>合并某分支到当前分支</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Administrator	/d/code/...	(master)	// 当前分支</span><br><span class="line">git merge dev		// 被合并的分支</span><br></pre></td></tr></table></figure>
+<p>查看分支合并图</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log --graph</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -275,14 +282,11 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/08/15/navigator%E5%AF%B9%E8%B1%A1/" rel="prev" title="navigator对象">
-                  <i class="fa fa-chevron-left"></i> navigator对象
+                <a href="/2023/04/09/%E9%A1%B9%E7%9B%AE%E4%BC%98%E5%8C%96/" rel="prev" title="项目优化">
+                  <i class="fa fa-chevron-left"></i> 项目优化
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/09/05/sessionStorage%E5%92%8ClocalStorage/" rel="next" title="sessionStorage和localStorage">
-                  sessionStorage和localStorage <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>

@@ -125,13 +125,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-count">38</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
   </nav>
@@ -168,6 +168,103 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/10/%E6%B6%88%E6%81%AF%E8%AE%A2%E9%98%85%E5%8F%91%E5%B8%83pubsub-js/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="柯建军">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="柯建军的博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 柯建军的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/03/10/%E6%B6%88%E6%81%AF%E8%AE%A2%E9%98%85%E5%8F%91%E5%B8%83pubsub-js/" class="post-title-link" itemprop="url">消息订阅发布：pubsub-js</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2023-03-10 11:25:41 / 修改时间：12:25:18" itemprop="dateCreated datePublished" datetime="2023-03-10T11:25:41+08:00">2023-03-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>416</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="pubsub-js"><a href="#pubsub-js" class="headerlink" title="pubsub-js"></a>pubsub-js</h2><p>pubsub-js使用消息订阅发布机制用于组件之间传递数据，<br>理解订阅发布机制</p>
+<p><img src="/2023/03/10/%E6%B6%88%E6%81%AF%E8%AE%A2%E9%98%85%E5%8F%91%E5%B8%83pubsub-js/%E8%AE%A2%E9%98%85%E5%8F%91%E5%B8%83.png" alt="订阅发布"></p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 导入包</span></span><br><span class="line">npm i pubsub-js</span><br><span class="line">or</span><br><span class="line">yarn add pubsub-js</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">PubSub</span> <span class="keyword">from</span> <span class="string">&#x27;pubsub-js&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// A组件发布</span></span><br><span class="line"><span class="comment">// PubSub.publish(&#x27;约定的主题&#x27;, 要传的数据);</span></span><br><span class="line"><span class="title class_">PubSub</span>.<span class="title function_">publish</span>(<span class="string">&#x27;MY TOPIC&#x27;</span>, data)</span><br><span class="line"></span><br><span class="line"><span class="comment">// B组件订阅</span></span><br><span class="line"><span class="comment">// token跟setTimeout赋值同理，在销毁时使用,msg为&#x27;MY TOPIC&#x27;，用_代替。data是接收到的数据</span></span><br><span class="line"><span class="keyword">const</span> token = <span class="title class_">PubSub</span>.<span class="title function_">subscribe</span>(<span class="string">&#x27;MY TOPIC&#x27;</span>, <span class="function">(<span class="params">msg,data</span>) =&gt;</span> &#123;...&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 销毁订阅</span></span><br><span class="line"><span class="title class_">PubSub</span>.<span class="title function_">unsubscribe</span>(token);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1292,139 +1389,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/24/Express%E5%86%99%E6%8E%A5%E5%8F%A3%E5%92%8C%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="柯建军">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="柯建军的博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 柯建军的博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/10/24/Express%E5%86%99%E6%8E%A5%E5%8F%A3%E5%92%8C%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">Express编写接口和解决跨域</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-10-24 21:32:48" itemprop="dateCreated datePublished" datetime="2022-10-24T21:32:48+08:00">2022-10-24</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-10-25 00:06:41" itemprop="dateModified" datetime="2022-10-25T00:06:41+08:00">2022-10-25</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/node-js/" itemprop="url" rel="index"><span itemprop="name">node.js</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>4.9k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>4 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="使用Express写接口"><a href="#使用Express写接口" class="headerlink" title="使用Express写接口"></a>使用Express写接口</h3><p>1.创建基本的服务器</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 导入 express模块</span></span><br><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);</span><br><span class="line"><span class="comment">// 创建 express的服务器实例</span></span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">express</span>();</span><br><span class="line"><span class="comment">// write your code here...</span></span><br><span class="line"><span class="comment">// 调用app.listen方法,指定端口号并启动web服务器</span></span><br><span class="line"><span class="comment">// app.js [导入并注册路由模块]</span></span><br><span class="line"><span class="keyword">const</span> router = <span class="built_in">require</span>(<span class="string">&#x27;./ApiRouter.js&#x27;</span>);</span><br><span class="line">app.<span class="title function_">use</span>(<span class="string">&#x27;/api&#x27;</span>,router);</span><br><span class="line">app.<span class="title function_">listen</span>(<span class="number">80</span>,<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;express server running at http://127.0.0.1&#x27;</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>2.创建API路由模块</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// ↓↓↓可将其写在服务器模块中，用app.use()注册,这里我写在路由模块</span></span><br><span class="line"><span class="comment">// 导入Express第三方中间件 cors ,解决跨域</span></span><br><span class="line"><span class="keyword">const</span> cors = <span class="built_in">require</span>(<span class="string">&#x27;cors&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> router = express.<span class="title class_">Router</span>();</span><br><span class="line">router.<span class="title function_">use</span>(<span class="title function_">cors</span>());</span><br><span class="line">router.<span class="title function_">use</span>(express.<span class="title function_">urlencoded</span>(&#123;<span class="attr">extended</span>: <span class="literal">false</span>&#125;));</span><br><span class="line">router.<span class="title function_">use</span>(express.<span class="title function_">json</span>());</span><br><span class="line"><span class="comment">// ↑↑↑可将其写在服务器模块中，用app.use()注册,这里我写在路由模块</span></span><br><span class="line"></span><br><span class="line">router.<span class="title function_">get</span>(<span class="string">&#x27;/get&#x27;</span>,<span class="function">(<span class="params">req,res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> query = req.<span class="property">query</span>;</span><br><span class="line">    res.<span class="title function_">send</span>(&#123;</span><br><span class="line">        <span class="attr">status</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="attr">msg</span>: <span class="string">&#x27;GET请求成功&#x27;</span>,</span><br><span class="line">        <span class="attr">data</span>: query</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br><span class="line">router.<span class="title function_">post</span>(<span class="string">&#x27;/post&#x27;</span>,<span class="function">(<span class="params">req,res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> body = req.<span class="property">body</span>;</span><br><span class="line">    res.<span class="title function_">send</span>(&#123;</span><br><span class="line">        <span class="attr">status</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="attr">msg</span>: <span class="string">&#x27;POST请求成功&#x27;</span>,</span><br><span class="line">        <span class="attr">data</span>: body</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = router;</span><br></pre></td></tr></table></figure>
-<h3 id="接口的跨域问题"><a href="#接口的跨域问题" class="headerlink" title="接口的跨域问题"></a>接口的跨域问题</h3><p>解决接口跨域问题的方案主要有两种：<br>1.CORS(主流的解决方案，推荐使用)<br>2.JSONP(有缺陷的解决方案：只支持GET请求)</p>
-<h3 id="使用-cors-中间件解决跨域问题"><a href="#使用-cors-中间件解决跨域问题" class="headerlink" title="使用 cors 中间件解决跨域问题"></a>使用 cors 中间件解决跨域问题</h3><p>cors 是 Express 的一个第三方中间件。通过安装和配置 cors 中间件，可以很方便地解决跨域问题。<br>使用步骤分为如下 3 步：<br>1.运行 npm install cors 安装中间件<br>2.使用 const cors &#x3D; require(‘cors’) 导入中间件<br>3.在路由之前调用 app.use(cors()) 配置中间件</p>
-<h4 id="什么是CORS"><a href="#什么是CORS" class="headerlink" title="什么是CORS"></a>什么是CORS</h4><p>CORS （Cross-Origin Resource Sharing，跨域资源共享）由一系列 HTTP 响应头组成，这些 HTTP 响应头决定浏览器是否阻止前端 JS 代码跨域获取资源。<br>浏览器的同源安全策略默认会阻止网页“跨域”获取资源。但如果接口服务器配置了 CORS 相关的 HTTP 响应头，就可以解除浏览器端的跨域访问限制。<br><img src="/2022/10/24/Express%E5%86%99%E6%8E%A5%E5%8F%A3%E5%92%8C%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/%E5%9B%BE%E7%89%871.png" alt="图片1"> <img src="/2022/10/24/Express%E5%86%99%E6%8E%A5%E5%8F%A3%E5%92%8C%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/%E5%9B%BE%E7%89%872.png" alt="图片2"></p>
-<h4 id="CORS-的注意事项"><a href="#CORS-的注意事项" class="headerlink" title="CORS 的注意事项"></a>CORS 的注意事项</h4><p>1.CORS 主要在服务器端进行配置。客户端浏览器无须做任何额外的配置，即可请求开启了 CORS 的接口。<br>2.CORS 在浏览器中有兼容性。只有支持 XMLHttpRequest Level2 的浏览器，才能正常访问开启了 CORS 的服务端接口（例如：IE10+、Chrome4+、FireFox3.5+）。</p>
-<h4 id="CORS-响应头部-Access-Control-Allow-Origin"><a href="#CORS-响应头部-Access-Control-Allow-Origin" class="headerlink" title="CORS 响应头部 - Access-Control-Allow-Origin"></a>CORS 响应头部 - Access-Control-Allow-Origin</h4><p>响应头部中可以携带一个 Access-Control-Allow-Origin 字段，其语法如下:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Access</span>-<span class="title class_">Control</span>-<span class="title class_">Allow</span>-<span class="title class_">Origin</span>: &lt;origin&gt; | *</span><br></pre></td></tr></table></figure>
-<p>其中，origin 参数的值指定了允许访问该资源的外域 URL。<br>如果指定了 Access-Control-Allow-Origin 字段的值为通配符 *，表示允许来自任何域的请求</p>
-<p>例如，下面的字段值将只允许来自 <a target="_blank" rel="noopener" href="http://itcast.cn/">http://itcast.cn</a> 的请求：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">res.<span class="title function_">setHeader</span>(<span class="string">&#x27;Access-Control-Allow-Origin&#x27;</span>,<span class="string">&#x27;http://itcast.cn&#x27;</span>);</span><br></pre></td></tr></table></figure>
-<p>或</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> corsOptions = &#123;<span class="attr">origin</span>:<span class="string">&#x27;http://itcast.com&#x27;</span>&#125;</span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/get&#x27;</span>,<span class="title function_">cors</span>(corsOptions),<span class="function">(<span class="params">req,res</span>) =&gt;</span> &#123;...&#125;)</span><br></pre></td></tr></table></figure>
-
-<h4 id="CORS-响应头部-Access-Control-Allow-Headers"><a href="#CORS-响应头部-Access-Control-Allow-Headers" class="headerlink" title="CORS 响应头部 - Access-Control-Allow-Headers"></a>CORS 响应头部 - Access-Control-Allow-Headers</h4><p>默认情况下，CORS 仅支持客户端向服务器发送如下的 9 个请求头：<br>Accept、Accept-Language、Content-Language、DPR、Downlink、Save-Data、Viewport-Width、Width 、Content-Type （值仅限于 text&#x2F;plain、multipart&#x2F;form-data、application&#x2F;x-www-form-urlencoded 三者之一）<br>如果客户端向服务器发送了额外的请求头信息，则需要在服务器端，通过 Access-Control-Allow-Headers 对额外的请求头进行声明，否则这次请求会失败！</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 允许客户端额外向服务器发送 Content-Type 请求头和 X-Custom-Header 请求头</span></span><br><span class="line"><span class="comment">// 注意：多个请求头之间使用英文的逗号进行分割</span></span><br><span class="line">res.<span class="title function_">setHeader</span>(<span class="string">&#x27;Access-Control-Allow-Headers&#x27;</span>,<span class="string">&#x27;Content-Type,X-Custom-Header&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<h4 id="CORS-响应头部-Access-Control-Allow-Methods"><a href="#CORS-响应头部-Access-Control-Allow-Methods" class="headerlink" title="CORS 响应头部 - Access-Control-Allow-Methods"></a>CORS 响应头部 - Access-Control-Allow-Methods</h4><p>默认情况下，CORS 仅支持客户端发起 GET、POST、HEAD 请求。<br>如果客户端希望通过 PUT、DELETE 等方式请求服务器的资源，则需要在服务器端，通过 Access-Control-Alow-Methods来指明实际请求所允许使用的 HTTP 方法。<br>示例代码如下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 只允许 POST、GET、DELETE、HEAD请求方法</span></span><br><span class="line">res.<span class="title function_">setHeader</span>(<span class="string">&#x27;Access-Control-Allow-Methods&#x27;</span>,<span class="string">&#x27;POST,GET,DELETE,HEAD&#x27;</span>);</span><br><span class="line"><span class="comment">// 允许所有的HTTP请求方法</span></span><br><span class="line">res.<span class="title function_">setHeader</span>(<span class="string">&#x27;Access-Control-Allow-Methods&#x27;</span>,<span class="string">&#x27;*&#x27;</span>);</span><br></pre></td></tr></table></figure>
-<h4 id="CORS请求的分类"><a href="#CORS请求的分类" class="headerlink" title="CORS请求的分类"></a>CORS请求的分类</h4><p>客户端在请求 CORS 接口时，根据请求方式和请求头的不同，可以将 CORS 的请求分为两大类，分别是：<br>1.简单请求<br>2.预检请求</p>
-<p>简单请求<br>同时满足以下两大条件的请求，就属于简单请求：<br>1.请求方式：GET、POST、HEAD 三者之一<br>2.HTTP 头部信息不超过以下几种字段：无自定义头部字段、Accept、Accept-Language、Content-Language、DPR、Downlink、Save-Data、Viewport-Width、Width 、Content-Type（只有三个值application&#x2F;x-www-form-urlencoded、multipart&#x2F;form-data、text&#x2F;plain）</p>
-<p>预检请求<br>只要符合以下任何一个条件的请求，都需要进行预检请求：<br>1.请求方式为 GET、POST、HEAD 之外的请求 Method 类型<br>2.请求头中包含自定义头部字段<br>3.向服务器发送了 application&#x2F;json 格式的数据<br>在浏览器与服务器正式通信之前，浏览器会先发送 OPTION 请求进行预检，以获知服务器是否允许该实际请求，所以这一次的 OPTION 请求称为“预检请求”。服务器成功响应预检请求后，才会发送真正的请求，并且携带真实数据。</p>
-<h4 id="简单请求和预检请求的区别"><a href="#简单请求和预检请求的区别" class="headerlink" title="简单请求和预检请求的区别"></a>简单请求和预检请求的区别</h4><p>简单请求的特点：客户端与服务器之间只会发生一次请求。<br>预检请求的特点：客户端与服务器之间会发生两次请求，OPTION 预检请求成功之后，才会发起真正的请求。</p>
-<h3 id="JSONP接口"><a href="#JSONP接口" class="headerlink" title="JSONP接口"></a>JSONP接口</h3><h4 id="JSONP-的概念与特点"><a href="#JSONP-的概念与特点" class="headerlink" title="JSONP 的概念与特点"></a>JSONP 的概念与特点</h4><p>概念：浏览器端通过 script 标签的 src 属性，请求服务器上的数据，同时，服务器返回一个函数的调用。这种请求数据的方式叫做 JSONP。<br>特点:<br>1.JSONP 不属于真正的 Ajax 请求，因为它没有使用 XMLHttpRequest 这个对象。<br>2.JSONP 仅支持 GET 请求，不支持 POST、PUT、DELETE 等请求。</p>
-<h4 id="创建-JSONP-接口的注意事项"><a href="#创建-JSONP-接口的注意事项" class="headerlink" title="创建 JSONP 接口的注意事项"></a>创建 JSONP 接口的注意事项</h4><p>如果项目中已经配置了 CORS 跨域资源共享，为了防止冲突，必须在配置 CORS 中间件之前声明 JSONP 的接口。否则 JSONP 接口会被处理成开启了 CORS 的接口。示例代码如下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 优先创建 JSONP接口[这个接口不会被处理成CORS接口]</span></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/api/jsonp&#x27;</span>,<span class="function">(<span class="params">req,res</span>) =&gt;</span> &#123; &#125;);</span><br><span class="line"><span class="comment">// 再配置 CORS 中间件[后续的所有接口，都会被处理成 CORS接口]</span></span><br><span class="line">app.<span class="title function_">use</span>(<span class="title function_">cors</span>());</span><br><span class="line"><span class="comment">// 这是一个开启了 CORS的接口</span></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/api/get&#x27;</span>,<span class="function">(<span class="params">req,res</span>) =&gt;</span> &#123; &#125;);</span><br></pre></td></tr></table></figure>
-
-<h4 id="实现-JSONP-接口的步骤"><a href="#实现-JSONP-接口的步骤" class="headerlink" title="实现 JSONP 接口的步骤"></a>实现 JSONP 接口的步骤</h4><p>1.获取客户端发送过来的回调函数的名字<br>2.得到要通过 JSONP 形式发送给客户端的数据<br>3.根据前两步得到的数据，拼接出一个函数调用的字符串<br>4.把上一步拼接得到的字符串，响应给客户端的 script 标签进行解析执行</p>
-<h4 id="实现-JSONP-接口的具体代码"><a href="#实现-JSONP-接口的具体代码" class="headerlink" title="实现 JSONP 接口的具体代码"></a>实现 JSONP 接口的具体代码</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/api/jsonp&#x27;</span>,<span class="function">(<span class="params">req,res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 1.获取客户端发送过来的回调函数的名字</span></span><br><span class="line">    <span class="keyword">const</span> funcName = req.<span class="property">query</span>.<span class="property">callback</span>;</span><br><span class="line">    <span class="comment">// 2.得到要通过jsonp形式发送给客户端的数据</span></span><br><span class="line">    <span class="keyword">const</span> data = &#123;<span class="attr">name</span>:<span class="string">&#x27;zs&#x27;</span>,<span class="attr">age</span>:<span class="number">22</span>&#125;;</span><br><span class="line">    <span class="comment">// 3.根据前两步得到的数据，拼接出一个函数调用的字符串</span></span><br><span class="line">    <span class="keyword">const</span> scriptStr = <span class="string">`<span class="subst">$&#123;funcName&#125;</span>(<span class="subst">$&#123;<span class="built_in">JSON</span>.stringify(data)&#125;</span>)`</span>;</span><br><span class="line">    <span class="comment">// 4.把上一步拼接得到的字符串，响应给客户端的&lt;script&gt;标签进行解析执行</span></span><br><span class="line">    res.<span class="title function_">send</span>(scriptStr);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h4 id="在网页中使用-jQuery-发起-JSONP-请求"><a href="#在网页中使用-jQuery-发起-JSONP-请求" class="headerlink" title="在网页中使用 jQuery 发起 JSONP 请求"></a>在网页中使用 jQuery 发起 JSONP 请求</h4><p>调用 $.ajax() 函数，提供 JSONP 的配置选项，从而发起 JSONP 请求，示例代码如下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&#x27;.btnJSONP&#x27;</span>).<span class="title function_">on</span>(<span class="string">&#x27;click&#x27;</span>,<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    $.<span class="title function_">ajax</span>(&#123;</span><br><span class="line">        <span class="attr">method</span>: <span class="string">&#x27;GET&#x27;</span>,</span><br><span class="line">        <span class="attr">url</span>: <span class="string">&#x27;http://127.0.0.1/api/jsonp&#x27;</span>,</span><br><span class="line">        <span class="attr">dataType</span>: <span class="string">&#x27;jsonp&#x27;</span>,</span><br><span class="line">        <span class="attr">success</span>: <span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(res);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
@@ -1449,7 +1413,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">81k</span>
+    <span title="站点总字数">82k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
