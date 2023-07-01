@@ -125,13 +125,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-count">40</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
   </nav>
@@ -168,6 +168,113 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/14/React%E8%B7%AF%E7%94%B1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="柯建军">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="柯建军的博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 柯建军的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/03/14/React%E8%B7%AF%E7%94%B1/" class="post-title-link" itemprop="url">React路由</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-03-14 20:29:45" itemprop="dateCreated datePublished" datetime="2023-03-14T20:29:45+08:00">2023-03-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-04-01 20:07:30" itemprop="dateModified" datetime="2023-04-01T20:07:30+08:00">2023-04-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>4.5k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="使用Link-NavLink方式创建路由"><a href="#使用Link-NavLink方式创建路由" class="headerlink" title="使用Link,NavLink方式创建路由"></a>使用Link,NavLink方式创建路由</h2><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="comment">/* 路由链接，Link和NavLink最终会被转为&lt;a&gt;标签 to被转为href*/</span>&#125;</span><br><span class="line">&lt;<span class="title class_">NavLink</span> to=<span class="string">&quot;login&quot;</span>&gt;登录&lt;/<span class="title class_">NavLink</span>&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">NavLink</span> <span class="attr">to</span>=<span class="string">&quot;register&quot;</span>&gt;</span>注册<span class="tag">&lt;/<span class="name">NavLink</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">NavLink</span> <span class="attr">to</span>=<span class="string">&quot;home&quot;</span>&gt;</span>主页<span class="tag">&lt;/<span class="name">NavLink</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">NavLink</span> <span class="attr">to</span>=<span class="string">&quot;mine&quot;</span>&gt;</span>我的<span class="tag">&lt;/<span class="name">NavLink</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line">&#123;<span class="comment">/* 注册路由，展示对应的路由组件，&quot;/&quot; 可省略 */</span>&#125;</span><br><span class="line">&lt;<span class="title class_">Routes</span>&gt;</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;/Login&quot;</span> <span class="attr">element</span>=<span class="string">&#123;</span>&lt;<span class="attr">Login</span> /&gt;</span>&#125;&gt;<span class="tag">&lt;/<span class="name">Route</span>&gt;</span></span></span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;/Register&quot;</span> <span class="attr">element</span>=<span class="string">&#123;</span>&lt;<span class="attr">Register</span> /&gt;</span>&#125;&gt;<span class="tag">&lt;/<span class="name">Route</span>&gt;</span></span></span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;/Home/*&quot;</span> <span class="attr">element</span>=<span class="string">&#123;</span>&lt;<span class="attr">Home</span> /&gt;</span>&#125;&gt;<span class="tag">&lt;/<span class="name">Route</span>&gt;</span></span>		&#123;<span class="comment">/* 有二级路由用 &quot;/*&quot;模糊匹配 */</span>&#125;</span><br><span class="line">    &lt;<span class="title class_">Route</span> path=<span class="string">&quot;/Mine&quot;</span> element=&#123;<span class="language-xml"><span class="tag">&lt;<span class="name">Mine</span> /&gt;</span></span>&#125;&gt;&lt;/<span class="title class_">Route</span>&gt;</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;/&quot;</span> <span class="attr">element</span>=<span class="string">&#123;</span>&lt;<span class="attr">Navigate</span> <span class="attr">to</span>=<span class="string">&quot;/home&quot;</span> /&gt;</span>&#125;&gt;<span class="tag">&lt;/<span class="name">Route</span>&gt;</span></span>		&#123;<span class="comment">/* 作用：只要&lt;Navigate&gt;组件被渲染，就会修改路径，切换视图 */</span>&#125;</span><br><span class="line">&lt;/<span class="title class_">Routes</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用路由表集中管理注册路由"><a href="#使用路由表集中管理注册路由" class="headerlink" title="使用路由表集中管理注册路由"></a>使用路由表集中管理注册路由</h2><h3 id="react-router-dom-version6支持原生路由表"><a href="#react-router-dom-version6支持原生路由表" class="headerlink" title="react-router-dom version6支持原生路由表"></a>react-router-dom version6支持原生路由表</h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建routes目录，一般在src目录下创建</span></span><br><span class="line">&#123;<span class="comment">/* 在routes.js下导入所有路由组件 */</span>&#125;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Navigate</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;react-router-dom&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Home</span> <span class="keyword">from</span> <span class="string">&#x27;../pages/Home&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Login</span> <span class="keyword">from</span> <span class="string">&#x27;../pages/Login&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Register</span> <span class="keyword">from</span> <span class="string">&#x27;../pages/Register&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Mine</span> <span class="keyword">from</span> <span class="string">&#x27;../pages/Mine&#x27;</span></span><br><span class="line"><span class="comment">// 子路由</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Detail</span> <span class="keyword">from</span> <span class="string">&#x27;../pages/Home/Detail&#x27;</span></span><br><span class="line"><span class="comment">// 路由表，[&#123;path:&#x27;...&#x27;,element:&lt;/&gt;,children:[&#123;...&#125;]&#125;,&#123;...&#125;]</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> routes = [</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>:<span class="string">&#x27;/Home/*&#x27;</span>,</span><br><span class="line">    <span class="attr">element</span>: <span class="language-xml"><span class="tag">&lt;<span class="name">Home</span> /&gt;</span></span>,</span><br><span class="line">    <span class="attr">children</span>:[</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">path</span>:<span class="string">&#x27;Detail&#x27;</span>,</span><br><span class="line">        <span class="attr">element</span>: <span class="language-xml"><span class="tag">&lt;<span class="name">Detail</span> /&gt;</span></span></span><br><span class="line">      &#125;,</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>:<span class="string">&#x27;/Login&#x27;</span>,</span><br><span class="line">    <span class="attr">element</span>: <span class="language-xml"><span class="tag">&lt;<span class="name">Login</span> /&gt;</span></span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>:<span class="string">&#x27;/Register&#x27;</span>,</span><br><span class="line">    <span class="attr">element</span>: <span class="language-xml"><span class="tag">&lt;<span class="name">Register</span> /&gt;</span></span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>:<span class="string">&#x27;/Mine&#x27;</span>,</span><br><span class="line">    <span class="attr">element</span>: <span class="language-xml"><span class="tag">&lt;<span class="name">Mine</span> /&gt;</span></span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>:<span class="string">&#x27;/&#x27;</span>,</span><br><span class="line">    <span class="attr">element</span>: <span class="language-xml"><span class="tag">&lt;<span class="name">Navigate</span> <span class="attr">to</span>=<span class="string">&quot;/Home&quot;</span> /&gt;</span></span></span><br><span class="line">  &#125;,</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在对应路由文件中引入钩子函数 useRoutes、引入路由表文件</span></span><br><span class="line"><span class="keyword">import</span> &#123; useRoutes &#125; <span class="keyword">from</span> <span class="string">&#x27;react-router-dom&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123;routes&#125;  <span class="keyword">from</span> <span class="string">&#x27;./routes&#x27;</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">App</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> element = <span class="title function_">useRoutes</span>(routes)</span><br><span class="line">  <span class="keyword">return</span>(</span><br><span class="line">  	<span class="language-xml"><span class="tag">&lt;<span class="name">NavLink</span> <span class="attr">to</span>=<span class="string">&quot;login&quot;</span>&gt;</span>登录<span class="tag">&lt;/<span class="name">NavLink</span>&gt;</span></span></span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">NavLink</span> <span class="attr">to</span>=<span class="string">&quot;register&quot;</span>&gt;</span>注册<span class="tag">&lt;/<span class="name">NavLink</span>&gt;</span></span></span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">NavLink</span> <span class="attr">to</span>=<span class="string">&quot;home&quot;</span>&gt;</span>主页<span class="tag">&lt;/<span class="name">NavLink</span>&gt;</span></span></span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">NavLink</span> <span class="attr">to</span>=<span class="string">&quot;mine&quot;</span>&gt;</span>我的<span class="tag">&lt;/<span class="name">NavLink</span>&gt;</span></span></span><br><span class="line">	&#123;<span class="comment">/* before */</span>&#125;</span><br><span class="line">	&lt;<span class="title class_">Routes</span>&gt;</span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;/Login&quot;</span> <span class="attr">element</span>=<span class="string">&#123;</span>&lt;<span class="attr">Login</span> /&gt;</span>&#125;&gt;<span class="tag">&lt;/<span class="name">Route</span>&gt;</span></span></span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;/Register&quot;</span> <span class="attr">element</span>=<span class="string">&#123;</span>&lt;<span class="attr">Register</span> /&gt;</span>&#125;&gt;<span class="tag">&lt;/<span class="name">Route</span>&gt;</span></span></span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;/Home/*&quot;</span> <span class="attr">element</span>=<span class="string">&#123;</span>&lt;<span class="attr">Home</span> /&gt;</span>&#125;&gt;<span class="tag">&lt;/<span class="name">Route</span>&gt;</span></span>		&#123;<span class="comment">/* 有二级路由用 &quot;/*&quot;模糊匹配 */</span>&#125;</span><br><span class="line">        &lt;<span class="title class_">Route</span> path=<span class="string">&quot;/Mine&quot;</span> element=&#123;<span class="language-xml"><span class="tag">&lt;<span class="name">Mine</span> /&gt;</span></span>&#125;&gt;&lt;/<span class="title class_">Route</span>&gt;</span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;/&quot;</span> <span class="attr">element</span>=<span class="string">&#123;</span>&lt;<span class="attr">Navigate</span> <span class="attr">to</span>=<span class="string">&quot;/home&quot;</span> /&gt;</span>&#125;&gt;<span class="tag">&lt;/<span class="name">Route</span>&gt;</span></span></span><br><span class="line">    &lt;/<span class="title class_">Routes</span>&gt;</span><br><span class="line">	&#123;<span class="comment">/* after */</span>&#125;</span><br><span class="line">	&#123;element&#125;		<span class="comment">// 等同于&lt;Routes&gt;&lt;Route&gt;&lt;/Route&gt;&lt;/Routes&gt;</span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 如示例代码中在路由组件&lt;Home/&gt;中有二级路由&lt;Detail/&gt;，那么在&lt;Home/&gt;组件中引入 Outlet</span></span><br><span class="line"><span class="comment">// home.js</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">React</span> <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">NavLink</span>,<span class="title class_">Outlet</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;react-router-dom&#x27;</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">Home</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">div</span>&gt;</span>主页<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">NavLink</span> <span class="attr">to</span>=<span class="string">&quot;detail&quot;</span>&gt;</span>详情<span class="tag">&lt;/<span class="name">NavLink</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">Outlet</span> /&gt;</span>	// 和 &#123;element&#125; 相似</span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">Home</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="编程式路由导航"><a href="#编程式路由导航" class="headerlink" title="编程式路由导航"></a>编程式路由导航</h2><p>使用Link或NavLink方式跳转路由有很多的局限性，如在3秒后路由自动跳转，鼠标滑过图片路由跳转，这些用Link很难实现路由跳转。于是就有了编程式路由导航，不使用Link或NavLink就是编程式路由导航。</p>
+<h2 id="函数式"><a href="#函数式" class="headerlink" title="函数式"></a>函数式</h2><h3 id="RouterV6版本使用useNavigate-进行编程式路由导航，useNavigate的作用就是返回一个函数"><a href="#RouterV6版本使用useNavigate-进行编程式路由导航，useNavigate的作用就是返回一个函数" class="headerlink" title="RouterV6版本使用useNavigate()进行编程式路由导航，useNavigate的作用就是返回一个函数"></a>RouterV6版本使用useNavigate()进行编程式路由导航，useNavigate的作用就是返回一个函数</h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 引入 useNavigate</span></span><br><span class="line"><span class="keyword">import</span> &#123;useNavigate&#125; <span class="keyword">from</span> <span class="string">&#x27;react-router-dom&#x27;</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">App</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> element = <span class="title function_">useRoutes</span>(routes)		<span class="comment">// 路由表</span></span><br><span class="line">  <span class="keyword">const</span> navigate = <span class="title function_">useNavigate</span>()		<span class="comment">// 返回一个函数</span></span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">handle</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">    <span class="comment">// 第一种方式，指定具体的路径</span></span><br><span class="line">    <span class="title function_">navigate</span>(<span class="string">&#x27;/login&#x27;</span>,&#123;				<span class="comment">// 调用函数，参数1---&gt;要跳转的路由路径</span></span><br><span class="line">      <span class="attr">replace</span>:<span class="literal">false</span>,				<span class="comment">// 参数2[可选]---&gt;replace，路由跳转模式,默认push模式，有痕迹，replace模式，true时无痕迹</span></span><br><span class="line">      <span class="attr">state</span>:&#123;<span class="attr">a</span>:<span class="number">1</span>,<span class="attr">b</span>:<span class="number">2</span>&#125;				<span class="comment">// 向路由组件传递state参数，示例中就向&lt;login/&gt;传递了参数</span></span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="comment">// 第二种方式，传入数值进行前进或后退，类似于5.x中的history.go()方法</span></span><br><span class="line">    <span class="comment">// navigate(-1)</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;handle&#125;</span>&gt;</span>按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="RouterV5-1-0以上版本使用useHistory进行编程式路由导航"><a href="#RouterV5-1-0以上版本使用useHistory进行编程式路由导航" class="headerlink" title="RouterV5.1.0以上版本使用useHistory进行编程式路由导航"></a>RouterV5.1.0以上版本使用useHistory进行编程式路由导航</h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useHistory &#125; <span class="keyword">from</span> <span class="string">&#x27;react-router-dom&#x27;</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">App</span>(<span class="params"></span>) &#123;</span><br><span class="line">	<span class="keyword">const</span> history = <span class="title function_">useHistory</span>()</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span>(</span><br><span class="line">		...</span><br><span class="line">		&lt;xxx </span><br><span class="line">        	onClick=&#123;<span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">        		history.<span class="title function_">push</span>(e.<span class="property">key</span>)</span><br><span class="line">        	&#125;&#125;</span><br><span class="line">        /&gt;</span><br><span class="line">	)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="类式"><a href="#类式" class="headerlink" title="类式"></a>类式</h2><h3 id="借助this-props-history中的属性也能实现路由跳转"><a href="#借助this-props-history中的属性也能实现路由跳转" class="headerlink" title="借助this.props.history中的属性也能实现路由跳转"></a>借助this.props.history中的属性也能实现路由跳转</h3>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1219,143 +1326,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/01/02/%E5%89%8D%E5%90%8E%E7%AB%AF%E7%9A%84%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="柯建军">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="柯建军的博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 柯建军的博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/01/02/%E5%89%8D%E5%90%8E%E7%AB%AF%E7%9A%84%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81/" class="post-title-link" itemprop="url">前后端的身份验证</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2023-01-02 13:48:53 / 修改时间：14:30:31" itemprop="dateCreated datePublished" datetime="2023-01-02T13:48:53+08:00">2023-01-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/node-js/" itemprop="url" rel="index"><span itemprop="name">node.js</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>5.2k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>5 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="身份验证"><a href="#身份验证" class="headerlink" title="身份验证"></a>身份验证</h3><h4 id="什么是身份验证"><a href="#什么是身份验证" class="headerlink" title="什么是身份验证"></a>什么是身份验证</h4><p>身份认证（Authentication）又称“身份验证”、“鉴权”，是指通过一定的手段，完成对用户身份的确认。<br>日常生活中的身份认证随处可见，例如：高铁的验票乘车，手机的密码或指纹解锁，支付宝或微信的支付密码等。<br>在 Web 开发中，也涉及到用户身份的认证，例如：各大网站的手机验证码登录、邮箱密码登录、二维码登录等。</p>
-<h4 id="为什么需要身份验证"><a href="#为什么需要身份验证" class="headerlink" title="为什么需要身份验证"></a>为什么需要身份验证</h4><p>身份认证的目的，是为了确认当前所声称为某种身份的用户，确实是所声称的用户。例如，你去找快递员取快递，你要怎么证明这份快递是你的。<br>在互联网项目开发中，如何对用户的身份进行认证，是一个值得深入探讨的问题。例如，如何才能保证网站不会错误的将“马云的存款数额”显示到“马化腾的账户”上。</p>
-<h4 id="不同开发模式下的身份验证"><a href="#不同开发模式下的身份验证" class="headerlink" title="不同开发模式下的身份验证"></a>不同开发模式下的身份验证</h4><p>对于服务端渲染和前后端分离这两种开发模式来说，分别有着不同的身份认证方案：<br>1.服务端渲染推荐使用 Session 认证机制<br>2.前后端分离推荐使用 JWT 认证机制</p>
-<h3 id="Session-认证机制"><a href="#Session-认证机制" class="headerlink" title="Session 认证机制"></a>Session 认证机制</h3><ol>
-<li><p>HTTP 协议的无状态性<br>了解 HTTP 协议的无状态性是进一步学习 Session 认证机制的必要前提。<br>HTTP 协议的无状态性，指的是客户端的每次 HTTP 请求都是独立的，连续多个请求之间没有直接的关系，服务器不会主动保留每次 HTTP 请求的状态。<br><img src="/2023/01/02/%E5%89%8D%E5%90%8E%E7%AB%AF%E7%9A%84%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81/%E5%9B%BE%E7%89%871.png" alt="图片1"></p>
-</li>
-<li><p>如何突破 HTTP 无状态的限制<br>对于超市来说，为了方便收银员在进行结算时给 VIP 用户打折，超市可以为每个 VIP 用户发放会员卡。<br><img src="/2023/01/02/%E5%89%8D%E5%90%8E%E7%AB%AF%E7%9A%84%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81/%E5%9B%BE%E7%89%872.png" alt="图片2"><br>注意：现实生活中的会员卡身份认证方式，在 Web 开发中的专业术语叫做 Cookie。</p>
-</li>
-</ol>
-<p>3.什么是 Cookie<br>Cookie 是存储在用户浏览器中的一段不超过 4 KB 的字符串。它由一个名称（Name）、一个值（Value）和其它几个用于控制 Cookie 有效期、安全性、使用范围的可选属性组成。<br>不同域名下的 Cookie 各自独立，每当客户端发起请求时，会自动把当前域名下所有未过期的 Cookie 一同发送到服务器。<br>Cookie的几大特性：<br>1.自动发送<br>2.域名独立<br>3.过期时限<br>4.4KB 限制</p>
-<p>4.Cookie 在身份认证中的作用<br>客户端第一次请求服务器的时候，服务器通过响应头的形式，向客户端发送一个身份认证的 Cookie，客户端会自动将 Cookie 保存在浏览器中。<br>随后，当客户端浏览器每次请求服务器的时候，浏览器会自动将身份认证相关的 Cookie，通过请求头的形式发送给服务器，服务器即可验明客户端的身份。<br><img src="/2023/01/02/%E5%89%8D%E5%90%8E%E7%AB%AF%E7%9A%84%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81/%E5%9B%BE%E7%89%873.png" alt="图片3"></p>
-<ol start="5">
-<li><p>Cookie 不具有安全性<br>由于 Cookie 是存储在浏览器中的，而且浏览器也提供了读写 Cookie 的 API，因此 Cookie 很容易被伪造，不具有安全性。因此不建议服务器将重要的隐私数据，通过 Cookie 的形式发送给浏览器。<br><img src="/2023/01/02/%E5%89%8D%E5%90%8E%E7%AB%AF%E7%9A%84%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81/%E5%9B%BE%E7%89%874.png" alt="图片4"><br>注意：千万不要使用 Cookie 存储重要且隐私的数据！比如用户的身份信息、密码等。</p>
-</li>
-<li><p>提高身份认证的安全性<br>为了防止客户伪造会员卡，收银员在拿到客户出示的会员卡之后，可以在收银机上进行刷卡认证。只有收银机确认存在的会员卡，才能被正常使用。<br><img src="/2023/01/02/%E5%89%8D%E5%90%8E%E7%AB%AF%E7%9A%84%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81/%E5%9B%BE%E7%89%875.png" alt="图片5"><br>这种“会员卡 + 刷卡认证”的设计理念，就是 Session 认证机制的精髓。</p>
-</li>
-<li><p>Session 的工作原理<br><img src="/2023/01/02/%E5%89%8D%E5%90%8E%E7%AB%AF%E7%9A%84%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81/%E5%9B%BE%E7%89%876.png" alt="图片6"></p>
-</li>
-</ol>
-<h3 id="在-Express-中使用-Session-认证"><a href="#在-Express-中使用-Session-认证" class="headerlink" title="在 Express 中使用 Session 认证"></a>在 Express 中使用 Session 认证</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">安装express-session 中间件</span><br><span class="line">npm install express-session</span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.导入 session 中间件</span></span><br><span class="line"><span class="keyword">const</span> session = <span class="built_in">require</span>(<span class="string">&#x27;express-session&#x27;</span>)</span><br><span class="line"><span class="comment">// 2.配置 session中间件</span></span><br><span class="line">app.<span class="title function_">use</span>(<span class="title function_">session</span>(&#123;</span><br><span class="line">    <span class="attr">secret</span>: <span class="string">&#x27;keyboard cat&#x27;</span>, <span class="comment">// secret 属性的值可以为任意字符串</span></span><br><span class="line">    <span class="attr">resave</span>: <span class="literal">false</span>,              <span class="comment">// 固定写法</span></span><br><span class="line">    <span class="attr">saveUninitialized</span>: <span class="literal">true</span>     <span class="comment">// 固定写法</span></span><br><span class="line">&#125;))</span><br></pre></td></tr></table></figure>
-<p>向session中存数据<br>当 express-session 中间件配置成功后，即可通过 req.session 来访问和使用 session 对象，从而存储用户的关键信息：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">app.<span class="title function_">post</span>(<span class="string">&#x27;/api/login&#x27;</span>,<span class="function">(<span class="params">req,res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(req.<span class="property">body</span>);</span><br><span class="line">    <span class="comment">// 判断用户提交的登录信息是否正确</span></span><br><span class="line">    <span class="keyword">if</span>(req.<span class="property">body</span>.<span class="property">username</span> !== <span class="string">&#x27;admin&#x27;</span> || req.<span class="property">body</span>.<span class="property">password</span> !== <span class="string">&#x27;000000&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> res.<span class="title function_">send</span>(&#123;<span class="attr">status</span>:<span class="number">1</span>,<span class="attr">msg</span>:<span class="string">&#x27;登录失败!&#x27;</span>&#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    req.<span class="property">session</span>.<span class="property">user</span> = req.<span class="property">body</span>     <span class="comment">//将用户的信息，存储到Session中</span></span><br><span class="line">    req.<span class="property">session</span>.<span class="property">islogin</span> = <span class="literal">true</span>      <span class="comment">//将用户的登录状态，存储到Session中</span></span><br><span class="line">    res.<span class="title function_">send</span>(&#123;<span class="attr">status</span>:<span class="number">0</span>,<span class="attr">msg</span>:<span class="string">&#x27;登录成功&#x27;</span>&#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>向session中取数据<br>可以直接从 req.session 对象上获取之前存储的数据，示例代码如下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/api/username&#x27;</span>,<span class="function">(<span class="params">req,res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 判断用户是否登录</span></span><br><span class="line">    <span class="keyword">if</span>(!req.<span class="property">session</span>.<span class="property">islogin</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> res.<span class="title function_">send</span>(&#123;<span class="attr">status</span>:<span class="number">1</span>,<span class="attr">msg</span>:<span class="string">&#x27;fail&#x27;</span>&#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    res.<span class="title function_">send</span>(&#123;<span class="attr">status</span>:<span class="number">0</span>,<span class="attr">msg</span>:<span class="string">&#x27;success&#x27;</span>,<span class="attr">username</span>:req.<span class="property">session</span>.<span class="property">user</span>.<span class="property">username</span>&#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>清空session<br>调用 req.session.destroy() 函数，即可清空服务器保存的 session 信息。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 退出登录的接口</span></span><br><span class="line">app.<span class="title function_">post</span>(<span class="string">&#x27;/api/logout&#x27;</span>,<span class="function">(<span class="params">req,res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 清空当前客户端对应的 session 信息</span></span><br><span class="line">    req.<span class="property">session</span>.<span class="title function_">destroy</span>()</span><br><span class="line">    res.<span class="title function_">send</span>(&#123;</span><br><span class="line">        <span class="attr">status</span>:<span class="number">0</span>,</span><br><span class="line">        <span class="attr">msg</span>:<span class="string">&#x27;退出登录成功&#x27;</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h3 id="JWT-认证机制"><a href="#JWT-认证机制" class="headerlink" title="JWT 认证机制"></a>JWT 认证机制</h3><h4 id="了解-Session-认证的局限性"><a href="#了解-Session-认证的局限性" class="headerlink" title="了解 Session 认证的局限性"></a>了解 Session 认证的局限性</h4><p>Session 认证机制需要配合 Cookie 才能实现。由于 Cookie 默认不支持跨域访问，所以，当涉及到前端跨域请求后端接口的时候，需要做很多额外的配置，才能实现跨域 Session 认证。</p>
-<p>注意：<br>当前端请求后端接口不存在跨域问题的时候，推荐使用 Session 身份认证机制。<br>当前端需要跨域请求后端接口的时候，不推荐使用 Session 身份认证机制，推荐使用 JWT 认证机制。</p>
-<h4 id="什么是-JWT"><a href="#什么是-JWT" class="headerlink" title="什么是 JWT"></a>什么是 JWT</h4><p>JWT（英文全称：JSON Web Token）是目前最流行的跨域认证解决方案。</p>
-<h4 id="JWT-的工作原理"><a href="#JWT-的工作原理" class="headerlink" title="JWT 的工作原理"></a>JWT 的工作原理</h4><p><img src="/2023/01/02/%E5%89%8D%E5%90%8E%E7%AB%AF%E7%9A%84%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81/%E5%9B%BE%E7%89%877.png" alt="图片7"><br>总结：用户的信息通过 Token 字符串的形式，保存在客户端浏览器中。服务器通过还原 Token 字符串的形式来认证用户的身份。</p>
-<h4 id="JWT-的组成部分"><a href="#JWT-的组成部分" class="headerlink" title="JWT 的组成部分"></a>JWT 的组成部分</h4><p>JWT 通常由三部分组成，分别是 Header（头部）、Payload（有效荷载）、Signature（签名）。<br>三者之间使用英文的“.”分隔，格式如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Header.payload.signature</span><br></pre></td></tr></table></figure>
-<p>下面是 JWT 字符串的示例：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNjcyNjM1OTg5LCJleHAiOjE2NzI3MjIzODl9.m3Gff8aWPE9kiRgSzXT3rmwnK9iBXPqfb1mRUf5e8Do</span><br></pre></td></tr></table></figure>
-<h4 id="JWT-的三个部分各自代表的含义"><a href="#JWT-的三个部分各自代表的含义" class="headerlink" title="JWT 的三个部分各自代表的含义"></a>JWT 的三个部分各自代表的含义</h4><p>JWT 的三个组成部分，从前到后分别是 Header、Payload、Signature。<br>其中：<br>Payload 部分才是真正的用户信息，它是用户信息经过加密之后生成的字符串。<br>Header 和 Signature 是安全性相关的部分，只是为了保证 Token 的安全性。<br><img src="/2023/01/02/%E5%89%8D%E5%90%8E%E7%AB%AF%E7%9A%84%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81/%E5%9B%BE%E7%89%878.png" alt="图片8"></p>
-<h4 id="JWT-的使用方式"><a href="#JWT-的使用方式" class="headerlink" title="JWT 的使用方式"></a>JWT 的使用方式</h4><p>客户端收到服务器返回的 JWT 之后，通常会将它储存在 localStorage 或 sessionStorage 中。<br>此后，客户端每次与服务器通信，都要带上这个 JWT 的字符串，从而进行身份认证。推荐的做法是把 JWT 放在 HTTP 请求头的 Authorization 字段中，格式如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Authorization: Bearer &lt;token&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="在-Express-中使用-JWT"><a href="#在-Express-中使用-JWT" class="headerlink" title="在 Express 中使用 JWT"></a>在 Express 中使用 JWT</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install jsonwebtoken express-jwt</span><br></pre></td></tr></table></figure>
-<p>其中：<br>jsonwebtoken 用于生成 JWT 字符串<br>express-jwt 用于将 JWT 字符串解析还原成 JSON 对象</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.导入用于生成jwt字符串的包</span></span><br><span class="line"><span class="keyword">const</span> jwt = <span class="built_in">require</span>(<span class="string">&#x27;jsonwebtoken&#x27;</span>)</span><br><span class="line"><span class="comment">// 2.导入用于解析客户端发送过来的 jwt 字符串，解析还原成 json 对象的包</span></span><br><span class="line"><span class="keyword">const</span> expressJWT = <span class="built_in">require</span>(<span class="string">&#x27;express-jwt&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 允许跨域资源共享</span></span><br><span class="line"><span class="keyword">const</span> cors = <span class="built_in">require</span>(<span class="string">&#x27;cors&#x27;</span>)</span><br><span class="line">app.<span class="title function_">use</span>(<span class="title function_">cors</span>())</span><br><span class="line"></span><br><span class="line"><span class="comment">// 对post提交的数据进行解析</span></span><br><span class="line"><span class="keyword">const</span> bodyParser = <span class="built_in">require</span>(<span class="string">&#x27;body-parser&#x27;</span>)</span><br><span class="line">app.<span class="title function_">use</span>(bodyParser.<span class="title function_">urlencoded</span>(&#123; <span class="attr">extended</span>: <span class="literal">false</span>&#125;))</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3.定义 secret 密钥</span></span><br><span class="line"><span class="keyword">const</span> secretkey = <span class="string">&#x27;itheima&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 将jwt字符串还原为json对象</span></span><br><span class="line"><span class="comment">// 注意：只要配置成功了 express-jwt 这个中间件,就可以把解析出来的用户信息，挂载到 req.user 属性上</span></span><br><span class="line">app.<span class="title function_">use</span>(<span class="title function_">expressJWT</span>(&#123; <span class="attr">secret</span>:secretkey,<span class="attr">algorithms</span>:[<span class="string">&#x27;HS256&#x27;</span>]&#125;).<span class="title function_">unless</span>(&#123; <span class="attr">path</span>:[<span class="regexp">/^\/api\//</span>] &#125;))</span><br><span class="line"></span><br><span class="line"><span class="comment">// 登录接口</span></span><br><span class="line">app.<span class="title function_">post</span>(<span class="string">&#x27;/api/login&#x27;</span>,<span class="function">(<span class="params">req,res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> userinfo = req.<span class="property">body</span></span><br><span class="line">    <span class="comment">// 登录失败</span></span><br><span class="line">    <span class="keyword">if</span>(req.<span class="property">body</span>.<span class="property">username</span> !== <span class="string">&#x27;admin&#x27;</span> || req.<span class="property">body</span>.<span class="property">password</span> !== <span class="string">&#x27;000000&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> res.<span class="title function_">send</span>(&#123;<span class="attr">status</span>:<span class="number">400</span>,<span class="attr">msg</span>:<span class="string">&#x27;登录失败！&#x27;</span>&#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 登录成功</span></span><br><span class="line">    <span class="comment">// 加密，生成 jwt 字符串，通过 token 发送给客户端</span></span><br><span class="line">    <span class="comment">// 调用 jwt.sign()生成 jwt字符串,三个参数分别是:用户信息对象，加密密钥，配置对象</span></span><br><span class="line">    <span class="comment">// 千万不要把密码加密到 token 中</span></span><br><span class="line">    <span class="keyword">const</span> tokenStr = jwt.<span class="title function_">sign</span>(&#123;<span class="attr">username</span>:userinfo.<span class="property">username</span>&#125;,secretkey,&#123;<span class="attr">expiresIn</span>: <span class="string">&#x27;24h&#x27;</span>&#125;)</span><br><span class="line">    res.<span class="title function_">send</span>(&#123;</span><br><span class="line">        <span class="attr">status</span>: <span class="number">200</span>,</span><br><span class="line">        <span class="attr">msg</span>: <span class="string">&#x27;登录成功！&#x27;</span>,</span><br><span class="line">        <span class="attr">token</span>: tokenStr</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 这是一个有权限的 API 接口</span></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/admin/getinfo&#x27;</span>,<span class="function">(<span class="params">req,res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(req.<span class="property">user</span>)</span><br><span class="line">    res.<span class="title function_">send</span>(&#123;</span><br><span class="line">        <span class="attr">status</span>: <span class="number">200</span>,</span><br><span class="line">        <span class="attr">msg</span>: <span class="string">&#x27;获取用户信息成功&#x27;</span>,</span><br><span class="line">        <span class="attr">data</span>: req.<span class="property">user</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 捕获解析 jwt 失败后产生的错误</span></span><br><span class="line">app.<span class="title function_">use</span>(<span class="function">(<span class="params">err,req,res,next</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// token 解析失败导致的错误</span></span><br><span class="line">    <span class="keyword">if</span>(err.<span class="property">name</span> === <span class="string">&#x27;UnauthorizedError&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> res.<span class="title function_">send</span>(&#123;<span class="attr">status</span>: <span class="number">401</span>,<span class="attr">msg</span>: <span class="string">&#x27;无效的token&#x27;</span>&#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 其他原因导致的错误</span></span><br><span class="line">    res.<span class="title function_">send</span>(&#123;<span class="attr">status</span>: <span class="number">500</span>,<span class="attr">msg</span>:<span class="string">&#x27;未知的错误&#x27;</span>&#125;)</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
@@ -1380,7 +1350,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">83k</span>
+    <span title="站点总字数">84k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
