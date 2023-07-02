@@ -125,7 +125,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">40</span>
+          <span class="site-state-item-count">41</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -168,6 +168,127 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/07/01/%E5%BC%82%E6%AD%A5%E4%B8%8EPromise/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="柯建军">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="柯建军的博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 柯建军的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/07/01/%E5%BC%82%E6%AD%A5%E4%B8%8EPromise/" class="post-title-link" itemprop="url">异步与Promise</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-07-01 23:26:59" itemprop="dateCreated datePublished" datetime="2023-07-01T23:26:59+08:00">2023-07-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-07-02 11:56:56" itemprop="dateModified" datetime="2023-07-02T11:56:56+08:00">2023-07-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>4.5k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="JS异步的概念"><a href="#JS异步的概念" class="headerlink" title="JS异步的概念"></a>JS异步的概念</h2><p>我们的JS程序几乎是由多个块(函数)构成的，这些块中只有一个是现在执行，其余的则会在将来执行</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// A</span></span><br><span class="line"><span class="title function_">ajax</span>(<span class="string">&quot;..&quot;</span>,<span class="keyword">function</span>(<span class="params">..</span>) &#123;</span><br><span class="line">	<span class="comment">//C</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// B</span></span><br></pre></td></tr></table></figure>
+<p>&#x2F;&#x2F; A 和 &#x2F;&#x2F; B 表示程序的前半部分(也就是现在的部分)，而&#x2F;&#x2F; C 标识了程序的后半部分(也就是将来的部分)。前半部分立刻执行，然后是一段时间不确定的停顿。在未来的某个时刻，如果Ajax调用完成，程序就会从停下的位置继续执行后半部分，这个ajax函数就是异步函数。</p>
+<h3 id="事件循环"><a href="#事件循环" class="headerlink" title="事件循环"></a>事件循环</h3><p>举例来说，如果你的JavaScript程序发出一个Ajax请求，从服务器获取一些数据，那你就在一个函数(通常称为回调函数)中设置好响应代码，然后JavaScript引擎会通知宿主环境(对多数开发者来说通常就是Web浏览器)：“嘿，现在我要暂停执行，你一旦完成网络请求，拿到了数据，就请调用这个函数”。然后浏览器就会设置侦听来自网络的响应，拿到要给你的数据之后，就会把回调函数插入到事件循环，以此实现对这个回调的调度执行<br>那么，什么是事件循环？<br>先通过一段伪代码了解一下这个概念：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// eventLoop是一个用作队列的数组</span></span><br><span class="line"><span class="comment">// (先进，先出)</span></span><br><span class="line"><span class="keyword">let</span> eventLoop = [];</span><br><span class="line"><span class="keyword">let</span> event;</span><br><span class="line"></span><br><span class="line"><span class="comment">// “永远”执行</span></span><br><span class="line"><span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">    <span class="comment">// 一次tick</span></span><br><span class="line">    <span class="keyword">if</span>(eventLoop.<span class="property">length</span> &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="comment">// 拿到队列中的下一个事件</span></span><br><span class="line">        event = eventLoop.<span class="title function_">shift</span>();</span><br><span class="line">        <span class="comment">// 现在，执行下一个事件</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="title function_">event</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">catch</span> (err) &#123;</span><br><span class="line">            <span class="title function_">reportError</span>(err);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>一定要清楚，setTimeout(..)并没有把你的回调函数挂在事件循环队列中。它所做的是设定一个定时器。当定时器到时后，环境(对多数开发者来说通常就是Web浏览器)会把你的回调函数放在事件循环中，这样，在未来某个时刻的tick会摘下并执行这个回调。</p>
+<h3 id="回调地狱"><a href="#回调地狱" class="headerlink" title="回调地狱"></a>回调地狱</h3><p>现在来看一段代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">drive</span>(<span class="params">fn, timer</span>) &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(fn, timer);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">play</span>(<span class="params">fn, timer</span>) &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(fn, timer);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">dinner</span>(<span class="params">fn, timer</span>) &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(fn, timer);</span><br><span class="line">&#125;</span><br><span class="line">(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title function_">drive</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;正在开车去商场&quot;</span>);	<span class="comment">// A</span></span><br><span class="line">    &#125;, <span class="number">3000</span>);</span><br><span class="line">    <span class="title function_">play</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;正在商场玩&quot;</span>);		<span class="comment">// B</span></span><br><span class="line">    &#125;, <span class="number">2000</span>);</span><br><span class="line">    <span class="title function_">dinner</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;正在商场吃晚餐&quot;</span>);	<span class="comment">// C</span></span><br><span class="line">    &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 我们希望代码依次按照A,B,C的顺序执行</span></span><br><span class="line"><span class="comment">// 实际上输出顺序C,B,A</span></span><br></pre></td></tr></table></figure>
+<p>上述代码输出结果与预期不符是因为setTimeout是异步函数，根据事件循环队列先进先出的原则，它会依次执行C,B,A函数的回调函数</p>
+<p>使用回调函数调整异步函数执行顺序</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">drive</span>(<span class="params">fn, timer</span>) &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(fn, timer);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">play</span>(<span class="params">fn, timer</span>) &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(fn, timer);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">dinner</span>(<span class="params">fn, timer</span>) &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(fn, timer);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title function_">drive</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;正在开车去商场&quot;</span>);	<span class="comment">// A</span></span><br><span class="line">        <span class="title function_">play</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;正在商场玩&quot;</span>);	<span class="comment">// B</span></span><br><span class="line">            <span class="title function_">dinner</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">                <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;正在商场吃晚餐&quot;</span>);	<span class="comment">// C</span></span><br><span class="line">            &#125;, <span class="number">1000</span>);</span><br><span class="line">        &#125;, <span class="number">2000</span>);</span><br><span class="line">    &#125;, <span class="number">3000</span>);</span><br><span class="line">&#125;)();</span><br><span class="line"><span class="comment">// 此时输出顺序为A,B,C</span></span><br></pre></td></tr></table></figure>
+<p>这里我们得到了三个函数嵌套在一起构成的链，其中每个函数代表异步序列(任务，”进程”)中的一个步骤<br>这种代码常常被称为回调地狱(callback hell)，有时也被称为毁灭金字塔(pyramid of doom，得名于嵌套缩进产生的横向三角形状)<br>很显然，这种代码是复杂和难以阅读维护的，于是Promise出现了</p>
+<h3 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h3><p>所谓Promise，简单说就是一个容器，里面保存着某个未来才会结束的事件(通常是一个异步操作)的结果。从语法上说，Promise是一个对象(广义)，从它可以获取异步操作的消息。Promise提供统一的API，各种异步操作都可以用同样的方法进行处理<br>Promiese对象有以下两个特点<br>(1)对象的状态不受外界影响。Promise对象代表一个异步操作，有三种状态：pending（进行中）、fulfilled（已成功）和rejected（已失败）。只有异步操作的结果，可以决定当前是哪一种状态，任何其他操作都无法改变这个状态。这也是Promise这个名字的由来，它的英语意思就是“承诺”，表示其他手段无法改变。<br>(2)一旦状态改变，就不会再变，任何时候都可以得到这个结果。Promise对象的状态改变，只有两种可能：从pending变为fulfilled和从pending变为rejected。只要这两种情况发生，状态就凝固了，不会再变了，会一直保持这个结果，这时就称为 resolved（已定型）。如果改变已经发生了，你再对Promise对象添加回调函数，也会立即得到这个结果。这与事件（Event）完全不同，事件的特点是，如果你错过了它，再去监听，是得不到结果的。<br>ES6规定，Promise对象是一个构造函数，用来生成Promise实例<br>现在来看一段Promise代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;我是同步代码A&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> drive = <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;我是drive Promise里的代码&quot;</span>);</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="title function_">resolve</span>(<span class="string">&quot;正在开车去商场&quot;</span>);</span><br><span class="line">    &#125;, <span class="number">3000</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">const</span> play = <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;我是play Promise里的代码&quot;</span>);</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="title function_">resolve</span>(<span class="string">&quot;正在商场玩&quot;</span>);</span><br><span class="line">    &#125;, <span class="number">2000</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">const</span> dinner = <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;我是dinner Promise里的代码&quot;</span>);</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="title function_">resolve</span>(<span class="string">&quot;正在商场吃晚餐&quot;</span>);</span><br><span class="line">    &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;);</span><br><span class="line">drive</span><br><span class="line">    .<span class="title function_">then</span>(<span class="function">(<span class="params">data</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(data);</span><br><span class="line">    <span class="keyword">return</span> play;</span><br><span class="line">&#125;)</span><br><span class="line">    .<span class="title function_">then</span>(<span class="function">(<span class="params">data</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(data);</span><br><span class="line">    <span class="keyword">return</span> dinner;</span><br><span class="line">&#125;)</span><br><span class="line">    .<span class="title function_">then</span>(<span class="function">(<span class="params">data</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(data);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;我是同步代码B&quot;</span>);</span><br><span class="line"><span class="comment">// 输出结果:</span></span><br><span class="line"><span class="comment">// 我是同步代码A</span></span><br><span class="line"><span class="comment">// 我是drive Promise里的代码</span></span><br><span class="line"><span class="comment">// 我是play Promise里的代码</span></span><br><span class="line"><span class="comment">// 我是dinner Promise里的代码</span></span><br><span class="line"><span class="comment">// 我是同步代码B</span></span><br><span class="line"><span class="comment">// 正在开车去商场</span></span><br><span class="line"><span class="comment">// 正在商场玩</span></span><br><span class="line"><span class="comment">// 正在商场吃晚餐</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，Promise新建后立即执行，所以首先输出的是 Promise里的代码。然后，then方法指定的回调函数，将在当前脚本所有同步任务执行完才会执行，所以 正在开车去商场…最后输出</p>
+<p>有了Promise对象，就可以将异步操作以同步操作的流程表达出来，避免了层层嵌套的回调函数。此外，Promise对象提供统一的接口，使得控制异步操作更加容易。<br>Promise构造函数接受一个函数作为参数，该函数的两个参数分别是resolve（异步操作成功时调用）和reject(异步操作失败时调用)。它们是两个函数，由 JavaScript 引擎提供，不用自己部署。<br>了解：<br>Promise也有一些缺点。首先，无法取消Promise，一旦新建它就会立即执行，无法中途取消。其次，如果不设置回调函数，Promise内部抛出的错误，不会反应到外部。第三，当处于pending状态时，无法得知目前进展到哪一个阶段(刚刚开始还是即将完成)</p>
+<h3 id="async-await"><a href="#async-await" class="headerlink" title="async await"></a>async await</h3><p>ES2017标准引入了async函数，使得异步操作变得更加方便。<br>async函数是什么？一句话，它就是Generator函数的语法糖<br>async函数返回一个 Promise 对象，可以使用then方法添加回调函数。当函数执行的时候，一旦遇到await就会先返回，等到异步操作完成，再接着执行函数体内后面的语句。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">drive</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;正在开车去商场&quot;</span>);</span><br><span class="line">    &#125;, <span class="number">3000</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">play</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;正在商场玩&quot;</span>);</span><br><span class="line">    &#125;, <span class="number">2000</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">dinner</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;正在商场吃晚餐&quot;</span>);</span><br><span class="line">    &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;</span><br><span class="line">(<span class="keyword">async</span> <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">await</span> <span class="title function_">drive</span>();</span><br><span class="line">    <span class="keyword">await</span> <span class="title function_">play</span>();</span><br><span class="line">    <span class="keyword">await</span> <span class="title function_">dinner</span>();</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1181,107 +1302,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/16/CSS/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="柯建军">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="柯建军的博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 柯建军的博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/03/16/CSS/" class="post-title-link" itemprop="url">CSS常见问题</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2023-03-16 00:38:50 / 修改时间：01:06:09" itemprop="dateCreated datePublished" datetime="2023-03-16T00:38:50+08:00">2023-03-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/CSS/" itemprop="url" rel="index"><span itemprop="name">CSS</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>343</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="img图片下方出现缝隙"><a href="#img图片下方出现缝隙" class="headerlink" title="img图片下方出现缝隙"></a>img图片下方出现缝隙</h2><p>img是一种类似text的标签元素，在结束的时候，会在末尾加上一个空白符(匿名文本)，导致下方会多出来3px间距<br>方法一：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">img</span> &#123;</span><br><span class="line">	<span class="attribute">vertical-align</span>: middle;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>方法二：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">img</span> &#123;</span><br><span class="line">	<span class="attribute">display</span>: block;</span><br><span class="line">&#125;</span><br><span class="line">// <span class="selector-tag">img</span>设置为块级元素，<span class="attribute">text-align</span>:center就不再生效，图片的水平居中应使用margin:auto</span><br></pre></td></tr></table></figure>
-
-<h2 id="position-fixed遮挡问题"><a href="#position-fixed遮挡问题" class="headerlink" title="position:fixed遮挡问题"></a>position:fixed遮挡问题</h2><p>fixed是相对于浏览器窗口的固定定位，它的位置与文档流无关，因此不占据文档流空间<br>很多时候，开启了fixed的组件的z-index层级都很高，如固定在底部的TabBar，此时会出现遮挡底部组件的问题。给被遮挡的组件增加padding值就行。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 </div>
@@ -1304,13 +1326,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">84k</span>
+    <span title="站点总字数">88k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:16</span>
+    <span title="站点阅读时长">1:20</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
