@@ -20,15 +20,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Gitmaster分支与其他分支主分支master分支用来发布新版本平时代码提交到自己的分支 下载分支 12git clone https:&#x2F;&#x2F;github.com&#x2F;... .git	&#x2F;&#x2F; 下载所有分支代码到本地git clone -b &lt;branchName&gt; https:&#x2F;&#x2F;github.com&#x2F;... .git	&#x2F;&#x2F; 下载指定分支到本地  查看分支 123git branch">
+    <meta name="description" content="Gitgit分支命名规范123456&#x2F;&#x2F; feat: 新功能&#x2F;&#x2F; perf: 功能优化(performance)&#x2F;&#x2F; fix: bug修复&#x2F;&#x2F; config: 配置修改,策略调整&#x2F;&#x2F; day: 日常提交&#x2F;&#x2F; merge: 代码合并: 比如分支同步master最新代码  master分支与其他分支主分支master分支用来发布新版本平时代码提交到自己的分支 下载分支 12git clone http">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git">
 <meta property="og:url" content="http://example.com/2023/04/26/Git/index.html">
 <meta property="og:site_name" content="柯建军的博客">
-<meta property="og:description" content="Gitmaster分支与其他分支主分支master分支用来发布新版本平时代码提交到自己的分支 下载分支 12git clone https:&#x2F;&#x2F;github.com&#x2F;... .git	&#x2F;&#x2F; 下载所有分支代码到本地git clone -b &lt;branchName&gt; https:&#x2F;&#x2F;github.com&#x2F;... .git	&#x2F;&#x2F; 下载指定分支到本地  查看分支 123git branch">
+<meta property="og:description" content="Gitgit分支命名规范123456&#x2F;&#x2F; feat: 新功能&#x2F;&#x2F; perf: 功能优化(performance)&#x2F;&#x2F; fix: bug修复&#x2F;&#x2F; config: 配置修改,策略调整&#x2F;&#x2F; day: 日常提交&#x2F;&#x2F; merge: 代码合并: 比如分支同步master最新代码  master分支与其他分支主分支master分支用来发布新版本平时代码提交到自己的分支 下载分支 12git clone http">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-04-26T11:36:51.716Z">
-<meta property="article:modified_time" content="2023-08-22T12:58:16.110Z">
+<meta property="article:modified_time" content="2023-10-18T15:30:36.350Z">
 <meta property="article:author" content="柯建军">
 <meta name="twitter:card" content="summary">
 
@@ -115,7 +115,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Git"><span class="nav-number">1.</span> <span class="nav-text">Git</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#master%E5%88%86%E6%94%AF%E4%B8%8E%E5%85%B6%E4%BB%96%E5%88%86%E6%94%AF"><span class="nav-number">1.1.</span> <span class="nav-text">master分支与其他分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git%E5%9B%9E%E9%80%80"><span class="nav-number">1.2.</span> <span class="nav-text">git回退</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git%E9%94%99%E8%AF%AF%E4%BF%A1%E6%81%AF"><span class="nav-number">1.3.</span> <span class="nav-text">git错误信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%95%E8%BF%87%E9%92%A9%E5%AD%90%E8%84%9A%E6%9C%AC"><span class="nav-number">1.4.</span> <span class="nav-text">绕过钩子脚本</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Git"><span class="nav-number">1.</span> <span class="nav-text">Git</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#git%E5%88%86%E6%94%AF%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83"><span class="nav-number">1.1.</span> <span class="nav-text">git分支命名规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#master%E5%88%86%E6%94%AF%E4%B8%8E%E5%85%B6%E4%BB%96%E5%88%86%E6%94%AF"><span class="nav-number">1.2.</span> <span class="nav-text">master分支与其他分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git%E5%9B%9E%E9%80%80"><span class="nav-number">1.3.</span> <span class="nav-text">git回退</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git%E9%94%99%E8%AF%AF%E4%BF%A1%E6%81%AF"><span class="nav-number">1.4.</span> <span class="nav-text">git错误信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%95%E8%BF%87%E9%92%A9%E5%AD%90%E8%84%9A%E6%9C%AC"><span class="nav-number">1.5.</span> <span class="nav-text">绕过钩子脚本</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -219,7 +219,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-08-22 20:58:16" itemprop="dateModified" datetime="2023-08-22T20:58:16+08:00">2023-08-22</time>
+      <time title="修改时间：2023-10-18 23:30:36" itemprop="dateModified" datetime="2023-10-18T23:30:36+08:00">2023-10-18</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -238,7 +238,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>2.1k</span>
+      <span>2.3k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -256,7 +256,9 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><h3 id="master分支与其他分支"><a href="#master分支与其他分支" class="headerlink" title="master分支与其他分支"></a>master分支与其他分支</h3><p>主分支master分支用来发布新版本<br>平时代码提交到自己的分支</p>
+        <h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><h3 id="git分支命名规范"><a href="#git分支命名规范" class="headerlink" title="git分支命名规范"></a>git分支命名规范</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// feat: 新功能</span><br><span class="line">// perf: 功能优化(performance)</span><br><span class="line">// fix: bug修复</span><br><span class="line">// config: 配置修改,策略调整</span><br><span class="line">// day: 日常提交</span><br><span class="line">// merge: 代码合并: 比如分支同步master最新代码</span><br></pre></td></tr></table></figure>
+
+<h3 id="master分支与其他分支"><a href="#master分支与其他分支" class="headerlink" title="master分支与其他分支"></a>master分支与其他分支</h3><p>主分支master分支用来发布新版本<br>平时代码提交到自己的分支</p>
 <p>下载分支</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/... .git	// 下载所有分支代码到本地</span><br><span class="line">git clone -b &lt;branchName&gt; https://github.com/... .git	// 下载指定分支到本地</span><br></pre></td></tr></table></figure>
 
@@ -365,13 +367,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">93k</span>
+    <span title="站点总字数">92k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:25</span>
+    <span title="站点阅读时长">1:24</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
