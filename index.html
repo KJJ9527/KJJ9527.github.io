@@ -665,7 +665,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-10-18 23:30:36" itemprop="dateModified" datetime="2023-10-18T23:30:36+08:00">2023-10-18</time>
+      <time title="修改时间：2023-10-19 20:56:04" itemprop="dateModified" datetime="2023-10-19T20:56:04+08:00">2023-10-19</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -684,7 +684,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>2.3k</span>
+      <span>2.7k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -761,6 +761,14 @@
 </ol>
 <h3 id="绕过钩子脚本"><a href="#绕过钩子脚本" class="headerlink" title="绕过钩子脚本"></a>绕过钩子脚本</h3><p>在 commit时加上 –no-verify参数</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &quot;xxx&quot; --no-verif</span><br></pre></td></tr></table></figure>
+<h3 id="git-合并多条commit记录"><a href="#git-合并多条commit记录" class="headerlink" title="git 合并多条commit记录"></a>git 合并多条commit记录</h3><p>如图所示，想要合并前面三条记录为一条记录</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rebase -i ...	// 版本号</span><br></pre></td></tr></table></figure>
+<p><img src="/2023/04/26/Git/1.png" alt="1"></p>
+<p>输入i进入插入模式，将需要被合并的两条记录改为s或squash<br><img src="/2023/04/26/Git/2.png" alt="2"></p>
+<p>Esc退出编辑模式，Shift+:，wq保存退出</p>
+<p>自定义commit message注释<br><img src="/2023/04/26/Git/3.png" alt="3"><br>输入i进入插入模式，将不需要的提交信息前面加#号注释<br><img src="/2023/04/26/Git/4.png" alt="4"><br>Esc退出编辑模式，Shift+:，wq保存退出</p>
+<p>成功合并<br><img src="/2023/04/26/Git/5.png" alt="5"></p>
+<p>强制推送到远程分支仓库<br><img src="/2023/04/26/Git/6.png" alt="6"></p>
 
       
     </div>
@@ -1360,7 +1368,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">92k</span>
+    <span title="站点总字数">93k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
