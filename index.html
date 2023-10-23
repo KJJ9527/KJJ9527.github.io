@@ -207,7 +207,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2023-10-23 20:22:48 / 修改时间：21:58:56" itemprop="dateCreated datePublished" datetime="2023-10-23T20:22:48+08:00">2023-10-23</time>
+      <time title="创建时间：2023-10-23 20:22:48 / 修改时间：22:00:45" itemprop="dateCreated datePublished" datetime="2023-10-23T20:22:48+08:00">2023-10-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -226,7 +226,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>2k</span>
+      <span>2.2k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -244,7 +244,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h3 id="Prettier和ESLint"><a href="#Prettier和ESLint" class="headerlink" title="Prettier和ESLint"></a>Prettier和ESLint</h3><p>在前端工程中，统一的代码风格规划更容易写出合理的、易于阅读和维护的代码。Prettier是用来格式化代码的工具，使项目中的代码风格一致。<br>ESLint 是一个语法规则和代码风格的检查工具，可以用来保证写出语法正确、风格统一的代码。<br>ps:ESLint 主要功能还是监测语法是否错误，格式化功能还是交给Prettier吧。</p>
+          <h3 id="Prettier和ESLint"><a href="#Prettier和ESLint" class="headerlink" title="Prettier和ESLint"></a>Prettier和ESLint</h3><p>在前端工程中，统一的代码风格规划更容易写出合理的、易于阅读和维护的代码。<br>Prettier是用来格式化代码的工具，使项目中的代码风格一致。<br>ESLint 是一个语法规则和代码风格的检查工具，可以用来保证写出语法正确、风格统一的代码。<br>ps:ESLint 主要功能还是监测语法是否错误，格式化功能还是交给Prettier吧。</p>
 <h3 id="Vue中使用Prettier和ESLint"><a href="#Vue中使用Prettier和ESLint" class="headerlink" title="Vue中使用Prettier和ESLint"></a>Vue中使用Prettier和ESLint</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev eslint eslint-plugin-vue</span><br><span class="line">npm install --save-dev eslint-config-prettier</span><br></pre></td></tr></table></figure>
 <p>项目根目录创建.eslintrc.js</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">extends</span>: [</span><br><span class="line">    <span class="comment">/* vue2 配置 */</span></span><br><span class="line">    <span class="comment">// &#x27;plugin:vue/recommended&#x27;,</span></span><br><span class="line">    <span class="comment">// &#x27;plugin:vue/essential&#x27;,</span></span><br><span class="line">    <span class="comment">// &#x27;plugin:vue/strongly-recommended&#x27;,</span></span><br><span class="line">    <span class="comment">/* vue3 配置 */</span></span><br><span class="line">    <span class="string">&#x27;plugin:vue/vue3-recommended&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;plugin:vue/vue3-essential&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;plugin:vue/vue3-strongly-recommended&#x27;</span>,</span><br><span class="line">    <span class="comment">// 解决ESLint和Prettier之间的冲突</span></span><br><span class="line">    <span class="string">&#x27;prettier&#x27;</span>,</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">rules</span>: &#123;</span><br><span class="line">    <span class="comment">/* off,0不启用  warn,1警告  eror,2报错 */</span></span><br><span class="line">    <span class="string">&#x27;no-var&#x27;</span>: <span class="number">2</span>, <span class="comment">//禁用var，用let和const代替</span></span><br><span class="line">    <span class="string">&#x27;no-unused-vars&#x27;</span>: <span class="number">1</span>, <span class="comment">//不能有声明后未被使用的变量或参数</span></span><br><span class="line">    <span class="string">&#x27;no-empty&#x27;</span>: <span class="number">1</span>, <span class="comment">// 块语句中的内容不能为空</span></span><br><span class="line">    <span class="attr">eqeqeq</span>: <span class="number">1</span>, <span class="comment">// 是否使用全等</span></span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
